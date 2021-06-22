@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta />
+     <title>01slot插槽的基本用法</title>
+</head>
+<style>
+     .flagColor {
+          color: red;
+     }
+</style>
+
+<body>
+     <!-- 1.插槽目的是为了让组件更具有扩展性 -->
+     <!-- 2.满足开发要求 -->
+     <!-- ####slot基本用法####
+     1.在封装好的组件里预留好slot插槽，当在其他组件中引用时，会在引用组件中写入内容，插槽会自动替换。
+     2.在封装好的组件里的 预留slot插槽里写上默认内容，如果当其它组件引用时，有在引用组件中写入内容的，
+     插槽会自动替换，如果没有写入就用slot里的默认内容。 -->
+
+     <div id="app">
+          <cnp><span>写入1</span></cnp>
+          <cnp><span>写入2</span></cnp>
+          <cnp><span>写入3</span></cnp>
+          <cnp></cnp>
+     </div>
+     <template id="cnp">
+          <div>
+               <h2>我是子组件</h2>
+               <div>我是子组件<span class="flagColor">真正的内容</span></div>
+               <!-- 基本用法的第一种 -->
+               <!-- <slot></slot> -->
+               <!-- 基本用法的第二种 -->
+               <slot><span>默认内容</span></slot>
+          </div>
+     </template>
+</body>
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: '#app',
+          data: {},
+          components: {
+               cnp: {
+                    template: '#cnp'
+               }
+          }
+     })
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta />
+     <title>slot具名插槽用法</title>
+</head>
+<!-- #具名插槽#
+1.在封装好的组件里预留好slot插槽，给每个插槽命名相应的name名字，在需要引用封装组件的组件里
+契合点上写上和封装组件内要替换slot的name名相同的名字，就会根据名字进行替换 -->
+
+<body>
+     <div id="app">
+          <div>
+               <cnp><span slot="left1">引用时要替换的内容</span></cnp>
+          </div>
+     </div>
+     <!-- 子组件 -->
+     <template id="cnp">
+          <div>
+               <!-- slot标签里的内容算是默认的内容 -->
+               <slot name="left1">我是左边的内容</slot>
+               <slot name="center1">我是中间的内容</slot>
+               <slot name="right1">我是右边的内容</slot>
+               <div>下面的主要内容</div>
+          </div>
+     </template>
+</body>
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: "#app",
+          data: {},
+          components: {
+               cnp: {
+                    template: "#cnp"
+               }
+          }
+     })
+</script>
+
+</html>

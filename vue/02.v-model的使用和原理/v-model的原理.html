@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta />
+     <title>v-model的原理</title>
+</head>
+
+<body>
+     <!-- 
+         v-model的实现原理和三种修饰符
+          （1）number 限制只能输入数据
+          （2）lazy 输入的内容当失去焦点时或者按下enter键时，更新
+          （3）trim 将输入的内容去掉空格
+          v-mode的原理其实时 按照 input 本身的 value 和 input事件来完成的
+     -->
+     <div id="app">
+          <cnp></cnp>
+     </div>
+     <template id="cnp">
+          <div>
+               <!-- 正常的v-model 的绑定使用
+               <input v-model="numVal">
+               <div>input值的显示：{{numVal}}</div> -->
+
+               <!-- 用原理实现v-model的绑定 -->
+               <input :value="oldVal" @input="inputChange" />
+               <div>用原理实现----{{oldVal}}</div>
+          </div>
+     </template>
+</body>
+
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: "#app",
+          components: {
+               cnp: {
+                    template: '#cnp',
+                    data() {
+                         return {
+                              numVal: '',
+                              oldVal: 0
+                         }
+                    },
+                    methods: {
+                         inputChange(event) {
+                              this.oldVal = event.target.value;
+                         }
+                    }
+               }
+          }
+     })
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta />
+     <title>slot作用域插槽</title>
+</head>
+
+<body>
+     <!-- #slot作用域插槽# 
+     1.引用组件可以规定，被引用组件的表现形式。
+     2.但是数据是由被引用组件传递过来的
+     -->
+     <!-- ############333案例：想在不同的引用地方，有不同的表现形式 -->
+     <div id="app">
+          <cnp></cnp>
+          <cnp>
+               <template slot-scope="dataObj">
+                    <ul>
+                         <!-- <li v-for="(item,index) in dataObj.data">{{item}}</li> -->
+                         <li>{{dataObj.data.join("|")}}</li>
+                    </ul>
+               </template>
+          </cnp>
+     </div>
+
+     <template id="cnp">
+          <div>
+               <slot :data="sonData">
+                    <ul>
+                         <li v-for="item in sonData">{{item}}</li>
+                    </ul>
+               </slot>
+          </div>
+     </template>
+
+</body>
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: '#app',
+          data: {},
+          components: {
+               cnp: {
+                    template: '#cnp',
+                    data() {
+                         return {
+                              sonData: ['刘德华', '梁朝伟', '张曼玉', '王晶']
+                         }
+                    }
+               }
+          }
+     })
+</script>
+
+</html>
