@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <div id="app">
+          <div>{{nameAll}}</div>
+          <button @click="nameChange">变化名字</button>
+     </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: '#app',
+          data() {
+               return {
+                    fristNmae: '此地无银',
+                    lastName: '三百两'
+               }
+          },
+          methods: {
+               nameChange() {
+                    app.nameAll = '悟空你好！'
+               }
+          },
+          computed: {
+               //一般写法
+               // nameAll: function () {
+               //      return this.fristNmae + this.lastName
+               // }
+
+               //计算属性的完整写法
+
+               nameAll: {
+                    //可写属性
+                    set: function (newVal) {
+                         this.fristNmae = newVal.slice(0, 2);
+                         this.lastName = newVal.slice(2, newVal.length - 1)
+                         console.log('--------', newVal)
+                    },
+
+                    //可读属性
+                    get: function () {
+                         return this.fristNmae + this.lastName
+                    }
+               }
+          }
+     })
+
+</script>
+
+</html>

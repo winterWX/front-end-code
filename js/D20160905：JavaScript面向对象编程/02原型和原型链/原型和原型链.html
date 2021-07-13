@@ -1,0 +1,103 @@
+<!-- 
+     //原型和原型链 
+     对应名称：
+     1. prototype:原型
+     2.__proto__:原型链
+
+     从属关系：
+     prototype: 函数的一个属性：对象{}
+     __proto__: 对象Object的一个属性：对象{}
+     对象的__proto__保存着该对象构造函数的prototype
+-->
+
+<script>
+
+     function Test() { };
+
+     console.log('Test.prototype', Test.prototype);
+
+     let test = new Test();
+     console.log('test.__proto__', test.__proto__);
+
+     console.log('看是否相等', test.__proto__ === Test.prototype);  // 证明：对象的__proto__保存着该对象的构造函数的prototype
+
+     //prototype是Test函数的对象属性，既然Test.prototype是一个对象，那么它就应该有一个__proto__
+
+     console.log('Test.prototypes是否有__proto__属性', Test.prototype.__proto__)  //确实有
+
+     //与Test.prototype.__proto__  对应的是  Object.Function.prototype
+     console.log('顶层是不是相等', Test.prototype.__proto__ === Object.prototype);
+     //Object.prototype已经是顶层了，Object.prototyp也是一个对象，但是Object.prototyp上没有__proto__属性了，是null
+
+     //例如一个实例对象
+     // test: {
+     //      a: 1,
+     //           __proto__: Test.prototype = {
+     //                b: 2,
+     //                __proto__: Object.prototype = {
+     //                     c: 3,
+     //                     __proto__: Object.prototype.__proto__ = null
+     //                }
+     //           }
+     // }
+
+
+     // function Object: 函数 对象
+     console.log('function', typeof Function);   //  function 
+     console.log('Object', typeof Object);       // function
+
+     function createOld() { }
+     createOld = new Function();  //createOld 方法是由 new Function 构造出来 
+
+     console.log('两个属性是否相等', createOld.__proto__ === Function.prototype);
+
+     console.log('函数的两个属性是否相等', Function.__proto__ === Function.prototype);
+
+     //对象也是通过 new Object() 来完成
+     let obj = new Object();  // typeOf Object === Function
+     console.log(Object.__proto__ === Function.prototype);
+
+     //由此推理:
+     console.log('最后的推理', Object.__proto__ === Function.__proto__);
+
+
+     //判断一个对象是否有一个属性
+
+     function Params() {
+          a: 2
+     }
+
+     Params.prototype.c = 33
+     let mgs = new Params();
+     console.log('--------', mgs);
+     console.log('有属性吗', mgs.hasOwnProperty('b'))  // true
+
+     console.log('判断链上有没有这个属性A', 'a' in mgs)
+     console.log('判断链上有没有这个属性B', 'b' in mgs)
+     console.log('判断链上有没有这个属性C', 'c' in mgs)
+
+     //constructor 是构造对象的属性，指向了构造函数
+
+     function constructorQls() {
+          b: 30;
+          v: 60;
+          function say() {
+
+          }
+     }
+
+     let constructorAA = new constructorQls();
+     console.log('指向构造函数', constructorAA.constructor)
+
+     //constructor可以修改,重新定义函数
+
+     //例如：
+
+     function changeConstructor() {
+          b: 30;
+          v: 60;
+     }
+
+     constructorAA.constructor = changeConstructor;
+     console.log(constructorAA.constructor);
+</script>

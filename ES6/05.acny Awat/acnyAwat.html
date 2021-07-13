@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <button id="btn">点击我</button>
+</body>
+
+<script>
+     //async await  --- 是promise 的语法糖,await 后面跟的就是一个promise对象
+
+     var btn = document.querySelector('#btn');
+     var app = new Promise((resolve, reject) => {
+          btn.addEventListener('click', function () {
+               var xhr = new XMLHttpRequest();
+               xhr.open('GET', 'https://api.apiopen.top/getJoke');
+               xhr.send();
+               xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4) {
+                         //判断状态码
+                         if (xhr.status >= 200 && xhr.status < 300) {
+                              //console.log(xhr.response)
+                              resolve(xhr.response);
+                         } else {
+                              //console.log(xhr.status)
+                              resolve(xhr.status);
+                         }
+                    }
+               }
+          })
+     });
+     stateFunction()
+     async function stateFunction() {
+          let params = await app.then();
+          console.log('==========', params);
+          console.log('我怕成功')
+     }
+
+</script>
+
+</html>

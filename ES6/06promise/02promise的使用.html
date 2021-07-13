@@ -1,0 +1,81 @@
+<!-- 
+     视频：
+     https://www.bilibili.com/video/BV1GA411x7z1?from=search&seid=18248510216601098596
+     https://www.bilibili.com/video/BV15J411G7FG?from=search&seid=18248510216601098596 
+     https://www.bilibili.com/video/BV1sv411i7v8(重点)
+-->
+
+
+<!-- promise:是什么？ 
+     1.promise 是es6引入的解决异步编程的一种方案，是一个构造函数，可以实例化一个对象
+     2.指定回调函数的方式更加灵活
+     3.支持链式调用，可以解决回调地狱问题
+-->
+
+
+<!-- 
+    Promise 有三种状态   ----  构造对象的一个属性 [PromiseState]
+    等待状态 pedding
+    完成状态 fulled
+    失败状态 rejected
+    成功后者失败 都会保存在 [PromiseResult]
+ -->
+
+
+<!-- 
+     Promise.all[p1,p2]   ---- 两个都成功，才可以
+     Promise.rece[p1,p2]  ---- 以跑的最快的接口的返回结果为 最终结果
+-->
+
+<!-- 改变Promise状态的三种方式： resolve reject throw -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <button id="btn">点击我</button>
+</body>
+<script>
+     //对ajax实现简单的封装
+     var btn = document.querySelector('#btn');
+
+     const app = new Promise((resolve, reject) => {
+          btn.addEventListener('click', function () {
+               //1.创建对象
+               const xhr = new XMLHttpRequest();
+               //2.初始化
+               xhr.open('GET', 'https://api.apiopen.top/getJoke')
+               //发送请求
+               xhr.send();
+               //相应处理
+               xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                         //判断状态码
+                         if (xhr.status >= 200 && xhr.status < 300) {
+                              console.log(xhr.response)
+                              resolve(xhr.response);
+                         } else {
+                              console.log(xhr.status)
+                              resolve(xhr.status);
+                         }
+                    }
+               }
+          })
+     });
+     app.then(res => {
+          console.log(res);
+     })
+
+     console.log('app', app);
+     console.log('app.then', app.then());    //promise 对象
+     console.log('app.catch', app.catch());  //promise 对象
+</script>
+
+</html>

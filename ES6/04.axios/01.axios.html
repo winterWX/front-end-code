@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Axios</title>
+</head>
+
+<body>
+</body>
+<script>
+     // axios:
+     // 1. axios 是基于 Promise 的 HTTP库, 可以用在浏览器和node.js中
+     // 2.从浏览器中创建 XMLHttpRequest
+     // 3.从node中创建http请求
+     // 4.拦截请求和响应
+     // 5.转换请求数据和响应数据
+     // 6.取消请求
+     // 7.自动转换Json数据
+     // 8.客户端支持防御XSRF
+
+     axios({
+          url: '',
+          method: 'GET'
+     }).then(res => {
+          console.log('res====');
+     })
+
+     axios.get(url, data).then(res => { })
+     axios.post(url, data).then(res => { })
+     axios.detele(url, data).then(res => { })
+     axios.put(url, data).then(res => { })
+     axios.patch(url, data).then(res => { })
+     axios.head(url, data).then(res => { })
+     // axios.get(url, data).then(res => { })
+     // axios.post(url, data).then(res => { })
+
+     axios.all([axios({
+          url: "",
+          method: 'GET'
+     }), axios({
+          url: "",
+          method: 'POST'
+     })]).then(res => {
+          console.log(res) //是一个数据
+     })
+     //axios有内置的resolve 和 reject方法
+</script>
+
+</html>

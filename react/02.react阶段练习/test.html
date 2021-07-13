@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>阶段练习</title>
+</head>
+
+<body>
+     <div id="app"></div>
+</body>
+
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type='text/babel'>
+
+     class Test extends React.Component {
+          constructor() {
+               super()
+               this.state = {
+                    countNum: 0,
+                    tableData: [
+                         {
+                              name: 'JS',
+                              date: '2006-09',
+                              count: 90,
+                              price: 0
+                         },
+                         {
+                              name: 'JAVA',
+                              date: '2021-09',
+                              count: 100,
+                              price: 0
+                         },
+                         {
+                              name: 'JAVE算法',
+                              date: '2006-01',
+                              count: 900,
+                              price: 0
+                         },
+                         {
+                              name: '汉语词典',
+                              date: '2000-01',
+                              count: 10,
+                              price: 0
+                         },
+                    ]
+               }
+               this.countNum = this.countNum.bind(this)
+          }
+          render() {
+               return (
+                    <div>
+                         <ul className='ul_li'>
+                              {
+                                   this.state.tableData.map((item, index) => {
+                                        return (
+                                             <li key={item.name}>
+                                                  <div>{item.name}</div>
+                                                  <div>{item.date}</div>
+                                                  <div>{item.count}</div>
+                                                  <div>
+                                                       <button onClick={() => { this.removeNum(index) }}>-</button>
+                                                       <span style={{ padding: '5px' }}>{item.price}</span>
+                                                       <button onClick={() => { this.addNum(index) }}>+</button>
+                                                  </div>
+                                                  <div><button onClick={() => { this.removeLi(index) }}>移除</button></div>
+                                             </li>
+                                        )
+                                   })
+                              }
+                         </ul >
+                         <div style={{ marginLeft: '20px' }}>总价格：<span>{this.state.countNum}</span></div>
+                    </div>
+               )
+          }
+
+          addNum(num) {
+               const addNum = this.state.tableData.map((item, index) => {
+                    return {
+                         ...item,
+                         price: num == index ? item.price + 1 : item.price
+                    }
+               })
+               this.setState({
+                    tableData: addNum
+               }, () => {
+                    this.countNum();
+               })
+          }
+
+          removeNum(num) {
+               const addNum = this.state.tableData.map((item, index) => {
+                    return {
+                         ...item,
+                         price: num == index ? (item.price > 0 ? item.price - 1 : item.price) : item.price
+                    }
+               })
+               this.setState({
+                    tableData: addNum
+               }, () => {
+                    this.countNum();
+               })
+          }
+
+          removeLi(num) {
+               //filter 返回的是符合条件的 true，返回一个新的数组
+               this.setState({
+                    tableData: this.state.tableData.filter((item, index) => index !== num)
+               }, () => {
+                    this.countNum();
+               })
+          }
+          countNum() {
+               let count = this.state.tableData.reduce((prev, cur, index) => {
+                    return prev + (cur.count * cur.price)
+               }, 0)
+
+               this.setState({
+                    countNum: count
+               })
+          }
+     }
+
+     ReactDOM.render(<Test />, document.getElementById("app"))
+
+</script>
+<style>
+     .ul_li li {
+          display: flex;
+     }
+
+     .ul_li li div {
+          width: 100px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+     }
+</style>
+
+</html>
