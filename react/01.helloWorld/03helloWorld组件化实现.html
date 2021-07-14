@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <div id="app"></div>
+</body>
+
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type='text/babel'>
+     class App extends React.Component {
+          constructor() {
+               super();
+               this.state = {   //相当于vue中的 data
+                    megess: 'hello world',
+                    flag: false
+               }
+          }
+          render() {
+               return (
+                    this.state.flag ?
+                         <div>
+                              <h1>{this.state.megess}</h1>
+                              <button onClick={this.changeVal.bind(this)}>点击</button>
+                         </div >
+                         :
+                         <div>
+                              <h1>我是true的值</h1>
+                              <button onClick={this.changeSelect.bind(this)}>点击</button>
+                         </div >
+
+               )
+          }
+          changeVal() {
+               this.setState({
+                    megess: 'hello react',
+                    flag: false
+               })
+          }
+          changeSelect() {
+               this.setState({
+                    flag: true
+               })
+          }
+     }
+
+     ReactDOM.render(<App />, document.getElementById('app'))
+     //函数为什么要绑定this，因为 函数默认绑定的是 changeVal.apple(undefined)
+</script>
+
+</html>

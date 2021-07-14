@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta />
+     <title>v-model的原理</title>
+</head>
+
+<body>
+     <div id="app">
+          <cnp></cnp>
+     </div>
+     <template id="cnp">
+          <div>
+               <input v-model.number="expression" />
+               <span>{{expression}}</span>
+          </div>
+     </template>
+</body>
+
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: "#app",
+          components: {
+               cnp: {
+                    template: '#cnp',
+                    data() {
+                         return {
+                              numVal: '',
+                              oldVal: 0,
+                              expression: 0
+                         }
+                    },
+                    methods: {
+                         inputChange(event) {
+                              this.oldVal = event.target.value;
+                         }
+                    }
+               }
+          }
+     })
+</script>
+
+</html>

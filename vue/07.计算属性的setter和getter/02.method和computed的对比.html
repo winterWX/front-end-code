@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <div id="app">
+          <div>
+               <h1>methods方法</h1>
+               <span>{{getAllName()}}</span>
+               <span>{{getAllName()}}</span>
+               <span>{{getAllName()}}</span>
+          </div>
+          <div>
+               <h1>computed方法</h1>
+               <span>{{getTextName}}</span>
+               <span>{{getTextName}}</span>
+               <span>{{getTextName}}</span>
+          </div>
+
+     </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: "#app",
+          data() {
+               return {
+                    fristName: '此地无银',
+                    lastName: '三百两'
+               }
+          },
+          methods: {
+               getAllName() {
+                    console.log('methods的次数')
+                    return this.fristName + this.lastName
+               }
+          },
+          computed: {
+               getTextName: function () {
+                    console.log('computed的次数')
+                    return this.fristName + this.lastName
+               }
+          }
+
+          //computed 的性能更优，会将变量缓存在内存里，进行计算是依赖内存里的变量
+     })
+</script>
+
+</html>

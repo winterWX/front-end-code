@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>style的动态绑定</title>
+</head>
+<style>
+     .fontSize {
+          font-size: 30px;
+     }
+
+     .paddingStyle {
+          padding: 20px;
+     }
+</style>
+
+<body>
+     <div id="id">
+          <!-- 对象类型 -->
+          <span :class='{ "fontSize":showSize, "paddingStyle" :paddingNum }'>字体的显示大小 --- 用对象类型控制</span>
+
+          <!-- 数组类型 -->
+          <span :class='["fontSize","paddingStyle"]'>字体的显示大小--- 用数组类型控制</span>
+     </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: '#id',
+          data() {
+               return {
+                    showSize: true,
+                    paddingNum: true,
+                    showSize1: { fontSize: '60px' },
+                    paddingNum1: { color: 'red' }
+               }
+          }
+     })
+
+</script>
+
+</html>

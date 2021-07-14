@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <div id="app"></div>
+</body>
+
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type='text/babel'>
+     //三个依赖
+     //1 React ---- react的核心代码所需要
+     //2 React-dom ---- 在渲染平台的核心代码
+     //3 babel ---- 将JSX转化成 react 代码的核心代码
+
+     //jsx ---通过babel 转成 React.Element() --- 浏览器
+
+     //注意 react 包裹的 script 标签  必须要写一个属性 type ='text/babel'
+
+     let mesgess = 'hello wolrd';
+     function changeBtn() {
+          mesgess = 'hello react';
+          console.log(mesgess);
+          render()  //必须重新渲染
+     }
+     function render() {
+          ReactDOM.render(
+               <div>
+                    <h1>{mesgess}</h1>
+                    <button onClick={changeBtn}>按钮</button>
+               </div>,
+               document.getElementById("app"))
+     }
+     render();
+
+
+</script>
+
+</html>

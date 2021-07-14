@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<style>
+     .active {
+          color: red;
+     }
+</style>
+
+<body>
+     <div id="app">
+          <ul>
+               <li :class="{'active': showColor === index}" v-for="(item,index) in list" :key="item.id"
+                    @click="listChange(index)">
+                    {{item.name}}
+               </li>
+          </ul>
+     </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+     const app = new Vue({
+          el: '#app',
+          data() {
+               return {
+                    list: [{
+                         name: '大话西游',
+                         id: 1
+                    }, {
+                         name: '你好，李唤英',
+                         id: 2
+                    }, {
+                         name: '八戒八戒，我爱你',
+                         id: 3
+                    }, {
+                         name: '流浪地球',
+                         id: 4
+                    }],
+                    showColor: 0
+               }
+          },
+          methods: {
+               listChange(index) {
+                    this.showColor = index
+                    console.log('1111')
+               }
+          }
+     })
+</script>
+
+</html>

@@ -1,0 +1,71 @@
+<!-- 
+     视频： https://www.bilibili.com/video/BV1ch411k7Ud?t=1208 
+-->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./data.json"></script>
+<script>
+
+     //Promsise 出现的原因和本质。
+
+     var arrayData = [
+          {
+               "id": 12,
+               "name": "刘德华"
+          },
+          {
+               "id": 110,
+               "name": "张曼玉"
+          },
+          {
+               "id": 110,
+               "name": "梁朝伟"
+          }
+     ]
+
+     var mm = $.ajax({
+          url: 'https://ifc.wellness.hangseng.com:8443/remote/homePage/homePageActivitys',
+          type: 'GET',
+          //async: false,  //true 为同步，false为异步
+          success(res) {
+               // if (res.data.length > 0) {
+               //      let arrayData = arrayData;
+               // }
+          }
+     })
+
+     //console.log('res', res); //在外部是得不到返回的结果
+
+     //想抽离ajax里面的内容，就必须要使ajax变成同步，等请求结束拿到后再处理，
+     //这样就造成了堵塞,后续的代码都需要等待
+     console.log('mm', mm.responseJSON);
+     console.log('后续代码')
+
+
+
+     //由以上原因promise就出现了
+
+     //promise是同步。 本质是：异步代码的同步化处理
+     const app = new Promise((resolve, reject) => {
+          $.ajax({
+               url: 'https://ifc.wellness.hangseng.com:8443/remote/homePage/homePageActivitys',
+               type: 'GET',
+               //async: false,  //true 为同步，false为异步
+               success(res) {
+                    // if (res.data.length > 0) {
+                    //      let arrayData = arrayData;
+                    // }
+                    resolve(res)
+               },
+               fail(err) {
+                    console.log(err);
+               }
+          })
+     });
+
+     //app.then 是异步
+     app.then((res) => {
+          console.log('then', res);
+     })
+     console.log('promise的同级代码');
+</script>
