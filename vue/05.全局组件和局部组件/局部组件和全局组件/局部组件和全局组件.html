@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <!-- <childer-cnp /> -->
+      <child-component />
+    </div>
+  </div>
+</body>
+<script src="../../vue.js"></script>
+<script>
+
+  // 全局组件和局部组件不能同时使用
+  // 全局组件 必须写在挂载在之前
+
+  Vue.component('childer-cnp', {
+    template:
+      `<div>我是全局组件。任何地方都可以用</div>`
+  })
+
+  const cnp = new Vue({
+    el: '#app',
+    components: {
+      "child-component": {
+        template: "<h1>我是局部组件</h1>"
+      }
+    }
+  })
+
+
+</script>
+
+</html>
