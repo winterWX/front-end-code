@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let valMark = 'dadasdfdwwwww'.replace(/\s*/g,'').toLocaleLowerCase().split('');
+        unique(valMark)
+        function unique(str) {
+            var obj={};  //该变量的作用:用来存储字符串对应的次数:字符串---出现次数
+            //因为要找到每个字母出现了多少次,所以,要遍历该字符串
+            var indexNum = [];
+            for(var i=0;i<str.length;i++){
+                //判断,这个字母在键值对中是否存在,如果不存在,把这个字母加入到键值对中
+                //之后做为键,该键对应的值就是该字母出现的次数
+                
+                var key=str[i];  //key中存储的是每一个字符串
+                if(obj[key]){    //判断这个键值对中有没有这个键
+                    obj[key]++;
+                }else{
+                    obj[key]=1;  //obj[w]=1
+                }
+            }
+            var arr = Object.keys(obj); 
+            //每一个出现的次数  
+            for(var i=0;i<arr.length;i++){
+                console.log(arr[i]+'出现次数为:'+obj[arr[i]])
+                indexNum.push(obj[arr[i]]);
+            }
+
+            //出现最多的是？
+            var NumAax = Math.max.apply(null,indexNum);
+
+            var node = indexNum.findIndex((item)=>{
+                return item === NumAax
+            })
+            
+            console.log('出现最多的',arr[node],NumAax);
+        }
+        //console.log(valMark)
+    </script>
+</body>
+</html>
