@@ -14,13 +14,15 @@
           <button @click="nameChange">变化名字</button>
      </div>
 </body>
+
 <script src="../vue.js"></script>
+
 <script>
      const app = new Vue({
           el: '#app',
           data() {
                return {
-                    fristNmae: '此地无银',
+                    fristName: '此地无银',
                     lastName: '三百两'
                }
           },
@@ -32,22 +34,21 @@
           computed: {
                //一般写法
                // nameAll: function () {
-               //      return this.fristNmae + this.lastName
+               //      return this.fristName + this.lastName
                // }
 
                //计算属性的完整写法
-
                nameAll: {
                     //可写属性
                     set: function (newVal) {
-                         this.fristNmae = newVal.slice(0, 2);
+                         this.fristName = newVal.slice(0, 2);
                          this.lastName = newVal.slice(2, newVal.length - 1)
                          console.log('--------', newVal)
                     },
 
                     //可读属性
                     get: function () {
-                         return this.fristNmae + this.lastName
+                         return this.fristName + this.lastName
                     }
                }
           }

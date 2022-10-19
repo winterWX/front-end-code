@@ -8,13 +8,9 @@
      <title>style的动态绑定</title>
 </head>
 <style>
-     .fontSize {
-          font-size: 30px;
-     }
+     .fontSize { font-size: 30px; }
 
-     .paddingStyle {
-          padding: 20px;
-     }
+     .paddingStyle { padding: 20px;}
 </style>
 
 <body>
@@ -26,7 +22,9 @@
           <span :class='["fontSize","paddingStyle"]'>字体的显示大小--- 用数组类型控制</span>
      </div>
 </body>
+
 <script src="../vue.js"></script>
+
 <script>
      const app = new Vue({
           el: '#id',
@@ -39,7 +37,6 @@
                }
           }
      })
-
 </script>
 
 </html>

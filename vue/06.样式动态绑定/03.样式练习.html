@@ -16,10 +16,10 @@
 <body>
      <div id="app">
           <ul>
-               <li :class="{'active': showColor === index}" v-for="(item,index) in list" :key="item.id"
-                    @click="listChange(index)">
-                    {{item.name}}
-               </li>
+            <li :class="{'active': showColor === index}" v-for="(item,index) in list" :key="item.id"
+                @click="listChange(index)">
+                {{item.name}}
+            </li>
           </ul>
      </div>
 </body>
