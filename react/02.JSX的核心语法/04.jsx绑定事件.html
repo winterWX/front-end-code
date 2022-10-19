@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>jsx绑定事件</title>
+</head>
+
+<body>
+     <div id="app"></div>
+</body>
+
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type='text/babel'>
+     function changeImage(image, size) {
+          console.log('--------', image, size);
+     }
+     class Test extends React.Component {
+          constructor() {
+               super()
+               this.state = {
+                    countNum: 0,
+                    image: '123',
+                    active: true
+               }
+               this.test2Click = this.test2Click.bind(this)
+          }
+          render() {
+               let { active } = this.state;
+               return (
+                    <div>
+                         <button onClick={this.testClick.bind(this)}>Click1</button>
+                         
+                         <button onClick={this.test2Click} > Click2 </button>
+                         
+                         <button onClick={e => { this.test3Click() }}>Click3</button>
+                    </div>
+               )
+          }
+          testClick() {
+               console.log('11111111')
+          }
+          test2Click() {
+               console.log('222')
+          }
+          //会获取上下文的this
+          test3Click() {
+               console.log('333333')
+          }
+
+     }
+     ReactDOM.render(<Test />, document.getElementById("app"))
+
+</script>
+<style>
+     .ul_li li {
+          display: flex;
+     }
+
+     .ul_li li div {
+          width: 100px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+     }
+</style>
+
+</html>

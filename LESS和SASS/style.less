@@ -1,0 +1,24 @@
+
+// 1.@开头声明变量
+@width:300px;
+@height: 200px;
+@back: #333333;
+
+.name_div{
+  width: @width;
+  height: @height;
+  background-color: @back;
+}
+
+//2.混合
+.mixin{
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+
+.name_div{
+  width: @width;
+  height: @height;
+  background-color: @back;
+  .mixin()
+}

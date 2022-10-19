@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+
+    //还是刚才的代码 只是变成了回调
+    let a = '全局变量'
+    const obj = {
+        a:'局部变量',
+        fn(){
+            console.log("现在得到的变量'a'是:"+this.a)
+        }
+    }
+    obj.fn()  //现在得到的变量'a'是:局部变量
+    
+    function fn2(cb){ //回调
+        cb()
+    }
+    
+    fn2( obj.fn.bind(window) )  //现在得到的变量'a'是:undefined
+    fn2( obj.fn.bind(obj) ) //现在得到的变量'a'是:局部变量
+
+
+</script>
+<body>
+    
+</body>
+</html>
