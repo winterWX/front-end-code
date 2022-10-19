@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * 父传子  值--属性的验证
- */
+*/
 
 class App extends Component {
      constructor(props) {

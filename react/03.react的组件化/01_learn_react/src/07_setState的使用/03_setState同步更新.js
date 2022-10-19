@@ -1,12 +1,10 @@
 import React from 'react';
 
-
 // {
 //  setState 1.在原生函数中，是同步
 //           2.setTimeOut 中是同步
 //
 // }
-
 
 class App extends React.Component {
      constructor(props) {

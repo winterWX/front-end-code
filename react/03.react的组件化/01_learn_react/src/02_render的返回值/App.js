@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+
 /**
  * render：可以返回 react元素 
  *         数组
  *         portals
  *         字符串 和 数值类型
  *         boolean 和 null
- */
+*/
+
 class App extends Component {
      constructor(props) {
           super(props);

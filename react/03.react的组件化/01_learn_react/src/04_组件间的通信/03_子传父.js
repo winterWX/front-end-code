@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * 父传子  值--属性的验证
- */
+*/
 
 class App extends Component {
      constructor(props) {
@@ -24,6 +24,7 @@ class App extends Component {
                </div>
           );
      }
+
      increment(e) {
           console.log(e);   //可以传递参数到父组件
           this.setState({
@@ -34,7 +35,8 @@ class App extends Component {
 
 /**
  *  函数组件
- */
+*/
+
 class ChildCop extends Component {
      constructor(props) {
           super(props)

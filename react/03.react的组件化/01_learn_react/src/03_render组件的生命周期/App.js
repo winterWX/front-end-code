@@ -1,20 +1,21 @@
 import React from 'react';
+
 /**
+ * 
  * 父子组件的生命周期函数的执行顺序
  * 
  * 挂载阶段：父constructor --- 父 render ---子constructor --- 子render --- 子componentDidMount --- 父componentDidMount
  * 更新阶段：子componentDidUpdate ---父componentDidUpdate
- * 卸载阶段：子comonentWillUnmount ---父comonentWillUnmount
+ * 卸载阶段：子componentWillUnmount ---父componentWillUnmount
  * 
  * 
  * componentDidMount可以做的事情
  *   1.Dom已经挂载完成了，可以进行一些Dom的操作
  *   2.可以发起网络请求
- *   3.可以加订阅事件，但是要在 comonentWillUnmount 取消订阅
+ *   3.可以添加订阅事件，但是要在 componentWillUnmount 取消订阅
  * 
- * 
- * 
- */
+*/
+
 class App extends React.Component {
      constructor(props) {
           super(props);

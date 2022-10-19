@@ -1,17 +1,16 @@
 import React from 'react';
-
-
 /**
  *  setState数据的不可变性
- * 
- * 
+ *  
+ *  1.想通过setState改变引用类型.
+ *    如果初始状态的引用地址和要改变的引用地址一样时，
+ *    在做性能优化时 比较新旧state,两个应用地址一样时，是不进行新能优化的。
+ *    所以setState时，需要复制一份新的引用地址。
  */
-
 
 class App extends React.Component {
      constructor(props) {
           super(props);
-
           this.state = {
                friend: [
                     {
