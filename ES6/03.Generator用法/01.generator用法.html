@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+     //生成器函数
+     function* foo() {
+          console.log('111');
+     }
+
+     const bar = foo();
+     
+     console.log('test', bar);
+
+     function* foo1() {
+          yield 'ni hao';
+          yield 'yes';
+          yield 'last'
+     }
+
+     //迭代器
+     const result1 = foo1();
+     console.log(result1.next());  // value:值，done:迭代器执行是否结束的状态
+
+
+     //generator和promise 配合使用
+     function* optionsBar() {
+          const result = yield new Promise((resolve, reject) => {
+               setTimeout(function () {
+                    resolve('我是异步的结果')
+               }, 3000)
+          })
+          console.log('result---', result);
+     }
+     const it = optionsBar();
+     it.next().value.then(res => {
+          console.log('-----',it.next())
+          it.next(res);
+     })
+
+</script>
+
+</html>

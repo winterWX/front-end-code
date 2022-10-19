@@ -17,7 +17,6 @@ function reduce(state = defaultVal, action) {
                return state
 
      }
-
 }
 
 export default reduce

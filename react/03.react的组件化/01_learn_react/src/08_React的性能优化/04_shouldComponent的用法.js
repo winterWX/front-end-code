@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 // 使用shouldComponentUpdate,优化性能减少不必要的刷新
 
-
 class App extends Component {
      constructor(props) {
           super(props);
@@ -12,7 +11,6 @@ class App extends Component {
                text: '内容变化'
           };
      }
-
      render() {
           console.log('num---我只是num变的时候刷新');
           return (

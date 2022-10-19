@@ -1,0 +1,26 @@
+.card-enter{
+     opacity: 0;
+}
+.card-enter-active{
+     opacity: 1;
+     transform: opacity 300ms;
+}
+
+
+
+.card-enter-done{
+  color: red;
+}
+
+.card-exit{
+
+}
+
+.card-exit-active{
+   opacity: 1;
+   transform: opacity 300ms,transform 300ms;
+}
+
+.card-exit-done{
+     opacity: 0;
+}

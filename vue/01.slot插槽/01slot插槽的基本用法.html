@@ -12,6 +12,7 @@
 </style>
 
 <body>
+	
      <!-- 1.插槽目的是为了让组件更具有扩展性 -->
      <!-- 2.满足开发要求 -->
      <!-- ####slot基本用法####
@@ -23,16 +24,23 @@
           <cnp><span>写入1</span></cnp>
           <cnp><span>写入2</span></cnp>
           <cnp><span>写入3</span></cnp>
-          <cnp></cnp>
+          <cnp>
+			  <div>0000</div>
+			  <div>0000</div>
+			  <div>0000</div>
+		</cnp>
      </div>
+	 
      <template id="cnp">
           <div>
                <h2>我是子组件</h2>
                <div>我是子组件<span class="flagColor">真正的内容</span></div>
                <!-- 基本用法的第一种 -->
                <!-- <slot></slot> -->
-               <!-- 基本用法的第二种 -->
+               <!-- 基本用法的第二种 也可以多个传入-->
                <slot><span>默认内容</span></slot>
+			<slot><span>默认内容</span></slot>
+			<slot><span>默认内容</span></slot>
           </div>
      </template>
 </body>

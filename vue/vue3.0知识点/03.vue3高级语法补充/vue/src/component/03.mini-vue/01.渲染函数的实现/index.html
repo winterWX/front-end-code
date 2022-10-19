@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="./renderer.js"></script>
+		<script>
+			let vnode = h('div',{class:'div_sty',id:'aaaaaaaa'},[
+				h('h2',null,"当前计数:100"),
+				h('button',{onClick:function(){ console.log('--')}},"+1")
+			]);
+			
+			mount(vnode,document.querySelector('#app'))
+			
+			// 新的vnode节点
+			let newVnode = h('div',{class:'wx',id:'bbbb'},'哦哦哦');
+			
+			patch(vnode,newVnode) //进行比较 - diff
+		</script>
+	</body>
+</html>

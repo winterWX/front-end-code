@@ -1,0 +1,76 @@
+<!--     
+给出一个string， 倒序输出该句子，其中的每个单词本身并不会翻转， 比如 "I love China" ->“China love I” 
+
+将一个数组中的元素，每三个为一组，进行输出 
+[1,2,3,4,5,6] ->[[1,2,3], [4,5,6]]
+输入一个数组:
+[1,2,3,4,5,6]
+输出：
+[[1,2,3], [4,5,6]]
+
+
+
+let str = 'I love China'; -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+       let str = 'I love China';
+
+       let data = str.split(' ').reverse().join(' ');
+       
+       console.log('data',data);
+
+
+       let ary = [1,2,3,4,5,6]    //[[1,2,3],[4,5,6]]
+       
+    //    let array = [];
+    //    let data1 = ary.slice(0,3)
+    //    let data2 = ary.slice(3,ary.length)
+
+    //    array.push(data1)
+    //    array.push(data2)
+
+    //    console.log(array);
+
+       //let [...ary1,4,5,6] = ary;
+     
+    //    function arrayChange(ary){
+    //      //let array = [];   
+    //      let lengths = ary.length / 2;
+    //      let data11 = ary.slice(0,lengths)
+    //      let data12 = ary.slice(lengths,ary.length)
+
+    //      return [data11,data12]
+    //    }
+
+
+
+  let baseArray = [1, 2, 3, 4, 5, 6, 7, 8];
+  let len = baseArray.length;
+  let n = 4; //假设每行显示4个
+  let lineNum = len % 4 === 0 ? len / 4 : Math.floor( (len / 4) + 1 );
+  let res = [];
+  for (let i = 0; i < lineNum; i++) {
+    // slice() 方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。
+    let temp = baseArray.slice(i*n, i*n+n);
+    res.push(temp);
+  }
+  console.log(res);
+    
+       
+        
+
+    </script>
+</body>
+</html>

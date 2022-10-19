@@ -11,15 +11,19 @@
 <body>
 </body>
 <script>
-     // axios:
-     // 1. axios 是基于 Promise 的 HTTP库, 可以用在浏览器和node.js中
-     // 2.从浏览器中创建 XMLHttpRequest
-     // 3.从node中创建http请求
-     // 4.拦截请求和响应
-     // 5.转换请求数据和响应数据
-     // 6.取消请求
-     // 7.自动转换Json数据
-     // 8.客户端支持防御XSRF
+     // axios的本质是对XMLHttpRequest的封装
+
+     /**
+      *  1.axios 是基于 Promise 的 HTTP库, 可以用在浏览器和node.js中
+      *  2.从浏览器中创建 XMLHttpRequest
+      *  3.从node中创建http请求
+      *  4.拦截请求和响应
+      *  5.转换请求数据和响应数据
+      *  6.取消请求
+      *  7.自动转换Json数据
+      *  8.客户端支持防御XSRF
+      *  
+     */
 
      axios({
           url: '',
@@ -30,12 +34,11 @@
 
      axios.get(url, data).then(res => { })
      axios.post(url, data).then(res => { })
-     axios.detele(url, data).then(res => { })
+     axios.delete(url, data).then(res => { })
      axios.put(url, data).then(res => { })
-     axios.patch(url, data).then(res => { })
+     axios.patch(url, data).then(res => { })  //更新数据，是对put方法的补充，用来对已知资源进行局部的更新
      axios.head(url, data).then(res => { })
-     // axios.get(url, data).then(res => { })
-     // axios.post(url, data).then(res => { })
+
 
      axios.all([axios({
           url: "",
@@ -46,7 +49,23 @@
      })]).then(res => {
           console.log(res) //是一个数据
      })
+
+
      //axios有内置的resolve 和 reject方法
+
+     /**
+      *   request 对请求进行拦截可以做的事情
+      *     1.请求时向用户传递内容,用户的登录认证token等
+      *     2.需要对请求数据进行解密时
+      *     3.请求连接的统一处理
+      *     4.添加版本号的相关内容    
+      *   
+      *    response 对返回数据进行拦截
+      *      1.对相应返回的结果进行统一的处理
+      *      2.对错误的结果进行统一的处理，
+      *      3.对相应的数据进行统一的处理
+     */
+
 </script>
 
 </html>

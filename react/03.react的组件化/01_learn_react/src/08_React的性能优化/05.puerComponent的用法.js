@@ -1,13 +1,14 @@
 import React, { Component, PureComponent, StrictMode, memo } from 'react';
 
 // 两者的区别： 文档 https://blog.csdn.net/u013003052/article/details/87894262
+
 /**
  *  PureComponent 的由来：
  *   1.属于React 的类
- *   2.无需手动添加shouldComponent
+ *   2.无需手动添加 shouldComponentUpate
  *   3.会自动进行浅比较
  *
- */
+*/
 
 
 class App extends PureComponent {
@@ -17,7 +18,6 @@ class App extends PureComponent {
           this.state = {
                name: 'wx',
                age: 30
-
           };
      }
 

@@ -1,0 +1,54 @@
+<!-- 
+     1. 当url的路径发生变化，页面不强制刷新
+     2. 自己监听url的变化，当监听到url改变了，改变页面的内容 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+     </head>
+
+     <body>
+          <div id="app">
+               <a href="/home">首页</a>
+               <a href="/about">关于</a>
+               <div class="router-view"></div>
+          </div>
+     </body>
+<script>
+
+     // history 的模式
+     const divBtn = document.getElementsByClassName('router-view')[0];
+     const aBtn = document.getElementsByTagName('a');
+     for (let el of aBtn) {
+          el.addEventListener('click', (e) => {
+               e.preventDefault();
+               const href = el.getAttribute("href")
+               console.log('history', history);
+               history.pushState(null, null, href);
+               urlChange();
+          })
+     }
+
+     function urlChange() {
+          //location.hash
+          console.log('location.pathname', location.pathname)
+          switch (location.pathname) {
+               case '/home':
+                    divBtn.innerHTML = '首页'
+                    break;
+               case '/about':
+                    divBtn.innerHTML = '关于'
+                    break;
+               default:
+                    divBtn.innerHTML = ''
+          }
+     }
+
+</script>
+
+</html>

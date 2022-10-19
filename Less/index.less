@@ -1,0 +1,92 @@
+/* 使用变量的方法 */
+    @width: 200px;
+    @color: rgb(182, 64, 64);
+
+    .div_first: {
+        width: @width;
+        color: @color;
+    }
+
+//选择器变量
+@myDiv: #myDiv;
+@{myDiv}:{
+    width: 200px;
+    height: 100px;
+}
+
+//属性变量
+@borderStyle: border-style;
+@solid: solid;
+
+.myDiv:{
+   @{borderStyle}: @solid
+}
+
+//加减，乘除运算
+@width: 300px;
+@height: 500px;
+.htmlSelect:{
+   width: @width - 10;   //单位以第一个为准
+   height: @height-20 * 5;   //单位必须统一
+}
+
+//作用域
+@var: 90%
+.htmlSelect:{
+    @var: 100%;
+    width:  @var;  //100% 就近原则
+}
+
+//嵌套的用法
+    /* Less */
+    #header{
+        &:after{
+            content:"Less is more!";
+        }
+        .title{
+            font-weight:bold;
+        }
+        &_content{//理解方式：直接把 & 替换成 #header
+            margin:20px;
+        }
+    }
+    /* 生成的 CSS */
+    #header::after{
+        content:"Less is more!";
+    }
+    #header .title{ //嵌套了
+        font-weight:bold;
+    }
+    #header_content{//没有嵌套！
+        margin:20px;
+    }
+
+//  混入的写法
+
+.card:{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crdScc{
+    .card()
+}
+
+// 可以传入默认参数
+.border(@a:10px,@color:#000){
+    border: @color;
+    width: @a;
+}
+
+// less的 判断方法
+.select_card(@data:300px,@color:#eee)  when (@data>300px) and (@color=#eee){
+   width: 300px;
+   height: 900px;
+}
+
+.select_card(@data:300px,@color:#eee)  when (@data>300px) , (@color=#eee){
+    width: 300px;
+    height: 900px;
+    background-color: #000;
+ }

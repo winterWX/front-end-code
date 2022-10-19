@@ -1,9 +1,6 @@
 import React from 'react';
-import { EventEmitter } from 'events'
+import { EventEmitter } from 'events';
 
-/**
- *  
- */
 const eventBus = new EventEmitter()
 
 class App extends React.Component {
@@ -15,7 +12,6 @@ class App extends React.Component {
                age: 0
           };
      }
-
      render() {
           return (
                <div>
@@ -34,8 +30,7 @@ class CnpOne extends React.Component {
      constructor(props) {
           super(props);
 
-          this.state = {
-          };
+          this.state = {};
           //this.handleEventVal = this.handleEventVal.bind(this)
      }
 
