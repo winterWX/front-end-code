@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 扁平化数结构
+    const arr = [
+        { id: "1", rank: 1 },
+        { id: "2", rank: 1,
+            children:[ 
+              { id: "2.1", rank: 2 },
+              { id: "2.2", rank: 2 } 
+            ] 
+        },
+        { id: "3", rank:1,
+            children:[ 
+                { id: "3.1", rank:2, 
+                    children: [ 
+                        { id:'3.1.1', rank:3,
+                            children:[ 
+                                { id: "3.1.1.1", rank: 4, 
+                                    children:[
+                                        { id: "3.1.1.1.1", rank: 5 }
+                                    ] 
+                                } 
+                            ] 
+                        } 
+                    ] 
+                } 
+            ] 
+        }
+      ]
+      const fn = (source)=>{
+          let res = []
+          source.forEach(el=>{
+            res.push(el)
+            el.children && res.push(...fn(el.children))
+          })
+          return res
+      }    
+
+      console.log(fn(arr))    // 查看结果
+  </script>
+</body>
+</html>
+

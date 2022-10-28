@@ -1,10 +1,12 @@
-interface dataInfo<T,S>{
+interface dataInfo<T,S,B>{
     num: T,
-    age: S
+    age: S,
+    flag: false
 }
 
 
-let data:dataInfo<number,string> = {
-    num:200,
-    age: '99'
+let data:dataInfo<number,string,boolean> = {
+    num: 200,
+    age: '99',
+    flag: false
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 逻辑锻炼题 https://wiill.blog.csdn.net/article/details/79769572
+    /**
+     *  递归： 函数自身调用自己，当达到设置的临界点时，停止调用。
+     * 
+    */
+    // 从大到小打印 数字
+    function numberChang(n){
+      if(n < 1){
+        return 1
+      }
+      console.log('打印:N', n);
+      numberChang(n-1)
+    }
+    numberChang(10)
+  </script>
+</body>
+</html>

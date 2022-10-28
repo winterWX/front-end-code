@@ -8,7 +8,17 @@
 
 </body>
 <script>
-
+    function fo(){
+      var a = 10;
+      return function bar(){
+        a++
+        console.log(a)
+      }
+    }
+    fo()()
+    fo()()
+    fo()()
+    fo()()
 </script>
 
 </html>
