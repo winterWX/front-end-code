@@ -41,7 +41,6 @@ export const routes = [
       path:'/eventBusEmit',
       component: ()=> import('../components/pages/事件总线程/eventBusEmit.vue')
   },
-
   /**
    *  父子组件间的传值
   */
