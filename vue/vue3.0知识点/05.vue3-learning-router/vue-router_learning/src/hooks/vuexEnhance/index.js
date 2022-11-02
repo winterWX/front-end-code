@@ -9,7 +9,6 @@ const enhanceMap =(mapper)=>{
         let fn = stateList[key].bind({$store:store})
         storeState[key] = computed(fn);
     })
-    
     return storeState
 }
 

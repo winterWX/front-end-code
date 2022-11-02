@@ -6,23 +6,23 @@
 <script>
   import Bus from '../../../utils/eventBus'
 import { onMounted, onUnmounted, ref} from 'vue';
-  export default {
+export default {
+  setup(props) {
+      let counter = ref(0);
+      onMounted(()=>{
+          Bus.on('paramsNum',(n)=>{
+            counter.value = n.num
+          })
+      })
 
-    name:'about', 
-    setup(props) {
-        let counter = ref(0);
-        onMounted(()=>{
-            Bus.on('paramsNum',(n)=>{
-              counter.value = n.num
-            })
-        })
-  
-        onUnmounted(()=>{
-            Bus.all.clear()
-        })
+      onUnmounted(()=>{
+          Bus.all.clear()
+      })
 
-        return { counter }
-    }
+      return { counter }
+  },
 
-  }
+  name:'about'
+};
 </script>
+

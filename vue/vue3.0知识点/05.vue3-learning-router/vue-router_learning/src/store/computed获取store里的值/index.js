@@ -11,9 +11,9 @@ const computedUse = {
         }
     },
     actions:{
-        // { commit,dispatch,getter,rootGetter,rootState,state } = context
+        // let{ commit,dispatch,getter,rootGetter,rootState,state } = context
         getBannerList({commit}){
-            return new Promise((resolve,reject)=>{
+          return new Promise((resolve,reject)=>{
             axios.get('http://123.207.32.32:8000/home/multidata').then(res => {
                 commit('changeBanner',res.data.data.banner.list)
                 resolve(res.data.data.banner.list);
@@ -21,7 +21,7 @@ const computedUse = {
                 console.log('err----',err)
                 reject(err);
             })
-            })
+          })
         }
     },
     getters:{

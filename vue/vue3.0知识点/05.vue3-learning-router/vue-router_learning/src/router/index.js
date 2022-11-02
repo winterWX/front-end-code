@@ -19,9 +19,9 @@ router.beforeEach((to,from,next)=>{
     }
 })
 
-router.afterEach((to,from)=>{
-    alert('你确定要离开这个页面吗')
-})
+// router.afterEach((to,from)=>{
+//     alert('你确定要离开这个页面吗')
+// })
 
 
 export default router
