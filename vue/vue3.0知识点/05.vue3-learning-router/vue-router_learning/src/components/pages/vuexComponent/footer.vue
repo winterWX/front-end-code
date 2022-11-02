@@ -13,7 +13,7 @@ import { useStore } from 'vuex';
 
 const books = reactive({list:[]});
 
-onMounted(() => {
+onMounted(()=> {
     let store = useStore();
     store.dispatch('footer/getBannerList').then(res=>{
         books.list = res;

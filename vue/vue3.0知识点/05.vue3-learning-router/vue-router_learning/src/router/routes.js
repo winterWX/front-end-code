@@ -73,5 +73,9 @@ export const routes = [
           // ... 路由独享
           alert('我是错误页面')
       }
+   },
+   {
+      path: '/main',
+      component: ()=> import('../components/view/main/index.vue')
    }
 ];

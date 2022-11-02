@@ -4,12 +4,10 @@
     <div>count大于2的书的总和 --- {{selectCount(2)}}</div>
 </template>
   
-<script setup lang='ts'>
+<script setup>
     name:'header';
-    
     import {createNamespacedHelpers} from 'vuex';
     import { vuexInit } from '../../../hooks';
-
     let { mapGetters } = createNamespacedHelpers('header')
     let { totalPrice,selectCount } = vuexInit(mapGetters(['totalPrice','selectCount']));
 

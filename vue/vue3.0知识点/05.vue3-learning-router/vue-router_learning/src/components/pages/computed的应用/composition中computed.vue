@@ -1,35 +1,32 @@
-
 <template>
     <div>{{ sonData }}</div>
 </template>
 
-<script lang="ts">
+<script>
+import { ref, reactive,onMounted,computed,watch} from 'vue';
+import { useStore } from 'vuex';
+export default {
+    setup(){
+      let store = useStore();
+      let sonData = computed(()=> store.state.computedUse.paramsNum);
+      let numData = ref(0);
+      let numParams = reactive({
+          data: 20
+      });
 
-    import { ref, reactive,onMounted,computed,watch} from 'vue';
-    import { useStore } from 'vuex';
+      watch(numData,(newVal,oldVal)=>{
 
-    export default {
-        setup(){
-            let store = useStore();
-            let sonData = computed(()=> store.state.computedUse.paramsNum);
-            let numData = ref(0);
-            let numParams = reactive({
-                data: 20
-            });
+      },{deep: true,immediate:true});
 
-            watch(numData,(newVal,oldVal)=>{
+      watch(()=>numParams.data,(newVal,oldVal)=>{
 
-            },{deep: true,immediate:true});
+      },{deep: true,immediate:true});
 
-            watch(()=>numParams.data,(newVal,oldVal)=>{
-
-            },{deep: true,immediate:true});
-
-            return {
-                sonData,
-                numData    
-            }
-        }
+      return {
+          sonData,
+          numData    
+      }
     }
-
+  }
 </script>
+

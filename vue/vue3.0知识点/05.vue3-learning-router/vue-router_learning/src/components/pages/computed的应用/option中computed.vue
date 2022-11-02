@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <div>显示计算属性的结果 {{ numResult }}</div>
-        <button @click="numAdd">num1+1</button>
-        <div>显示vuex的数据 {{ paramsNum }}</div>
-    </div>
+  <div>
+    <div>显示计算属性的结果 {{ numResult }}</div>
+    <button @click="numAdd">num1+1</button>
+    <div>显示vuex的数据 {{ paramsNum }}</div>
+  </div>
 </template>
 
 <script>
@@ -28,7 +28,6 @@ export default {
             return this.num1 * this.num2
         }
     },
-
     watch:{
         num1:{
           handler(){
@@ -45,11 +44,7 @@ export default {
             deep:true
         }
     },
-
-    mounted() {
-        
-    },
-
+    mounted() {},
     methods: {
         numAdd(){
             this.num1++;
