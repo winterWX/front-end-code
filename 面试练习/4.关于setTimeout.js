@@ -7,4 +7,6 @@ setTimeout(function(){
 
 console.log('b');
 
+
+
 // a b 123
