@@ -1,3 +1,4 @@
+git 创建仓库的过程：
 # git init 
 # git add README.md
 # git add . 
