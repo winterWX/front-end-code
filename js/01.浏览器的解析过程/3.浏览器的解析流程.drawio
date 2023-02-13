@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="1">
     <diagram id="wpIUDCgS-jAy4nphHHjV" name="Page-1">
-        <mxGraphModel dx="695" dy="3795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="720" dy="3940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -13,8 +13,8 @@
                 <mxCell id="5" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px&quot;&gt;html 和css 的解析流程：&lt;/font&gt;&lt;/b&gt;" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;strokeColor=#FFFFFF;" parent="1" vertex="1">
                     <mxGeometry x="36" y="-2220" width="220" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="&lt;font style=&quot;font-size: 18px&quot;&gt;浏览器解析 js代码的过程&lt;/font&gt;" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;" parent="1" vertex="1">
-                    <mxGeometry x="36" y="-1840" width="210" height="20" as="geometry"/>
+                <mxCell id="7" value="&lt;font style=&quot;font-size: 18px&quot;&gt;浏览器解析 js代码的基本过程&lt;/font&gt;" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;" parent="1" vertex="1">
+                    <mxGeometry x="41" y="-1840" width="260" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;" parent="1" vertex="1">
                     <mxGeometry x="284" y="-2451" width="20" height="20" as="geometry"/>
@@ -158,10 +158,10 @@
                 <mxCell id="70" value="运行" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.4;fontSize=18;strokeColor=#0000FF;rounded=1;fillColor=#B3B3B3;" parent="1" vertex="1">
                     <mxGeometry x="940" y="-1649.5" width="80" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" value="进行布局或者回流" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="72" value="进行布局或者回流" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="670" y="-2060" width="110" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="73" value="绘制或者重绘" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="73" value="绘制或者重绘" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="830" y="-2060" width="90" height="20" as="geometry"/>
                 </mxCell>
             </root>

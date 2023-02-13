@@ -13,3 +13,9 @@
 
   !!: 表示把其他类型转为 Boolean 类型
 
+  4.关于 valueOf 和 toString 
+  {} 和 [] 的 valueOf 和 toString 的结果是什么？
+  {} 的 valueOf 结果为 {} ，toString 的结果为 “[object Object]”
+
+  [] 的 valueOf 结果为 [] ，toString 的结果为 ""
+
