@@ -1,0 +1,1 @@
+import{openBlock as n,createBlock as t}from"vue";const o={name:"pack-age-ui"},e={class:"btn"};o.render=function(o,a,r,c,u,f){return n(),t("button",e,"点击按钮")};const a=[o];var r={install:function(n,t){a.forEach((t=>{n.component(t.name,t)}))}};export default r;

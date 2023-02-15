@@ -1,0 +1,12 @@
+{
+  "name": "pack-page-ui",
+  "version": "1.0.0",
+  "description": "一个简单组件",
+  "main": "pack-page-ui.es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["pack-page-ui"],
+  "author": "wxCoder",
+  "license": "ISC"
+}
