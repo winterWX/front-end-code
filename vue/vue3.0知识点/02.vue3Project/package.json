@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "mitt": "^3.0.0",
+    "pack-page-ui": "^1.0.0",
     "save": "^2.4.0",
     "vue": "^3.0.5"
   },

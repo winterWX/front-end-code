@@ -1,5 +1,5 @@
 <template>
-	<keep-alive-component/>
+	<!-- <keep-alive-component/> -->
     <!-- <this-use-component/> -->
     <!-- <parent-component /> -->
 	<!-- <use-transition/> -->
@@ -13,10 +13,11 @@
 	<!-- <mixin-use-component/> -->
 	<!-- <slot-component/> -->
 	<!-- <componsition/> -->
+	<TestPackPageUi />
 </template>
 
 <script>
-    import keepAliveComponent from './components/05.keep-alive的使用/index.vue'
+    // import keepAliveComponent from './components/05.keep-alive的使用/index.vue'
 	// import thisUseComponent from './components/01.组件this问题/thisUseComponent.vue'
 	// import  parentComponent from './components/03.跨组件事件总线传递/parentComponent.vue'
 	// import useTransition from './components/14.动画/useTransiton.vue'
@@ -47,10 +48,12 @@
 	//	import slotComponent from "./components/30.compositionAPI/10.插槽的使用/02.slot具名插槽/index.vue" 
 	
 	//	import slotComponent from "./components/30.compositionAPI/10.插槽的使用/03.slot作用域插槽/index.vue"
+	import  TestPackPageUi  from  "./components/15.封装组件发布到npm上/test-pack-page-ui/index.vue"
+	
 		export default {
 			name: 'App',
 			components: {
-				  keepAliveComponent
+				  //keepAliveComponent
 				  //thisUseComponent
 				  //parentComponent
 				  //useTransition
@@ -64,6 +67,7 @@
 				  //mixinUseComponent
 				  //componsition
 				  //slotComponent
+				  TestPackPageUi
 			}
 		}
 
