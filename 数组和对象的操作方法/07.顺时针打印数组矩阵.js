@@ -21,7 +21,7 @@ function arrayShow(array){
         right--
         if(right < left) break
 
-        for(let i = right; i >=left; i--) arr.push(array[bom][i]) //从右想左
+        for(let i = right; i >=left; i--) arr.push(array[bom][i]) //从右向左
         bom--
         if(bom < top) break
 

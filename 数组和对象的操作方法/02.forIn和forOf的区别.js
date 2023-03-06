@@ -17,7 +17,7 @@ for(let item in data){
 }
 
 /**
- * 区别 二 : for in 遍历数组会将索引当作key进行遍历，for of就会遍历数组的每一项。
+ * 区别 二 : 会将for in 遍历数组索引当作key进行遍历，for of就会遍历数组的每一项。
 */
 
 for(let item in array){
