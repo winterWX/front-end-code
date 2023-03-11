@@ -22,3 +22,7 @@ var fn = wxCurrying(sum)
 
 // fn(1)(2)(3)(4)(5)
 console.log(fn(1)(2)(3)(4)(5))
+
+
+
+// react redux 里的connect函数就是柯里化实现的
