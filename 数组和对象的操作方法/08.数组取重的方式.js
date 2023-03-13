@@ -23,4 +23,6 @@ let arrayLast = arg.reduce((prev,cur)=>{ //prev添加的集合，cur当前值
 
 console.log('方式三',arrayLast);
 
-
+/**
+ *  方式四
+*/

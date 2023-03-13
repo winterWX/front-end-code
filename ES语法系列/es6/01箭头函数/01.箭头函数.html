@@ -36,6 +36,8 @@
      const obj = {
           name: 'li san',
           b() {
+               console.log('this==',this)
+               // setTimeout是挂在window对象下的，所以setTimeout里function的this就是window
                setTimeout(function () {
                     console.log('b()----------有function的this', this);  //window
                }, 10)
@@ -44,7 +46,7 @@
                }, 10)
           }
      }
-     console.log(obj.b());
+     obj.b();
 
 </script>
 
