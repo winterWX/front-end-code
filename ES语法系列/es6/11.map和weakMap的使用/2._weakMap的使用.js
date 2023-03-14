@@ -6,7 +6,7 @@
  */
 
 
-const  weakMap = new weakMap()
+const  weakMap = new WeakMap()
 
 weakMap.set({},'11')
 
