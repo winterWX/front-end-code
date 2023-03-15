@@ -1,0 +1,39 @@
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./data.json"></script>
+<script>
+     /**
+      *   promise 出现 解决了
+      *  
+      *   1.自己封装异步函数时传递的回调函数的不统一性,自己封装就必要设计的合理，而且要使用好
+      *   2.使用第三方的封装的异步函数，
+      *   就需要对异步函数的原代码有清楚的认知
+      * 
+      * 
+      *   Promise 规范了异步回调函数，并且异步结果的成功与否都会返回一个承诺状态
+      * 
+     */
+
+     //promise executor 函数是同步。 本质是：异步代码的同步化处理
+     const app = new Promise((resolve, reject) => {
+          $.ajax({
+               url: '',
+               type: 'GET',
+               //async: false,  //true 为同步，false为异步
+               success(res) {
+                    // if (res.data.length > 0) {
+                    //      let arrayData = arrayData;
+                    // }
+                    resolve(res)
+               },
+               fail(err) {
+                    console.log(err);
+               }
+          })
+     });
+
+     //app.then 是异步
+     app.then((res) => {
+          console.log('then', res);
+     })
+     console.log('promise的同级代码');
+</script>

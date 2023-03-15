@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <button id="btn">点击我</button>
+</body>
+<script>
+     var btn = document.querySelector('#btn');
+     // 原生封装异步
+     btn.addEventListener('click', function () {
+          //1.创建对象
+          const xhr = new XMLHttpRequest();
+          //2.初始化
+          xhr.open('GET', 'https://api.apiopen.top/getJoke')
+          //发送请求
+          xhr.send();
+          //相应处理
+          xhr.onreadystatechange = function () {
+               if (xhr.readyState === 4) {
+                    //判断状态码
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                         console.log(xhr.response)
+                         resolve(xhr.response);
+                    } else {
+                         console.log(xhr.status)
+                         resolve(xhr.status);
+                    }
+               }
+          }
+     })
+     
+</script>
+
+</html>
