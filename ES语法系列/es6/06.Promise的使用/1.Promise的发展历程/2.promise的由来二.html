@@ -1,0 +1,41 @@
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./data.json"></script>
+<script>
+     // 还是借用自己定义的回调函数将结果进行返回出去
+     var arrayData = [
+          {
+               "id": 12,
+               "name": "刘德华"
+          },
+          {
+               "id": 110,
+               "name": "张曼玉"
+          },
+          {
+               "id": 110,
+               "name": "梁朝伟"
+          }
+     ]
+
+     function requestAjax(successCallback,failCallback){
+          // ajax 是解决了，当获取数据后页面不重复刷新的问题，在浏览器中创建 httpRequest
+          $.ajax({
+               url: '',
+               type: 'GET',
+               //async: false,  //true 为同步，false为异步
+               success(res) {
+                    successCallback(res)
+               },
+               fail(err){
+                    failCallback(err)
+               }
+          })
+     }
+
+     requestAjax((res)=>{
+
+     },(err)=>{
+
+     })
+
+</script>
