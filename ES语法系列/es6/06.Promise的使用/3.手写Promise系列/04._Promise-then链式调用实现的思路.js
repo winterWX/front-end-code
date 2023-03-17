@@ -1,4 +1,4 @@
-/**  .then 的多次调用  和 延迟调用.then  */
+/**  .then 链式调用 的实现思路 **/
 
 class wxPromise{
     constructor(/*立即回调函数*/executor){
@@ -16,11 +16,6 @@ class wxPromise{
 
         // 创建回调函数
         const resolve = (value)=>{ 
-            
-            /**
-             * 1. 因为首次执行时，按照同步代码执行顺序还没有执行到.then,就已经调用了.then里的赋值方法，导致调用了未定义的方法
-             * 所以使用queueMicrotask将代码放到微任务队列，等同步代码执行完后，立即再执行微任务里的代码，此时就可以拿到赋值的方法了
-             */
             if(this.status === statusArray.pending){
                 this.status = statusArray.fulfilled  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
                 this.value = value
@@ -32,10 +27,6 @@ class wxPromise{
             }
         }
         const reject = (reason)=>{
-            /**
-             * 因为首次执行时，按照同步代码执行顺序还没有执行到.then,就已经调用了.then里的赋值方法，导致调用了未定义的方法
-             * 所以使用queueMicrotask将代码放到微任务队列，等同步代码执行完后，立即再执行微任务里的代码，此时就可以拿到赋值的方法了
-            */
             if(this.status === statusArray.pending){
                 this.status = statusArray.rejected  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
                 this.reason = reason
@@ -45,25 +36,30 @@ class wxPromise{
                     })
                 })
             }
-
         }
         executor(resolve,reject)
     }
     then(onFulfilled,onRejected){
-        
-        // 状态已经确认了，说明是延迟调用的.then, 上面的状态对应的数组已经遍历结束了。所以直接调用就可以了
         if(this.status === 'STATUS_FULFILLED'){
             onFulfilled(this.value)
         }
         if(this.status === 'STATUS_REJECTED'){
             onRejected(this.reason)
         }
-        
-        //多个.then 调用在没有确定状态时，先加到数组里，等确定状态了，根据状态执行对应的状态数组
         if(this.status === 'STATUS_PENDING'){
             this.onFulfilled.push(onFulfilled)
             this.onRejected.push(onRejected)
         }
+
+        // 默认的返回值  return undefined
+
+        // 我们要做的 就是返回一个新的Promise
+
+        /**
+         * 
+         *   ---------------- 需要实现的代码
+         * 
+         */
     }
 }
 
@@ -78,27 +74,20 @@ testPromise.then(res=>{
     console.log('err:==',err)
 })
 
-testPromise.then(res=>{    /** 多次.then调用 后面依次会覆盖前面一次，此时要将回调函数保存在数组里 */
-    console.log('res1:==',res)
-},err=>{
-    console.log('err1:==',err)
-})
-
-setTimeout(()=>{
-    testPromise.then(res=>{    /** .then延迟调用，没有加到状态数组里 */
-        console.log('res3:==',res)
-    },err=>{
-        console.log('err4:==',err)
-    })
-},1000)
-
-setTimeout(()=>{
-    testPromise.then(res=>{    /** .then延迟调用，没有加到状态数组里 */
-        console.log('res-last:==',res)
-    },err=>{
-        console.log('err-last:==',err)
-    })
-},2000)
+/**
+ *  能链式调用就说明上面的 代码会有一个Promise的返回值
+ * 
+ *  如：promise = testPromise.then(res=>{
+ *         console.log('res:==',res)
+ *      },err=>{
+ *         console.log('err:==',err)
+ *     })
+ *    
+ *   没有返回值，说明上面默认返回的undefined
+ * 
+ * 
+ *   此时我们要做的就是要给它一个返回值，返回一个新的Promise
+ */
 
 
 
