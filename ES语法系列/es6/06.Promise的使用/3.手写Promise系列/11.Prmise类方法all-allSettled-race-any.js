@@ -37,8 +37,34 @@ class wxPromise{
                 })
             }
         }
+
+        const resolve1 = (value)=>{ 
+            if(this.status === statusArray.pending){
+                queueMicrotask(()=>{
+                    if(this.status !== statusArray.pending) return
+                    this.status = statusArray.fulfilled  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
+                    this.value = value
+                    this.onFulfilled.forEach(fn=>{
+                        fn(this.value)
+                    })
+                })
+            }
+        }
+        const reject1 = (reason)=>{
+            if(this.status === statusArray.pending){
+                queueMicrotask(()=>{
+                    if(this.status !== statusArray.pending) return
+                    this.status = statusArray.rejected  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
+                    this.reason = reason
+                    this.onRejected.forEach(fn=>{
+                        fn(this.reason)
+                    })
+                })
+            }
+        }
+
         try {
-            executor(resolve,reject)
+            executor(resolve1,reject1)
         } catch (error) {
             reject(error)
         }
@@ -87,11 +113,11 @@ class wxPromise{
         // all 只要等到有一个失败，那么结果就是失败，没有失败的，就会将所有的结果放到数组里
         return new wxPromise((resolve,reject)=>{
             let values = []
-            promises.length > 0 && promises.forEach(promise=>{
-                promise.then(res=>{
+            promises.length > 0 && promises.forEach(promiseItem=>{
+                promiseItem.then(res=>{
                    values.push(res) // 收集所用的结果
                    if(values.length === promises.length){
-                    resolve(values)
+                    resolve(values=>{ return values })
                    }
                 },err=>{
                     reject(err)
@@ -99,19 +125,18 @@ class wxPromise{
             })
         })
     }
-
     static allSettled(promises){
         return new wxPromise((resolve,reject)=>{
             let values = []
-            promises.forEach(promise=>{
-                promise.then(res=>{
+            promises.forEach(promiseItem=>{
+                promiseItem.then(res=>{
                     values.push({status: 'fulfilled',value: res})
-                    if(values.length === promise.length){
+                    if(values.length === promises.length){
                         resolve(values)
                     }
                 },err=>{
                     values.push({status: 'rejected',reason: err})
-                    if(values.length === promise.length){
+                    if(values.length === promises.length){
                         resolve(values)
                     }
                 })
@@ -162,19 +187,21 @@ const p = new wxPromise((resolve,reject)=>{
 })
 
 const p1 = new wxPromise((resolve,reject)=>{
-    //setTimeout(()=>{
+    setTimeout(()=>{
         reject('2222')
-    //},2000)
+    },2000)
 })
 
 const p2 = new wxPromise((resolve,reject)=>{
-    //setTimeout(()=>{
+    setTimeout(()=>{
         resolve('3333')
-    //},3000)
+    },3000)
 })
 
-wxPromise.allSettled([p,p1,p2]).then(res=>{
+wxPromise.all([p,p1,p2]).then(res=>{
     console.log('res====',res)
+}).catch(err=>{
+    console.log('err====',err)
 })
 
 
