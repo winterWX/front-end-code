@@ -10,8 +10,8 @@ class wxPromise{
         }
         this.value = null
         this.reason = null
-        this.onFulfilled = []
-        this.onRejected = []
+        this.onFulfilledArr = []
+        this.onRejectedArr = []
         this.status = statusArray.pending   // 最初始的状态
 
         // 创建回调函数
@@ -20,7 +20,7 @@ class wxPromise{
                 this.status = statusArray.fulfilled  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
                 this.value = value
                 queueMicrotask(()=>{
-                    this.onFulfilled.forEach(fn=>{
+                    this.onFulfilledArr.forEach(fn=>{
                         fn(this.value)
                     })
                 })
@@ -31,32 +31,7 @@ class wxPromise{
                 this.status = statusArray.rejected  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
                 this.reason = reason
                 queueMicrotask(()=>{
-                    this.onRejected.forEach(fn=>{
-                        fn(this.reason)
-                    })
-                })
-            }
-        }
-
-        const resolve1 = (value)=>{ 
-            if(this.status === statusArray.pending){
-                queueMicrotask(()=>{
-                    if(this.status !== statusArray.pending) return
-                    this.status = statusArray.fulfilled  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
-                    this.value = value
-                    this.onFulfilled.forEach(fn=>{
-                        fn(this.value)
-                    })
-                })
-            }
-        }
-        const reject1 = (reason)=>{
-            if(this.status === statusArray.pending){
-                queueMicrotask(()=>{
-                    if(this.status !== statusArray.pending) return
-                    this.status = statusArray.rejected  // 确定唯一的状态， 要么是 fulfilled 要么是rejected,只能唯一
-                    this.reason = reason
-                    this.onRejected.forEach(fn=>{
+                    this.onRejectedArr.forEach(fn=>{
                         fn(this.reason)
                     })
                 })
@@ -64,7 +39,7 @@ class wxPromise{
         }
 
         try {
-            executor(resolve1,reject1)
+            executor(resolve,reject)
         } catch (error) {
             reject(error)
         }
@@ -84,10 +59,10 @@ class wxPromise{
             }
             if(this.status === 'STATUS_PENDING'){
                 // 数组里拿返回值
-                onFulfilled && this.onFulfilled(()=>{
+                onFulfilled && this.onFulfilledArr.push(()=>{
                     executorTryCatch(onFulfilled,this.value,resolve,reject)
                 })
-                onRejected && this.onRejected.push(()=>{
+                onRejected && this.onRejectedArr.push(()=>{
                     executorTryCatch(onRejected,this.reason,resolve,reject)
                 })
             }
@@ -110,15 +85,14 @@ class wxPromise{
         })
     }
     static all(promises){
-        // all 只要等到有一个失败，那么结果就是失败，没有失败的，就会将所有的结果放到数组里
         return new wxPromise((resolve,reject)=>{
             let values = []
-            promises.length > 0 && promises.forEach(promiseItem=>{
-                promiseItem.then(res=>{
-                   values.push(res) // 收集所用的结果
-                   if(values.length === promises.length){
-                    resolve(values=>{ return values })
-                   }
+            promises.forEach(item=>{
+                item.then(res=>{
+                    values.push(res)
+                    if(promises.length === values.length){
+                        resolve(values)
+                    }
                 },err=>{
                     reject(err)
                 })
@@ -182,7 +156,7 @@ function executorTryCatch (executorFn, arg, resolve,reject) {
 
 const p = new wxPromise((resolve,reject)=>{
     setTimeout(()=>{
-        resolve('1111')
+        reject('1111')
     },1000)
 })
 
@@ -198,7 +172,7 @@ const p2 = new wxPromise((resolve,reject)=>{
     },3000)
 })
 
-wxPromise.all([p,p1,p2]).then(res=>{
+wxPromise.any([p,p1,p2]).then(res=>{
     console.log('res====',res)
 }).catch(err=>{
     console.log('err====',err)
