@@ -22,8 +22,9 @@ const p3 = new Promise((resolve,reject)=>{
     console.log('我是p3自己的catch',err)
 })
 
+// 注意： 在Promise.all()里如果传不是Promise类时，它就会把值进行包裹成,promise.resolve('某个值')
 
-Promise.all([p1,p2,p3]).then((res)=>{
+Promise.all([p1,p2,p3,'string']).then((res)=>{
     console.log('res=====',res)  // [undefined,'p2--------',undefined]
 }).catch((err)=>{
     console.log('err=====',err)

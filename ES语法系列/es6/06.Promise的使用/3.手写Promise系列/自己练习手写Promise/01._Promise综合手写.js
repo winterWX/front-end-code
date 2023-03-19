@@ -52,6 +52,7 @@ class childPromise{
                 executorEnhance(onRejected,this.reason,resolve,reject)
             }
             if(this.status === 'STATUES_PENDING'){
+                debugger
                 // 多次调用，将成功回调和失败的回调放到数组里，遍历调用
                 onFulfilled && this.onFulfilledArr.push(()=>{
                     executorEnhance(onFulfilled,this.values,resolve,reject)
