@@ -8,7 +8,7 @@ function* foo(){
         yield '1111' 
     } catch (error) {
        console.log('出错了',error)  // 有捕获 就会继续 执行下面的代码
-       yield 'abc' 
+       yield 'abc' // 是可以生效的
     }
     
     yield '222'
