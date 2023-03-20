@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.css样式存在的问题一</title>
+    <style>
+        .box {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+        .container {
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        可以看到上面效果给box设置完float结果脱离文档流，
+        使container高度没有被撑开，从而背景颜色没有颜色出来，解决此问题可以给container触发BFC，
+        上面我们所说到的触发BFC属性都可以设置。
+     -->
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>
