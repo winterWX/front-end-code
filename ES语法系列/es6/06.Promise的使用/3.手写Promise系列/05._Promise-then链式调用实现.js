@@ -68,7 +68,7 @@ class wxPromise{
                 this.onFulfilled(()=>{
                     try {
                         let result = onFulfilled(this.value) // 此时遍历的就是 ()=>{onFulfilled(this.value)}
-                        resolve(result)
+                        resolve(result) // 有返回值时候抛出返回值 去到下一个Promise里
                     } catch (error) {
                         reject(error)
                     }
@@ -76,7 +76,7 @@ class wxPromise{
                 this.onRejected.push(()=>{
                     try {
                         let reason = onRejected(this.reason)
-                        resolve(reason)
+                        resolve(reason)  // 有返回值时候抛出返回值 去到下一个Promise里
                     } catch (error) {
                         reject(error)
                     }
@@ -87,9 +87,9 @@ class wxPromise{
 }
 
 const testPromise = new wxPromise((resolve,reject)=>{
-    //resolve('111')
+    resolve('111')
     //reject('222')
-    throw new Error('executor message')
+    //throw new Error('executor message')
 })
 
 testPromise.then(res=>{

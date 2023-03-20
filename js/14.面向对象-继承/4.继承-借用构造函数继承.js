@@ -14,7 +14,7 @@ function Student(name,age,friends,sno){
     this.sno = sno
 }
 
-var p = new Student()
+var p = new Person()
 Student.prototype = p 
 
 Student.prototype.studing = function(){
@@ -22,7 +22,7 @@ Student.prototype.studing = function(){
 }
 
 var p = new Student()
-
+ 
 console.log(p.name)     // 可以拿到父类的name
 console.log(p.eating())   // 可以拿到父类的方法
 

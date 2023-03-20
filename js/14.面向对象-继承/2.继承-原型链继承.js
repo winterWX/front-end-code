@@ -11,17 +11,17 @@ function Student(){
     this.sno = '小明'
 }
 
-var p = new Student()
-Student.prototype = p 
+var person = new Person()
+Student.prototype = person 
 
 Student.prototype.studing = function(){
     console.log(this.sno + '在学习')
 }
 
-var p = new Student()
+var stu = new Student()
 
-console.log(p.name)     // 可以拿到父类的name
-console.log(p.eating())   // 可以拿到父类的方法
+console.log(stu.name)     // 可以拿到父类的name
+console.log(stu.eating())   // 可以拿到父类的方法
 
 
 /** 原型链实现继承的弊端 */
