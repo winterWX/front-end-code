@@ -1,20 +1,30 @@
 <template>
-  <HelloWorld msg="Hello Vue 3 + Vite" />
-  <setup-text />
-  <ref-and-reactive></ref-and-reactive>
-  <watchEffect />
+  <div>
+      <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
+      <ref-page/>
+      <!-- <setup-text />-->
+      <!-- <ref-and-reactive></ref-and-reactive> -->
+      <!-- <watch-effect-page /> -->
+  </div>
 </template>
 
 <script>
   import HelloWorld from './components/HelloWorld.vue'
   import setupText from './components/setupText.vue'
-  import refAndReactive from './components/refAndReactive.vue'
-  import watchEffect from './components/watchEffect.vue'
+  import refPage from './components/refPage.vue'
+  import refAndReactive from './components/reactivePage.vue'
+  import watchEffectPage from './components/watchEffect.vue'
 
 
   export default {
     name: 'App',
-    components: { setupText, refAndReactive, watchEffect }
+    components: {
+      //HelloWorld,
+      refPage, 
+      // setupText, 
+      refAndReactive, 
+      // watchEffect 
+    }
   }
 
 </script>
