@@ -6,7 +6,7 @@
 
 <script>
      // //1.setup的用法：是介于 beforecreate 和 create 之间的，由于data 和方法没有初始化好，
-     //   所以把this修改成了undefine
+     // 所以把this修改成了undefine
 export default {
   setup() {
        console.log('this', this);

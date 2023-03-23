@@ -1,32 +1,24 @@
 <template>
   <div>
-      <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-      <ref-page/>
+      <HelloWorld msg="Hello Vue 3 + Vite" @change-date='(res)=>{ changeState(res) }' />
+      <!-- <ref-page/> -->
       <!-- <setup-text />-->
       <!-- <ref-and-reactive></ref-and-reactive> -->
       <!-- <watch-effect-page /> -->
   </div>
 </template>
 
-<script>
+<script setup>
   import HelloWorld from './components/HelloWorld.vue'
   import setupText from './components/setupText.vue'
   import refPage from './components/refPage.vue'
   import refAndReactive from './components/reactivePage.vue'
   import watchEffectPage from './components/watchEffect.vue'
 
-
-  export default {
-    name: 'App',
-    components: {
-      //HelloWorld,
-      refPage, 
-      // setupText, 
-      refAndReactive, 
-      // watchEffect 
-    }
+  // 来自子组件的值
+  const changeState = (res)=>{
+    console.log("res====",res)
   }
-
 </script>
 
 <style>
