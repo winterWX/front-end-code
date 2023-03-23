@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="_t1MLcQFOcH7uwAvoQMJ" name="第 1 页">
+        <mxGraphModel dx="2010" dy="1602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;div style=&quot;color: rgb(171, 178, 191); background-color: rgb(40, 44, 52); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #c678dd;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #61afef;&quot;&gt;foo&lt;/span&gt;(){&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #c678dd;&quot;&gt;var&lt;/span&gt; name &lt;span style=&quot;color: #56b6c2;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #98c379;&quot;&gt;&quot;li&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #c678dd;&quot;&gt;var&lt;/span&gt; age &lt;span style=&quot;color: #56b6c2;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #d19a66;&quot;&gt;40&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #c678dd;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #61afef;&quot;&gt;bar&lt;/span&gt;(){&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; console.&lt;span style=&quot;color: #61afef;&quot;&gt;log&lt;/span&gt;(name,age)&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #c678dd;&quot;&gt;return&lt;/span&gt; bar&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;color: #c678dd;&quot;&gt;var&lt;/span&gt; fn &lt;span style=&quot;color: #56b6c2;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #61afef;&quot;&gt;foo&lt;/span&gt;()&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #61afef;&quot;&gt;fn&lt;/span&gt;()&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-240" y="-140" width="390" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="-250" width="160" height="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="-240" width="460" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="setTimout&amp;nbsp;&lt;br&gt;string&lt;br&gt;&amp;nbsp;date&lt;br&gt;window&lt;br&gt;foo : 00-xa00&lt;br&gt;fn= 00-xb00" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="465" y="-220" width="110" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="执行上下文调用栈" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="215" y="-280" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="GO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="-240" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=none;html=1;exitX=0.5;exitY=0.667;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;fillColor=#FF3333;strokeColor=#FF3333;" edge="1" parent="1" source="12" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="50" width="120" height="85" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="foo 00-xa00" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="785" y="20" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="父级函数作用域Go" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="60" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="name= ''li''&lt;br&gt;age= 40" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="-210" width="110" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="foo（Ao）" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="625" y="-240" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="50" width="120" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="bar 00-xb00" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="495" y="20" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#FF3333;fillColor=#FF3333;" edge="1" parent="1" source="27" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="自己作用域+父级作用域&amp;nbsp; foo(Ao)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="60" width="120" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

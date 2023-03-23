@@ -1,16 +1,23 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
-    <button type="button" @click="state.count++">count is: {{ state.count }}</button>
+    <button type="button" @click="changeState()">count is: {{ state.count }}</button>
     <div :obj="newProxy"></div>
   </div>
 </template>
 
 <script setup>
-  import { defineProps, reactive } from 'vue'
-  defineProps({ msg: String })
+  import { reactive } from 'vue'
+  const emit = defineEmit (['changeDate']) // 传值
+  defineProps({ 
+    msg: { type: String, required: true }
+   })  // 接收值
   const state = reactive({ count: 0 })
   const newProxy = reactive({ name:'wx', age: 20 })
+  const changeState = ()=>{
+    state.count++
+    emit('change-date', '子组件的值'); 
+  }
 
   /**
    *   两大核心：
