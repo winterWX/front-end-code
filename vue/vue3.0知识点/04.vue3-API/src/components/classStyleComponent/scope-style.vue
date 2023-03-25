@@ -1,5 +1,5 @@
 <template>
-    <div class="div_code">1111</div>
+    <div class="div_code">scope css code</div>
 </template>
 <script lang="ts" setup>
 

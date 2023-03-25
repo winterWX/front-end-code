@@ -5,7 +5,7 @@
         <useCssModule-page/>
     </div>
 </template>
-<script setup lang="ts" name="cssIndex">
+<script setup lang="ts">
 import scopeStyle from './scope-style.vue'
 import cssModulePage from './css-module.vue'
 import useCssModulePage from './useCssModule.vue'
@@ -16,7 +16,8 @@ useCssModule()
 </script>
 
 <style module>
-    .red{
+    .p{
         color: darkmagenta;
+        font-size: 100px;
     }
 </style>

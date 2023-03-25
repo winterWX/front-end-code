@@ -7,7 +7,7 @@ import { reactive } from 'vue';
 </template>
 
 <script setup>
-    import { reactive, computed} from 'vue';
+    import { reactive, computed, ref } from 'vue';
     const data = reactive({num: 20,num2: 40})
     
     const computedVal = computed(()=>  data.num + data.num2 )  // 返回一个 ref,但是只是只读属性
@@ -18,6 +18,11 @@ import { reactive } from 'vue';
     const changeComputed = ()=>{
         computedVal.value ++
     }
-    
+
+    // 计算属性中的 过滤
+    const num = ref([1,2,3,4,5])
+    const evenNumber = computed(()=>{ num.filter((item) =>  item % 2 === 0 )
+    })
+    console.log('evenNumber===', evenNumber)
     
 </script>

@@ -6,7 +6,10 @@
       <!-- <ref-and-reactive></ref-and-reactive> -->
       <!-- <watch-effect-page /> -->
       <!-- <computed-page></computed-page> -->
-      <css-all-page/>
+      <!-- <css-all-page/> -->
+      <!-- <v-for-component /> -->
+      <!-- <test-mounted/> -->
+      <utils-component></utils-component>
   </div>
 </template>
 
@@ -18,6 +21,10 @@
   import watchEffectPage from './components/watchEffect.vue'
   import computedPage from './components/computedPage.vue'
   import cssAllPage from './components/classStyleComponent/index.vue'
+  import vForComponent from './components/vForComponent.vue'
+  import testMounted from './components/vue生命周期/index.vue'
+  import utilsComponent from './components/vue响应式工具函数/index.vue'
+  import useWatchComponent from './components/vue响应式工具函数'
 
   // 来自子组件的值
   const changeState = (res)=>{
