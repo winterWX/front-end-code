@@ -9,7 +9,12 @@
       <!-- <css-all-page/> -->
       <!-- <v-for-component /> -->
       <!-- <test-mounted/> -->
-      <utils-component></utils-component>
+      <!-- <useWatchComponent></useWatchComponent> -->
+      <!-- <customRefComponent /> -->
+      <!-- <shallowRefComponent /> -->
+      <!-- <useEffectScopeComponent /> -->
+      <!-- <useNextTickComponent></useNextTickComponent> -->
+      <asyncComponentShow></asyncComponentShow>
   </div>
 </template>
 
@@ -24,8 +29,12 @@
   import vForComponent from './components/vForComponent.vue'
   import testMounted from './components/vue生命周期/index.vue'
   import utilsComponent from './components/vue响应式工具函数/index.vue'
-  import useWatchComponent from './components/vue响应式工具函数'
-
+  import useWatchComponent from './components/vue侦听器/watch的使用/index.vue'
+  import customRefComponent from './components/响应式进阶API/customRef的使用/customRefComponent.vue'
+  import shallowRefComponent from './components/响应式进阶API/shallowRef的使用/index.vue'
+  import useEffectScopeComponent from './components/响应式进阶API/effectScope的使用/index.vue'
+  import useNextTickComponent from './components/vue全局API/2.nextTick的使用.vue'
+  import asyncComponentShow from './components/异步组件的定义defineAsyncComponent的使用/index.vue'
   // 来自子组件的值
   const changeState = (res)=>{
     console.log("res====",res)
