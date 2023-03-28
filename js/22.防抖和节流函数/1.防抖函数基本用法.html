@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <!-- <script src="./1.防抖函数的封装/1.防抖实现一.js"></script>  -->
+    <script src="./1.防抖函数的封装/2.防抖实现二.js"></script> 
+    <script>
+    const elInput = document.querySelector('input')
+    function asyncData(event){ 
+        console.log('请求异步数据接口', this, event, '11')
+    }
+    elInput.oninput = debounce(asyncData,2000, true)   
+    /**
+        *  true表示每个阶段的首次都要执行一次，触发后 到等待 2000执行请求这个过程就是一个阶段
+    */
+   </script>
+  
+</body>
+</html>
