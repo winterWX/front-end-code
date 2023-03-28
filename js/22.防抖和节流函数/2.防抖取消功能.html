@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button id="cancel">取消</button>
+    <script src="./1.防抖函数的封装/3.防抖的取消功能.js"></script> 
+    <script>
+    const elInput = document.querySelector('input')
+    const elCancel = document.querySelector('#cancel')
+    function asyncData(event){ 
+        console.log('请求异步数据接口', this, event, '11')
+    }
+    const debounceFns = debounce(asyncData,4000, true)
+
+    elInput.oninput = debounceFns
+    elCancel.onclick = function(){
+        debounceFns.cancel()  // 防抖的取消功能
+    } 
+   </script>
+  
+</body>
+</html>

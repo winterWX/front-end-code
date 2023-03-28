@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script src="./1.防抖函数的封装/5.防抖函数返回值二.js"></script>
+    <script>
+    const elInput = document.querySelector('input')
+    function asyncData(event){ 
+        console.log('请求异步数据接口', this, event)
+        return '防抖函数的返回值'
+    }
+    // 思路二，使用Promise的方式来实现
+    const debounceChange = debounce(asyncData,2000, true)  // 等于是 _debounce()-return Promises
+    const callbackFn = ()=>{
+        debounceChange().then(res=>{
+            console.log('获取到返回值',res)
+        })
+    }
+    elInput.oninput = callbackFn
+   </script>
+  
+</body>
+</html>
