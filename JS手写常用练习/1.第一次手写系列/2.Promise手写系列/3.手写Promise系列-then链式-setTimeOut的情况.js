@@ -35,7 +35,7 @@ class wxPromise{
     }
     then(onFulfilled,onRejected){
         onRejected = onRejected || (err=>{ throw err}) //等于我补了一个函数，err 照样是我的this.reason, 只是我当作错误抛出去了
-        onRejected = onRejected || (val=>{ return val})
+        onFulfilled = onFulfilled || (val=>{ return val})
         return new wxPromise((resolve,reject)=>{
             if(this.status === 'STATUS_FULFILLED'){
                 executorEnhance(onFulfilled,this.values,resolve,reject)
