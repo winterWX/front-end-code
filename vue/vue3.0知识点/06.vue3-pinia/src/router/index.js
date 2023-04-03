@@ -21,6 +21,11 @@ const router = createRouter({
       path: '/content',
       name: 'content',
       component: ()=> import('../views/contentView.vue')
+    },
+    {
+      path: '/firstPage',
+      name: 'FirstPage',
+      component: ()=> import('../views/FirstPage.vue')
     }
   ]
 })

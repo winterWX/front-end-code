@@ -12,7 +12,7 @@ console.log(result,obj)
 function bar(obj1){
     // 重新定义了对象
     return {
-        ...obj,
+        ...obj1,
         age: 40
     }
 }

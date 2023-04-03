@@ -11,10 +11,10 @@
     <script src='./index.js'></script>
     <script>
         const inputEl = document.querySelector('input')
-        function requestFn(){
-            console.log('节流函数=====')
+        function requestFn(event){
+            console.log('节流函数=====',this,event)
         }
-        inputEl.oninput = throttle(requestFn,6000,{leading: false, trailing: false})
+        inputEl.oninput = throttle(requestFn,6000,{leading: true, trailing: true})
     </script>
 </body>
 </html>
