@@ -43,9 +43,7 @@ class UseReduxThunkList extends Component {
     }
 }
 
-UseReduxThunkList.propTypes = {
-
-}
+UseReduxThunkList.propTypes = {}
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -61,4 +59,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(UseReduxThunkList)
+export default connect(mapStateToProps,mapDispatchToProps)( )
