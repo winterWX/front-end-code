@@ -8,42 +8,39 @@
 </head>
 <body>
     <script>
-       let str = 'I love China';
-       let data = str.split(' ').reverse().join(' ');
-       console.log('data',data);
+      let arrayLen = [[1,2,3,4,5,6],[6,7,3,4,5],3,4,5];
 
-      //一维数组变二维
-      let baseArray = [1, 2, 3, 4, 5, 6, 7, 8];
-      function arrayChange(baseArray,num){
-          let len = baseArray.length;
-          let n = num; //假设每行显示4个
-          let lineNum = len % 4 === 0 ? len / 4 : Math.floor( (len / 4) + 1 );
-          let res = [];
-          for (let i = 0; i < lineNum; i++) {
-            // slice() 方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。
-            let temp = baseArray.slice(i*n, i*n+n);
-            res.push(temp);
-          }
-      }
-      console.log(arrayChange(baseArray,4));
-
-
-
-        
       // 1.二维变一维(方法一)
+      let arrayReduce = arrayLen.reduce((pre,cur)=>{
+          return pre.concat(cur);
+      })
+      console.log("======111111",arrayReduce);
 
-      let array = [[1,2,3,4,5,6],[6,7,3,4,5]];
-      // let arrayReduce = array.reduce((pre,cur)=>{
-      //     return pre.concat(cur);
-      // })
-
-      // console.log("======",arrayReduce);
-
-      let arrayReduce1 = array.flatMap((item)=>{
+      // 方式二
+      let arrayReduce1 = arrayLen.flatMap((item)=>{
           return item
       })
-      console.log(arrayReduce1);
+      console.log("======222222",arrayReduce1);
 
+      // 方式三
+      // 封装方法 扁平化的函数
+      function ArrayFlat(){
+            let values = []
+            return function fn(arr){
+                if(Array.isArray(arr) && arr.length > 0){
+                arr.forEach(arrItem => {
+                    if(Array.isArray(arrItem) && arrItem.length > 0){
+                        fn(arrItem)
+                    }else{
+                        values.push(arrItem)
+                    }
+                })
+                return values
+            }
+        }
+      }
+    const lastArray = ArrayFlat()
+    console.log('=======3333',lastArray(arrayLen))
     </script>
 </body>
 </html>

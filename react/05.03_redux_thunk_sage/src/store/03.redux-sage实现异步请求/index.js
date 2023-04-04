@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { all,put,takeEvery,takeLatest, throttle,call} from 'redux-saga/effects';
+import { all,put, takeEvery, takeLatest, throttle, call } from 'redux-saga/effects';
 import {
   getSagaBannerList,
   getSagaRecommendList,
@@ -40,7 +40,7 @@ function* paramsList(){
 }
 
 function *sameActions(){
-    yield all[yield put(getBothAction()),yield put(getBothActionTwo())] 
+    yield all[yield put(getBothAction()), yield put(getBothActionTwo())] 
 }
 
 
@@ -50,7 +50,7 @@ function* initSaga(){
     //每次都会监听
         //yield takeEvery(SAGAALLLIST,paramsList)
     //采用节流的方式
-        yield throttle(2000,SAGAALLLIST,paramsList)
+       yield throttle(2000, SAGAALLLIST, paramsList)
 
     // 触发两个相同action
        yield takeLatest(SAME_VALUE, sameActions)

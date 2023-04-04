@@ -12,7 +12,6 @@ const nameInitialState={
 }
 
 const reducer = (state = nameInitialState, action) => {
-    console.log('sage - action',action);
     switch (action.type) {
         case SAGABANNERLIST:
             return {...state, banner: [...state.banner,...action.banner] } 

@@ -7,7 +7,7 @@ function boo(){
     /**
      *  var a  = 100 - 局部
      *  b = 100  - 会添加到全局
-     */
+    */
 }
 
 console.log(a)    // undefined

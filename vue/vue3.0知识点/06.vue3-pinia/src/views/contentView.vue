@@ -8,8 +8,8 @@
 <script lang="ts" setup>
 import { useContentStore  } from '../stores/content.js'
 const contentStore = useContentStore()
-console.log('contentStore===',contentStore.nameCode)
 const changeState = ()=>{
+    // 可以进行批量修改
     contentStore.$patch({
         nameCode: 'change name',
         age: 3000

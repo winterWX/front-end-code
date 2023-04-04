@@ -8,6 +8,7 @@ Function.prototype.wxBind = function(thisArg, ...args) {
         // 箭头函数会找到上层的this
         thisArg.fn = fn
         let result = thisArg.fn(...args,...rest)
+        delete thisArg.fn
         return  result
     }
 }  

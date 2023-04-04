@@ -7,12 +7,12 @@ function wxComponseComponent(...fn){
    }
    
    return function(...arg){
-        var index = 0
-        var result =  len ? fn[index].apply(this,arg) : arg
-        while(++index < len){
-            result = fn[index].call(this,result)
-        }
-        return result
+      var index = 0
+      var result = len ? fn[index].apply(this,arg) : arg
+      while(++index < len){
+         result = fn[index].call(this,result)
+      }
+      return result
    }
 }
 

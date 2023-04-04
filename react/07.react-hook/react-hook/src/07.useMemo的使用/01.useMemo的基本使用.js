@@ -7,7 +7,7 @@ function counterVal(state) {
           toals += i;
      }
      return toals
-}
+} 
 
 // 进行性能优化当 state 没有发生变化时 不会进行计算
 
