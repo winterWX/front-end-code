@@ -14,17 +14,17 @@ function Student(name,age,friends,sno){
     this.sno = sno
 }
 
-var p = new Person()
-Student.prototype = p 
+var per = new Person()
+Student.prototype = per 
 
 Student.prototype.studing = function(){
     console.log(this.sno + '在学习')
 }
 
-var p = new Student()
+var stu = new Student()
  
-console.log(p.name)     // 可以拿到父类的name
-console.log(p.eating())   // 可以拿到父类的方法
+console.log(stu.name)     // 可以拿到父类的name
+console.log(stu.eating())   // 可以拿到父类的方法
 
 
 /** 借用构造函数继承解决了 - 原型链实现继承的弊端 */
