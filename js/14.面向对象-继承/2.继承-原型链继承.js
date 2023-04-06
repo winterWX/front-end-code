@@ -35,7 +35,7 @@ console.log(stu.eating())   // 可以拿到父类的方法
  *   2.获取引用，修改引用类型的值, 会互相影响
 */
 
-var stu1 = new Student()
+var stu1 = new Student() 
 var stu2 = new Student()
 
 stu1.friends.push('lili')  // 修改的是引用地址的某个值。 stu1.friends = ['liu de'] 这样就不会印象，因为直接赋值了一个新的引用地址
