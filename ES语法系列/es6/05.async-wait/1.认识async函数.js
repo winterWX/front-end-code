@@ -16,10 +16,10 @@
  * 
  *  async - await 是 promise + generator 的语法糖
  * 
- *  1. async 函数有内置的执行器，不用generator函数 next()函数的调用方法了， 吸取了tj写的co的执行原理
- *  2. 是将generator的 * 变成了async
+ *  1.  async 函数有内置的执行器，不用generator函数 next()函数的调用方法了， 吸取了tj写的co的执行原理
+ *  2.  是将generator的 * 变成了async
  *  3.  将generator 的 yield 变成了 await
- *  4. 使代码的执行同步化
+ *  4.  使代码的执行同步化
  *  
  * 
  */
