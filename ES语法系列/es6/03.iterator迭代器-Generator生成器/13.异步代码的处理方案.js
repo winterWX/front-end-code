@@ -19,7 +19,7 @@ function requestData(url){
 // })
 
 
-// 演变二
+// 演变二 
 // requestData('wx').then(res=>{
 //     return requestData(res+'aa')
 // }).then(res1=>{
