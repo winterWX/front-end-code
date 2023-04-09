@@ -15,9 +15,7 @@
         function draw(){
             let canvasId = document.getElementById('canvasId');
             let ctx = canvasId.getContext('2d');
-            
             ctx.fillStyle = "rgb(200,0,0)";
-
             // //绘制矩形
             ctx.fillRect (10, 10, 100, 100);  //(x,y,W,H)
             console.log(ctx);
@@ -28,8 +26,8 @@
         function triangle(){
             let triangleId = document.getElementById('triangleId');
             let ctx = triangleId.getContext('2d');
-            ctx.beginPath(); //新建一条path
-            ctx.moveTo(50, 50); //把画笔移动到指定的坐标
+            ctx.beginPath();  //新建一条path
+            ctx.moveTo(50, 50);  //把画笔移动到指定的坐标
             ctx.lineTo(200, 50);  //绘制一条从当前位置到指定坐标(200, 50)的直线.
             //闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
             ctx.lineTo(200, 200);
@@ -39,13 +37,11 @@
         triangle()
 
         function circle(){
-
             // arc(x, y, r, startAngle, endAngle, anticlockwise):
             // 以(x, y)为圆心，以r为半径，从 startAngle弧度开始到endAngle弧度结束。
             // anticlosewise是布尔值，true表示逆时针，false表示顺时针。(默认是顺时针)
 
             var canvas = document.getElementById('cricleId');
-
             var ctx = canvas.getContext("2d");
             ctx.beginPath();
             ctx.arc(100, 100, 40, 0, Math.PI * 2, false);

@@ -10,14 +10,14 @@
     <input type="text">
     <!-- <script src='./1.获取返回值方式一.js'></script> -->
     <!-- <script src='./2.获取返回值方式二.js'></script> -->
-    <script src='../../../JS手写常用练习//2.第二次手写系列/7.手写节流函数.js'></script>
+    <script src='../../../JS手写常用练习/2.第二次手写系列/7.手写节流函数.js'></script>
     <script>
         const inputEl = document.querySelector('input')
         function requestFn(event){
             console.log('节流函数=====',this,event)
             return 'qqq'
         }
-        const changeFn = throttle(requestFn,2000,{leading: true, trailing: true},(res)=>{
+        const changeFn = throttle(requestFn,6000,{ leading: true,  trailing: true },(res)=>{
             console.log('获取返回值===', res)
         })
 

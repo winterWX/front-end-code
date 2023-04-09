@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .parentBox{
+           height: 200px;
+           width: 800px;
+           background-color: #cccc;
+        }
+        #child{
+            height: 100px;
+            width: 100px;
+            background-color: chartreuse;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="parentBox">
+        <div id="child"></div>
+    </div>
+    <script>
+        const move = document.querySelector('#child')
+        function setIntervalFn() {
+			let timer = null
+			move.style.left = '0px'
+			timer = setInterval(() => {
+				let leftVal = parseInt(box1.style.left)
+				if (leftVal >= 720) {
+					clearInterval(timer)
+				} else {
+					move.style.left = leftVal + 1 + 'px'
+				}
+			}, 17)
+		}
+    </script>
 </body>
 </html>
