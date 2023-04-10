@@ -2,7 +2,7 @@
 
 /**
  *    案例一
- */
+*/
 
 var  n = 100 
 function foo(){

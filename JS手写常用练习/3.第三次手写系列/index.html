@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <script src="./5.手写节流函数.js"></script> -->
+		<script src="./6.手写防抖函数.js"></script>
+		
+		<input type="text">
+		<script>
+			let btn = document.querySelector('input')
+			function requstFn(){
+			    console.log('节流次数====',this)
+			} 
+			// const inChange = throttle(requstFn,6000, {leading : true, trailing: true})
+			const inChange = decounce(requstFn, 6000, immediate = true)
+			btn.oninput = inChange
+		</script>
+	</body>
+</html>

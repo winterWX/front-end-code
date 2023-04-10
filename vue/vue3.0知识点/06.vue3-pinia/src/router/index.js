@@ -23,9 +23,9 @@ const router = createRouter({
       component: ()=> import('../views/contentView.vue')
     },
     {
-      path: '/firstPage',
-      name: 'FirstPage',
-      component: ()=> import('../views/FirstPage.vue')
+      path: '/virtualList',
+      name: 'virtualList',
+      component: ()=> import('../views/virtualList.vue')
     }
   ]
 })
