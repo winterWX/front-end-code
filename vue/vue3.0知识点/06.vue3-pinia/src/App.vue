@@ -1,21 +1,43 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+// 知识点测试部分
+// import userModelComponent from './views/vue知识点测试部分/1.v-model的用法/2.在组件上使用v-model/index.vue'
+import useAttrsComponent from './views/vue知识点测试部分/2.透传属性用法/index.vue'
+import useMouseMove from './views/vue知识点测试部分/3.封装鼠标移动事件/1.方式一.vue'
+import useMouseMoveTwo from './views/vue知识点测试部分/3.封装鼠标移动事件/2.方式二/index.vue'
+
+import { ref } from 'vue'
+// 控制路由方式和单页面方式
+const isShow = ref(false)
+isShow.value = true
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/content">content</RouterLink>
-        <RouterLink to="/virtualList">长列表</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <template v-if="!isShow">
+    <!-- <userModelComponent /> -->
+    <!-- <useAttrsComponent></useAttrsComponent> -->
+    <!-- <useMouseMove></useMouseMove> -->
+    <useMouseMoveTwo></useMouseMoveTwo>
+  </template>
+  
+  <template v-else>
+    <header>
+      <!-- <div class="wrapper"> -->
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/content/34">content</RouterLink>
+          <RouterLink to="/virtualList">长列表</RouterLink>
+        </nav>
+      <!-- </div> -->
+    </header>
+     
+    <!-- 路由匹配到的会渲染到这里 -->
+    <RouterView />
+  </template>
 
-  <RouterView />
 </template>
 
 <style scoped>

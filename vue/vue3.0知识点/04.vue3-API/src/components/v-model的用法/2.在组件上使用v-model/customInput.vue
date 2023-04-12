@@ -1,0 +1,12 @@
+<script setup>
+  defineProps(['modelValue'])
+  defineEmits(['update:modelValue'])
+  console.log(props.modelValue)
+</script>
+
+<template>
+  <input
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+  />
+</template>

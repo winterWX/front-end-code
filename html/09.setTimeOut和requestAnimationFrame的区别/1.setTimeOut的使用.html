@@ -10,11 +10,13 @@
            height: 200px;
            width: 800px;
            background-color: #cccc;
+           position: relative;
         }
         #child{
             height: 100px;
             width: 100px;
             background-color: chartreuse;
+            position: absolute;
         }
     </style>
 </head>
@@ -26,16 +28,25 @@
         const move = document.querySelector('#child')
         function setIntervalFn() {
 			let timer = null
+            let reverseFlag = false
 			move.style.left = '0px'
 			timer = setInterval(() => {
-				let leftVal = parseInt(box1.style.left)
-				if (leftVal >= 720) {
-					clearInterval(timer)
+				let leftVal = parseInt(move.style.left)
+                let rightVal = null
+                if(reverseFlag){
+                    move.style.left = leftVal - 1 + 'px'
+                    reverseFlag = leftVal <= 0 ?  false : true
+                }
+				if (leftVal >= 700) {
+                    reverseFlag = true
 				} else {
-					move.style.left = leftVal + 1 + 'px'
+                    if(!reverseFlag){
+                        move.style.left = leftVal + 1 + 'px'
+                    }                   
 				}
-			}, 17)
+			}, 20)
 		}
+        setIntervalFn()
     </script>
 </body>
 </html>

@@ -42,5 +42,20 @@
     const lastArray = ArrayFlat()
     console.log('=======3333',lastArray(arrayLen))
     </script>
+    <script>
+        // 方式二
+        const arr = [23,34,45,558,78,98,767,6767,89,98,956,455,66,678]
+        function arrayChange(arr, n){
+            let newArr = []
+            const chunk = Math.ceil(arr.length / n)
+            for(let i = 0 ; i < chunk; i++){
+                let temp = arr.slice(i*chunk, i*chunk+chunk)
+                newArr.push(temp)
+            }
+            return newArr
+        }
+        const lastArrayCode = arrayChange(arr,4)
+        console.log('lastArray===', lastArrayCode)
+    </script>
 </body>
 </html>

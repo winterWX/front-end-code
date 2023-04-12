@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parentBox{
+           height: 200px;
+           width: 800px;
+           background-color: #cccc;
+           position: relative;
+        }
+        #child{
+            height: 100px;
+            width: 100px;
+            background-color: chartreuse;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="parentBox">
+        <div id="child"></div>
+    </div>
+    <script>
+        const move = document.querySelector('#child')
+        //var counter = 0
+        let reverseFlag = false
+		move.style.left = '0px'
+        function setIntervalFn() {
+            requestAnimationFrame(animationFn)
+        }
+        function animationFn(){
+            let leftVal = parseInt(move.style.left)
+            if(reverseFlag){
+                move.style.left = leftVal - 1 + 'px'
+                reverseFlag = leftVal <= 0 ?  false : true
+            }
+            if (leftVal >= 700) {
+                reverseFlag = true
+            } else {
+                if(!reverseFlag){
+                    move.style.left = leftVal + 1 + 'px'
+                }                   
+            }
+            requestAnimationFrame(animationFn)
+        }
+        setIntervalFn()
+    </script>
+</body>
+</html>

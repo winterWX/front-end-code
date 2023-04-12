@@ -1,19 +1,31 @@
 <template>
     <div>
         <h2>异步组件defineAsyncComponent的使用</h2>
-        <div v-if="showPage"><child-page></child-page></div>
+        <div v-if="showPage"><child-page ref="childRef"></child-page></div>
         <button @click="asyncShow()">点击显示异步组件</button>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { defineAsyncComponent, ref, onMounted } from 'vue';
+import { defineAsyncComponent, ref, onMounted, watch } from 'vue';
+const childRef = ref(null)
 const elHig = ref(0)
 const showPage = ref(false)
 // onMounted(()=>{
 //     let heightVal = document.documentElement.clientHeight 
 //     elHig.value = heightVal
 // })
+
+// onMounted(()=>{
+//     console.log('======',childRef.value)
+// })
+
+watch(()=> showPage.value,(newVal,oldVal)=>{
+    console.log('----',newVal)
+    if(newVal){
+        console.log('======',childRef.value)
+    }
+})
 
 const childPage = defineAsyncComponent({
     // 加载函数

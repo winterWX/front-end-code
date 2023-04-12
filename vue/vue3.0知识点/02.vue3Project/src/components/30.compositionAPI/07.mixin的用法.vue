@@ -6,6 +6,7 @@
 
 
 <script>
+import { computed } from 'vue'
 	import { mixinComponsition } from '../../utlis/mixinUtils.js'
 	export default{
 	  mixins:[ mixinComponsition ], //局部引入
@@ -15,7 +16,6 @@
 		  // }
 	  }
 	}
-	
 </script>
 
 <style>

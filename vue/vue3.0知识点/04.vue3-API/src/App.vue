@@ -14,7 +14,11 @@
       <!-- <shallowRefComponent /> -->
       <!-- <useEffectScopeComponent /> -->
       <!-- <useNextTickComponent></useNextTickComponent> -->
-      <asyncComponentShow></asyncComponentShow>
+      <!-- <asyncComponentShow></asyncComponentShow> -->
+      <!-- <defineComponentShow /> -->
+      <!-- <defineCustomElementShow></defineCustomElementShow> -->
+      <!-- <slotsComponentShowTwo></slotsComponentShowTwo> -->
+      <vModelUserShow></vModelUserShow>
   </div>
 </template>
 
@@ -34,7 +38,14 @@
   import shallowRefComponent from './components/响应式进阶API/shallowRef的使用/index.vue'
   import useEffectScopeComponent from './components/响应式进阶API/effectScope的使用/index.vue'
   import useNextTickComponent from './components/vue全局API/2.nextTick的使用.vue'
-  import asyncComponentShow from './components/异步组件的定义defineAsyncComponent的使用/index.vue'
+  import asyncComponentShow from './components/vue全局API/3.定义异步组件defineAsyncComponent的使用/index.vue'
+  import defineComponentShow  from './components/vue全局API/4.defineComponent的使用/index.vue'
+  // import defineCustomElementShow from './components/vue全局API/5.defineCustomElemnt的使用/index.vue'
+  import slotsComponentShowOne from './components/插槽的使用方法/3.作用域插槽/默认插槽里的实现.vue'
+  import slotsComponentShowTwo from './components/插槽的使用方法/3.作用域插槽/具名插槽里的实现.vue'
+  import vModelUserShow from './components/v-model的用法/2.在组件上使用v-model/index.vue'
+
+
   // 来自子组件的值
   const changeState = (res)=>{
     console.log("res====",res)

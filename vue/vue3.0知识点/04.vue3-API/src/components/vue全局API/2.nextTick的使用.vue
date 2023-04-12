@@ -11,9 +11,9 @@
         1.组件更新函数入队：{
             1.组件都是有作用域的，这个作用域是用 reactiveEffect构造函数实例化的
             在 reactiveEffect函数里，会把组件更新函数传递给 queueJob(组件更新函数)进行排队
-            队列刷新函数 queueFlush(),将所有的渲染函数加到resolvePromise.then(更新函数)的微任务里，等待调用。调用是所有的渲染函数都会执行
+            队列刷新函数 queueFlush(),将所有的渲染函数加到resolvePromise.then(更新函数)的微任务里，等待调用。调用时所有的渲染函数都会执行
         }
-        2.强制执行 ： 在nextTick方法里是直接拿到之前存放 resolvePromise,对这个resolvePromise数 里渲染函类直接进行了异步调用。
+        2.强制执行：在nextTick方法里是直接拿到之前存放 resolvePromise,对这个resolvePromise数 里渲染函类直接进行了异步调用。
     }
 
 */ -->

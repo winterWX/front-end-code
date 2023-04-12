@@ -6,8 +6,14 @@
     </div>
 </template>
 <script lang="ts" setup>
+import { onMounted, watch } from 'vue'
 import { useContentStore  } from '../stores/content.js'
+import { useRoute } from 'vue-router'
 const contentStore = useContentStore()
+// 获取路由参数
+const route = useRoute()
+
+
 const changeState = ()=>{
     // 可以进行批量修改
     contentStore.$patch({
@@ -16,5 +22,22 @@ const changeState = ()=>{
     })
 }
 
+// 获取动态路由参数,动态id的形式
+console.log(route.params?.id)
+
+// query路由的参数
+console.log(route.query)
+
+// state 路由参数方式
+console.log(route)
+
+
+// 对路由变化做监听
+onMounted(()=>{
+    watch(()=> route.query ,(newVal,oldVal)=>{
+        console.log('====',newVal, oldVal)
+    })
+})
 
 </script>
+
