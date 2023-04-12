@@ -16,7 +16,7 @@ export const useAboutStore = defineStore('about', () => {
    * setup store 相比 option store 
    *  在 setup store 
    *   1.里可以使用 watch
-   *   2.组合更加自用
+   *   2.组合更加自由
    *   3.state其实就是reactive包装的一个对象
    *   4.可以通过storeToRefs进行解构响应式数据
    */

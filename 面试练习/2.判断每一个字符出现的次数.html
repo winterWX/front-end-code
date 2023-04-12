@@ -43,5 +43,30 @@
         }
         //console.log(valMark)
     </script>
+    <script>
+        // 方案二
+        function strChange(){
+            let strData = 'adfasdfWSDGFSDJKGBsssdsfgdfgdfdmmSDFGSDFGDDDASDASDSSS,fasdfasdf3252345#W$@#$!@#^#$%^#$%^@#$############'
+            let data = strData.split('')
+            let numFlag = 0 
+            const lastIndexCode = data.reduce((pre,cur)=>{
+                const node = pre.length > 0 && pre.find(item=>{
+                    return item.value === cur
+                })
+                if(node){
+                    node.num++
+                    return pre
+                }
+                return [...pre, { num: 1, value: cur}] 
+            },[]).sort((x,y)=> y.num - x.num).filter((item,index)=>{
+                if(index === 0) { numFlag = item.num }
+                if(item.num === numFlag) {
+                    return item
+                }
+            })
+            console.log('lastIndexCode===',lastIndexCode)
+        }
+        strChange()
+    </script>
 </body>
 </html>

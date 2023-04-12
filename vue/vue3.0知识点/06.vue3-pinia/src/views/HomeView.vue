@@ -4,9 +4,9 @@ import TheWelcome from '../components/TheWelcome.vue'
 
 <template>
   <div>
-    <main>
+    <!-- <main>
       <TheWelcome />
-    </main>
+    </main> -->
     <div class="piniaContent">{{ count }}- {{double}}</div>
     <button @click="increment()">点击事件</button>
     <button @click="mostKeyChange()">变更多个属性</button>
@@ -44,7 +44,7 @@ export default {
       store.$subscribe((mutations,state)=>{
         // mutations, events包含新的值和旧的值，payload改变后的对象，store的id，改变的类型
         // state 代理对象
-          console.log(mutations,state)
+          console.log("===",mutations,state)
       })
     }
   },
