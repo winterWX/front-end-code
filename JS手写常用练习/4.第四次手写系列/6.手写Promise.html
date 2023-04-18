@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class wxPromise{
+            constructor(executor){
+                this.status = 'PADDING_STATUS'
+                this.statusArr = ['PADDING_STATUS','FULFILLED_STATUS','REJECTED_STATUS']
+                this.values = null
+                this.reasons = null
+                this.resolveArr = []
+                this.rejectArr = []
+                const resolve = (value)=>{
+                    if(this.status === 'PADDING_STATUS'){
+                        this.status = 'FULFILLED_STATUS' 
+                        this.values = value
+                        queueMicrotask(()=>{
+                           this.resolveArr.forEach(fn=>{
+                                fn(this.values)
+                           })
+                        })
+                    }
+                }
+                const reject = (reason)=>{
+                    if (this.status === 'PADDING_STATUS') {
+                        this.status = 'REJECTED_STATUS'
+                        this.reasons = reason
+                        queueMicrotask(()=>{
+                            this.rejectArr.forEach(fn=>{
+                                fn(this.reasons)
+                            })
+                        })
+                    }
+                }
+                executor(resolve, reject)
+            }
+            then(onResolved,onRejected){
+                onResolved = onResolved || (value => value)
+                onRejected = onRejected || (err => { throw err })
+                return new wxPromise((resolve,reject)=>{
+                    if(this.status === 'FULFILLED_STATUS'){
+                            try {
+                                let result = onResolved(this.values)
+                                resolve(result)
+                            } catch (error) {
+                                reject(error)
+                            }
+                    }
+                    if (this.status === 'REJECTED_STATUS') { 
+                            try {
+                                let result = onRejected(this.reasons)
+                                resolve(result)
+                            } catch (error) {
+                                reject(error)
+                            }
+                    }
+                    if(this.status === 'PADDING_STATUS'){
+                        onResolved && this.resolveArr.push((res) => {
+                            try {
+                                let result = onResolved(res)
+                                resolve(result)
+                            } catch (error) {
+                                reject(error)
+                            }
+
+                        })
+                        onRejected && this.rejectArr.push((err) => {
+                            try {
+                                let result = onRejected(err)
+                                resolve(result)
+                            } catch (error) {
+                                reject(error)
+                            }
+                        })
+                    }
+                })
+            }
+            catch(onRejected){
+                return this.then(undefined, onRejected)
+            }
+            finally(onFinally){
+                this.then(onFinally, onFinally)
+            }
+            static all(promiseArray){
+                new wxPromise((resolve,reject)=>{
+                    if(!Array.isArray(promiseArray)){ throw new Error('不是一个数组')}
+                    let result = []
+                    promiseArray.forEach(pr=>{
+                        pr.then(res=>{
+                            result.push(res)
+                            if(result.length === promiseArray.length){
+                                resolve(res)
+                            }
+                        },err=>{
+                            reject(err)
+                        })
+                    })
+                })
+            }
+            static allSettle(promiseArray) {
+                let result = []
+                return new wxPromise((resolve,reject)=>{
+                    promiseArray.forEach(pr=>{
+                        pr.then(res=>{
+                            result.push({'status': 'fulfilled', value: res })
+                            if(promiseArray.length === result.length){
+                                resolve(result)
+                            }
+                        },err=>{
+                            result.push({ 'status': 'rejected', value: err })
+                            if (promiseArray.length === result.length) {
+                                reject(result)
+                            }
+                        })
+                    })
+                })
+            }
+            static race(promiseArray) {
+                return new wxPromise((resolve, reject) => {
+                    promiseArray.forEach(pr => {
+                        pr.then(res => {
+                            resolve(res)
+                        }, err => {
+                            reject(err)
+                        })
+                    })
+                })
+            }
+            static any(promiseArray) {
+                let result = []
+                return new wxPromise((resolve, reject) => {
+                    promiseArray.forEach(pr => {
+                        pr.then(res => {
+                            resolve(res)
+                        }, err => {
+                            result.push(err)
+                            if (promiseArray.length === result.length) {
+                                reject(result)
+                            }
+                        })
+                    })
+                })
+            }
+        }
+
+        new wxPromise((resolve,reject)=>{
+            resolve('aaa')
+            //reject('bbb')
+        }).then(res1=>{
+            console.log('res1====', res1)
+        }).catch(err1 => {
+            console.log('err1====', err1)
+            //return 'catch'
+            //throw new Error('----')
+        }).then(res2 => {
+            console.log('res2====', res2)
+        }, err2 => {
+            console.log('er2r====', err2)
+        }).finally(()=>{
+            console.log('mmmmmmmm')
+        })
+
+console.log('------------------------------------------------------------------------')
+            new Promise((resolve, reject) => {
+                resolve('aaa')
+                //reject('bbb')
+            }).then(res1 => {
+                console.log('res1====', res1)
+            }).catch(err1 => {
+                console.log('err1====', err1)
+                //return 'catch'
+                //throw new Error('----')
+            }).then(res2 => {
+                console.log('res2====', res2)
+            }, err2 => {
+                console.log('er2r====', err2)
+            }).finally(() => {
+                console.log('mmmmmmmm')
+            })
+    </script>
+</body>
+</html>
+
+
