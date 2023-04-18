@@ -2,11 +2,11 @@
  *  案例一
 */
 console.log(a)  // undefined
-var a = 1 
+var a = 1
 
 
 console.log(b)  // referenceError cannot
-let b = 1 
+let b = 1
 
 /**  
  *   案例一分析： 

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="1">
     <diagram id="wpIUDCgS-jAy4nphHHjV" name="Page-1">
-        <mxGraphModel dx="720" dy="3940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1056" dy="3940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -50,6 +50,9 @@
                     <mxGeometry x="210" y="-1960" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="30" value="" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" source="25" target="29" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.395;entryY=0.892;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#FF0000;" edge="1" parent="1" source="25" target="74">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="Dom Tree" style="whiteSpace=wrap;html=1;fillColor=#B3B3B3;" parent="1" vertex="1">
@@ -163,6 +166,9 @@
                 </mxCell>
                 <mxCell id="73" value="绘制或者重绘" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="830" y="-2060" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="当domTree 形成后就说明HTML文档已经被完全加载和解析。&lt;br&gt;就会调用&amp;nbsp; DomContentloaded 触发JS事件，确保页面中的&lt;b&gt;所有元素已经被正确的加载和解析&lt;/b&gt;。" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="-2360" width="820" height="110" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

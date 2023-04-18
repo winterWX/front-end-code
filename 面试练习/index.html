@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./18.编写并发函数.js"></script>
+</head>
+<body>
+    <script>
+        let requestNum = 40
+        let urls = Array(30).fill('http://123.207.32.32:8000/home/multidata')
+        const num = Math.ceil(urls.length / requestNum)
+        for(let i = 0; i < num.length; i++){
+            let url = urls.slice()
+            requestAll(urls, requestNum).then(res => {
+                console.log('res====', res)
+            })
+        }
+        
+    </script>
+</body>
+</html>

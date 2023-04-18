@@ -3,113 +3,113 @@ const statusArray = {
     resolve: 'FULFILLED',
     reject: 'REJECTED'
 }
-class wxPromise{
-    constructor(executor){
-       this.status = statusArray['pending']
-       this.onFulfilledArr = []
-       this.onRejectedArr = []
-       this.values = null
-       this.reason = null
-       let resolve = (value)=>{
-          if(this.status === 'PENDING'){
-            this.status = statusArray['resolve']
-            this.values = value
-            queueMicrotask(()=>{
-                this.onFulfilledArr.forEach(fn=>{
-                    fn(this.values)
+class wxPromise {
+    constructor(executor) {
+        this.status = statusArray['pending']
+        this.onFulfilledArr = []
+        this.onRejectedArr = []
+        this.values = null
+        this.reason = null
+        let resolve = (value) => {
+            if (this.status === 'PENDING') {
+                this.status = statusArray['resolve']
+                this.values = value
+                queueMicrotask(() => {
+                    this.onFulfilledArr.forEach(fn => {
+                        fn(this.values)
+                    })
                 })
-            })
-          }
-       }
-       let reject =(reason)=>{
-          if(this.status === 'PENDING'){
-            this.status = statusArray['reject']
-            this.reason = reason
-            queueMicrotask(()=>{
-                this.onRejectedArr.forEach(fn=>{
-                    fn(this.reason)
+            }
+        }
+        let reject = (reason) => {
+            if (this.status === 'PENDING') {
+                this.status = statusArray['reject']
+                this.reason = reason
+                queueMicrotask(() => {
+                    this.onRejectedArr.forEach(fn => {
+                        fn(this.reason)
+                    })
                 })
-            })
-          }
-       }
-       executor(resolve,reject)
+            }
+        }
+        executor(resolve, reject)
     }
-    then(onFulfilled,onRejected){
-        onRejected = onRejected || (err=>{ throw err})
-        onFulfilled = onFulfilled || (val=>{ return val }) 
-        return new wxPromise((resolve,reject)=>{
-            if(this.status === 'FULFILLED'){
-                executorEnhance(onFulfilled,this.values,resolve,reject)
+    then(onFulfilled, onRejected) {
+        onRejected = onRejected || (err => { throw err })
+        onFulfilled = onFulfilled || (val => { return val })
+        return new wxPromise((resolve, reject) => {
+            if (this.status === 'FULFILLED') {
+                executorEnhance(onFulfilled, this.values, resolve, reject)
             }
-            if(this.status === 'REJECTED'){
-                executorEnhance(onRejected,this.reason,resolve,reject)
+            if (this.status === 'REJECTED') {
+                executorEnhance(onRejected, this.reason, resolve, reject)
             }
-            if(this.status === 'PENDING'){
-                onFulfilled && this.onFulfilledArr.push(()=>{
-                    executorEnhance(onFulfilled,this.values,resolve,reject)
+            if (this.status === 'PENDING') {
+                onFulfilled && this.onFulfilledArr.push(() => {
+                    executorEnhance(onFulfilled, this.values, resolve, reject)
                 })
-                onRejected && this.onRejectedArr.push(()=>{
-                    executorEnhance(onRejected,this.reason,resolve,reject)
+                onRejected && this.onRejectedArr.push(() => {
+                    executorEnhance(onRejected, this.reason, resolve, reject)
                 })
             }
         })
     }
-    catch(onRejected){
-       return this.then(undefined,onRejected)
+    catch(onRejected) {
+        return this.then(undefined, onRejected)
     }
-    finally(onFinally){
-        this.then(onFinally,onFinally)
+    finally(onFinally) {
+        this.then(onFinally, onFinally)
     }
-    static resolve(value){
-        return new wxPromise((resolve,reject)=>{
+    static resolve(value) {
+        return new wxPromise((resolve, reject) => {
             resolve(value)
         })
     }
-    static reject(reason){
-        return new wxPromise((resolve,reject)=>{
+    static reject(reason) {
+        return new wxPromise((resolve, reject) => {
             reject(reason)
         })
     }
-    static all(promises){
-        if(Array.isArray(promises)){
-            return new wxPromise((resolve,reject)=>{
+    static all(promises) {
+        if (Array.isArray(promises)) {
+            return new wxPromise((resolve, reject) => {
                 let values = []
-                promises.forEach(promiseFn=>{
-                    promiseFn.then(res=>{
+                promises.forEach(promiseFn => {
+                    promiseFn.then(res => {
                         values.push(res)
-                        if(values.length === promises.length){
+                        if (values.length === promises.length) {
                             resolve(values)
                         }
-                    },err=>{
+                    }, err => {
                         reject(err)
                     })
                 })
             })
         }
     }
-    static allSettled(promises){
-        return new wxPromise((resolve,reject)=>{
-            let values =[]
-            promises.forEach(promiseFn=>{
-                promiseFn.then(res=>{
-                    values.push({status: 'fulfilled',value: res})
-                    if(promises.length === values.length){ resolve(values) }
-                },err=>{
-                    values.push({status: 'rejected',reason: err})
-                    if(promises.length === values.length){ resolve(values) }
+    static allSettled(promises) {
+        return new wxPromise((resolve, reject) => {
+            let values = []
+            promises.forEach(promiseFn => {
+                promiseFn.then(res => {
+                    values.push({ status: 'fulfilled', value: res })
+                    if (promises.length === values.length) { resolve(values) }
+                }, err => {
+                    values.push({ status: 'rejected', reason: err })
+                    if (promises.length === values.length) { resolve(values) }
                 })
             })
         })
     }
-    static any(promises){
-        return new wxPromise((resolve,reject)=>{
+    static any(promises) {
+        return new wxPromise((resolve, reject) => {
             let reasons = []
-            promises.forEach(promiseFn=>{
-                promiseFn.then(res=>{
+            promises.forEach(promiseFn => {
+                promiseFn.then(res => {
                     resolve(res)
-                },err=>{
+                }, err => {
                     reasons.push(err)
-                    if(reasons.length === promises.length){
+                    if (reasons.length === promises.length) {
                         reject(reasons)
                     }
                 })
@@ -118,7 +118,7 @@ class wxPromise{
     }
 }
 
-function executorEnhance(onCallback,values,resolve,reject){
+function executorEnhance(onCallback, values, resolve, reject) {
     try {
         let result = onCallback(values)
         resolve(result)
@@ -127,7 +127,7 @@ function executorEnhance(onCallback,values,resolve,reject){
     }
 }
 
-const testPromise = new wxPromise((resolve,reject)=>{
+const testPromise = new wxPromise((resolve, reject) => {
     resolve('aaa')
     //reject('bbb')
 })
@@ -156,11 +156,11 @@ const testPromise = new wxPromise((resolve,reject)=>{
 // },2000)
 
 
-testPromise.then(res=>{
-   console.log("res===",res)
-   return '00'
-}).catch(err=>{
-    console.log("err===",err)
-}).finally(res44=>{
+testPromise.then(res => {
+    console.log("res===", res)
+    return '00'
+}).catch(err => {
+    console.log("err===", err)
+}).finally(res44 => {
     // then 和 catch 时都会调 finally 没有值，做一些清除性的处理
 })
