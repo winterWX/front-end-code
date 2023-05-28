@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.如何实现图片的本地预览
+    2.如何实现图片的部分上传 -->
+
+    <input type="file" width="300px" height="20px" />
+    <img class="preview"/> 
+    <button>生成裁剪过后的图片</button>
+    <script>
+        const inputFiler = document.querySelector('input')
+        console.log('inputFiler==', inputFiler)
+        const img = document.querySelector('img')
+        const btn = document.querySelector('button')
+        inputFiler.onchange = function(e){
+            const file = e.target.files[0]
+            console.log('file===', file)
+            const read = new FileReader()
+            read.onload = function(e){
+                console.log('result', e.target.result)
+                img.src = e.target.result
+            }               
+            read.readAsDataURL(file)
+        }
+        btn.onclick = function(){
+            const canvas = document.createElement('canvas')
+            const crrentImage = { x: 10, y: 10, curWith: 80, curHight: 80, with: 50,  height: 50 }
+            canvas.width = crrentImage.with
+            canvas.height = crrentImage.height
+            const ctx = canvas.getContext('2d')
+            ctx.drawImage(img, crrentImage.x, crrentImage.y, crrentImage.curWith, crrentImage.curHight, 0, 0, canvas.width, canvas.height)
+            document.body.append(canvas)
+        }
+
+    </script>
+</body>
+</html>
+
+
+https://segmentfault.com/a/1190000008019773
