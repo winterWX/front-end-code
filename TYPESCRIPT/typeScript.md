@@ -6,3 +6,6 @@
 # 解决了什么
   1. 为定义变量增加了类型检测。
   # https://segmentfault.com/a/1190000022876390 (学习连接)
+
+
+  https://segmentfault.com/a/1190000038959316
