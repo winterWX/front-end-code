@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{width:100%;height:100%;background:#f2f2f2;padding:0;margin:0;font-size:1em;}
+.inputbox{ width: 1000px; margin: 0 auto;}
+.code{background:none repeat scroll 0 0 #E3F4F9;border:1px solid #BAE2F0;font:12px "Courier New",Courier,monospace;margin:30px auto;padding:10px 10px 40px;width:980px}
+.code p{height:24px;line-height:24px}
+.code span{zoom:1;margin-right:5px;width:85px;font-weight:bold;color:#39f}
+
+#clipping-container{ width: 1000px; margin: 0 auto;}
+.previewImg{ display: block; width: auto; max-width: 1000px; height: auto; margin: 10px auto;}
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="inputbox">
+            <div class="button" role="button">
+                选择图片：<input type="file" name="file" class="upload-img" accept="image/*" onchange="chooseImg(this)" />
+            </div>
+        </div>
+        <div id="clipping-container"></div>
+        <img id="previewImg" src="" alt="" class="previewImg">
+    </section>
+     <script>
+        function chooseImg(event) {
+                var files = event.files || event.dataTransfer.files,
+                    file = files[0] || files;
+                event.value = '';
+                window.clip = new Clip({
+                    dragBoxClass: 'block',
+                    clipRadio: 4 / 3,
+                    cornerColor: '#f00',
+                    maxWidth: 300,
+                    encode: 'base64',
+                    type: 'png',
+                    name: 'rtest',
+                    quality: 0.9,
+                    onDone: function (e) {
+                        document.getElementById('previewImg').src = e;
+                    },
+                    onCancel: function () {
+
+                    }
+                });
+                clip.setSize(file);
+            }
+
+     </script>
+</body>
+</html>

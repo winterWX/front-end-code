@@ -8,7 +8,7 @@ watch {
     watch 有三个参数：{
         1.侦听的值
         2.副作用函数
-        3.刷新机制: {deep, immediate, flush:{post,pre, sync}}
+        3.刷新机制: {deep, immediate, flush:{ post, pre, sync}}
     }
 }
 
