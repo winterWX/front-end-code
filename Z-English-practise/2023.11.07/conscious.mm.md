@@ -29,7 +29,7 @@
     - A life lived by choice is a life of conscious action. A life lived by chance is a life of unconscious reaction (以选择为依归的人生充满自觉的行为，被碰巧所左右的人生充满不自觉的行为反应)
         - reaction
             - n.反应，回应；反应能力;药物或食物引起的）不良反应；化学反应；反作用力；（对旧观念等的）抗拒；反动，守旧
-        - chance 
+        - chance
             - n.机会，时机；可能性；危险，冒险；运气，偶然
             - v.偶然，碰巧；冒险做
             - adj.偶然的，碰巧的
