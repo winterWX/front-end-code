@@ -18,7 +18,8 @@
       <!-- <defineComponentShow /> -->
       <!-- <defineCustomElementShow></defineCustomElementShow> -->
       <!-- <slotsComponentShowTwo></slotsComponentShowTwo> -->
-      <vModelUserShow></vModelUserShow>
+      <!-- <vModelUserShow></vModelUserShow> -->
+      <dragComponent></dragComponent>
   </div>
 </template>
 
@@ -44,7 +45,7 @@
   import slotsComponentShowOne from './components/插槽的使用方法/3.作用域插槽/默认插槽里的实现.vue'
   import slotsComponentShowTwo from './components/插槽的使用方法/3.作用域插槽/具名插槽里的实现.vue'
   import vModelUserShow from './components/v-model的用法/2.在组件上使用v-model/index.vue'
-
+  import dragComponent from './components/实现拖拽组件的封装/index.vue'
 
   // 来自子组件的值
   const changeState = (res)=>{
