@@ -16,7 +16,7 @@ import React from "react";
 
 // import OldRefComponent from './08.useRef/ref在Class组件中的用法'
 // import UseRefDefalut from "./08.useRef/01.useRef的基本用法";
-   import UseRefAdvancedUsage from "./08.useRef/02.useRef高级用法"
+//  import UseRefAdvancedUsage from "./08.useRef/02.useRef高级用法"
 
 // import UseImperativeHandle from "./09.useImpertaiveHandle的用法/01.useImperativeHandle的基本用法"
 // import CuostomHook from './10.自定义hook的使用/01.自定义hook的使用.js'
@@ -28,12 +28,12 @@ import React from "react";
 // import CopyFilyComponent from './12.使用hooks来模拟生命周期/index'
 // import UseMoveClass from './13.模拟鼠标事件/1.原生实现鼠标移动事件'
 // import UseComponent from './13.模拟鼠标事件/2.hooks实现鼠标移动事件'
-
+import UseComponentCount from './03.useEffect的使用/04.useEffect依赖参数为常量'
 
 function App() {
   return (
     <div className="App">
-      {/* hooks的体验 */} 
+      {/* hooks的体验 */}
       {/* <CounterCnp /> */}
       {/* <CounterCnp /> */}
       {/* <CounterCnp /> */}
@@ -51,7 +51,7 @@ function App() {
       {/* <UseCallbackCnp /> */}
 
       {/* <UseMemoBase /> */}
-      
+
       {/* <UseMemoComponent /> */}
 
       {/* <OldRefComponent /> */}
@@ -60,8 +60,8 @@ function App() {
 
       {/* <UseRefDefalut /> */}
 
-      <UseRefAdvancedUsage />
-      
+      {/* <UseRefAdvancedUsage /> */}
+
       {/* <CuostomHook /> */}
 
       {/* <UseImperativeHandle /> */}
@@ -70,7 +70,8 @@ function App() {
       {/* <CopyFilyComponent /> */}
       {/* <UseMoveClass /> */}
       {/* <UseComponent /> */}
-    </div>
+      <UseComponentCount />
+    </div >
   );
 }
 

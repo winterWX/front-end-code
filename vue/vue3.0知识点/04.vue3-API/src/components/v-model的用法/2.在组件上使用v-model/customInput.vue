@@ -1,7 +1,7 @@
 <script setup>
+  import { defineProps,defineEmit} from 'vue'
   defineProps(['modelValue'])
-  defineEmits(['update:modelValue'])
-  console.log(props.modelValue)
+  defineEmit(['update:modelValue'])
 </script>
 
 <template>
