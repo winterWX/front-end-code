@@ -1,43 +1,43 @@
-tow
-toward(s)
-take
-talent
-target
-taste
-technical
-technician
-technique
-temperature
-temporal
-temporary
-tempt
-temptation
-tend
-tendency
-tentative
-term
-terminal
-technology /tech
-teenager
+tow    ++ 
+toward(s)   -+ 
+take     -+
+talent   ++
+target   ++
+taste    ++
+technical     -+
+technician    -+
+technique     -+
+temperature   ++
+temporal     -+
+temporary    -+
+tempt        -+
+temptation   -+ 
+tend          +
+tendency     -+
+tentative    --
+term   -+
+terminal   -+
+technology /tech  -+ 
+teenager  + 
 temper
 terminate
 testify
 trace
 track
-tradition
-ultimate
-underestimate
+tradition   +
+ultimate    +
+underestimate   +
 undergo
 underlie
 underlying
-underline
-understand
+underline     +
+understand    + 
 understanding
 undertake
 tou
 uneasy
-unemployment
-unexpected
+unemployment   + 
+unexpected     +
 unify
 union
 unique
@@ -54,9 +54,9 @@ value
 vanish
 variable
 variance
-wage
+wage   + 
 wander
-want
+want   +
 way
 weak
 wear
@@ -64,8 +64,8 @@ weary
 weigh
 variation
 whisper
-yield
-youth
+yield    + 
+youth    +
 zigzag
 zone
 Zoom
@@ -77,5 +77,5 @@ weird
 various
 vary
 vast
-welfare
+welfare  + 
 whirl

@@ -1,5 +1,5 @@
-radiate   + 
-radiant   +
+radiate   + +
+radiant   + 
 radical   +
 object (to)  +
 objective   + 
@@ -29,9 +29,9 @@ make   +
 savage   + 
 theme    +  
 provided    +
-law   +   
+law    +   
 judicial
-save  + 
+save   + 
 theory    + 
 lawsuit   +
 jury   + 
@@ -48,7 +48,7 @@ approving   +
 serious    +
 doubtful   +
 oblige   + 
-lag   +  
+lag    +  
 largely  +
 judge    +
 saving   +
@@ -59,19 +59,19 @@ maintain  +
 theoretical   +
 identification  +
 identical   +
-therapy  - 
-magnify  - 
 justice  +
 latter    + 
 provide   + 
 identify   -
 qualification  -
-justify - 
-identity - 
-qualify - 
-quality - 
-qualitative - 
-majority -
-lateral -
-magnitude -
-judg(e)ment   
+justify  - 
+identity  - 
+qualify   - 
+quality   - 
+qualitative  - 
+majority  -
+lateral  -
+magnitude  -
+judg(e)ment
+therapy  - 
+magnify  -    
