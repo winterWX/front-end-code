@@ -3,7 +3,6 @@ import React from 'react';
 class CounterCnp extends React.Component {
      constructor(props) {
           super(props);
-
           this.state = {
                conuter: 0
           };

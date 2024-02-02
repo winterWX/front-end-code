@@ -24,15 +24,15 @@ widespread
 win 
 wit
 withdraw
-witnessV
+witness
 inaugurate
-incentivev
-incidencev
-incident V
-incidentallyv
+incentive
+incidence
+incident 
+incidentally
 incline
-academicV
-academyv
+academic
+academy
 accelerate
 accept
 acceptance
@@ -40,44 +40,44 @@ access
 accessory
 begin
 beginning
-behalf V
+behalf
 behave
 behavio(u)r
-belief.
+belief
 believe
-belong V
-时beneficial
+belong
+beneficial
 benefit
 benevolent
 benign
 challenge
-chance V
-change V
-channel√
-characterv
+chance
+change
+channel
+character
 characterise
-characteristicv
+characteristic
 defend
 define
 definite
 definition
 defy
-degree √
-delayv
-deliberatev
-delicate X
-deliver√
-deliveryv
+degree
+delay
+deliberate
+delicate
+deliver
+delivery
 fiction
 field 
 fierce
 fighty
-figureV
+figure
 financex
 financia
-finding Y
-finite v
-firm V
-first v
-global v
-globeV
+finding
+finite
+firm
+first
+global
+globe

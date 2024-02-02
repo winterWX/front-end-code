@@ -1,43 +1,45 @@
-patch
-rail
-mathematical
-patent
-operate
-railroad/railway
-score
-mature
-through
-pattern
-operation
-worth
-raise
-scorn
-maximum
-throughout
-pay
-operational
-rally
-worthwhile
-secure
-mean
-tip
-payment
+patch   + 
+mathematical   +
+patent     +
+pattern    +
 operator
+operate    +
+operation  +
+operational   +  
+rail   +
+railroad/railway  +
+score    +
+scorn    +
+mature   +
+through  +
+throughout  +
+worth    +
 worthy
-random
+worthwhile  +
+maximum     +
+pay    +
+payment
+rally  +
+raise  +            
+secure
 security
-meaning
+tip
 title
+random  +
+mean
+means
+meaning
 peculiar
 opinion
+opportunity
 range
+rank  +
 write
 see
-means
 xurban
 peer
-opportunity
-rank
+
+
 writer
 seek
 meantime

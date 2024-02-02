@@ -1,5 +1,5 @@
 const obj = {
-    name:'111',
+    name: '111',
     age: 22,
     num : 3000
 }

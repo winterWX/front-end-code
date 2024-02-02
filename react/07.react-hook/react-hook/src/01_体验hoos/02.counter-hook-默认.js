@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
-//  useState 本身是一个函数,来自react包
-//  useState 的参数和返回值
-//           参数：给创建出来的状态一个默认值
-//             返回值：元素1  (当前state的值)
-//                     元素2 (设置新值使用的一个函数)
+/**
+ *  useState 本身是一个函数, 来自react包
+ *  useState 的参数和返回值
+ *  参数：给创建出来的状态一个默认值
+ *  返回值： 元素1 (当前state的值)
+ *  元素2 (设置新值使用的一个函数)
+ */
 
 const CounterCnp = () => {
      let arr = useState(0);
