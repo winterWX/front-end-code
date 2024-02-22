@@ -9,4 +9,4 @@ const add: FnType = (num1,num2)=>{
     return num1 + num2
 }
 
-addNum(20,40,add);
+addNum(20,40, add);

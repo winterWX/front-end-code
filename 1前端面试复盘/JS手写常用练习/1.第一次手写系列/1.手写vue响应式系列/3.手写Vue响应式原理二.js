@@ -6,21 +6,24 @@
  *    3. 属性变化要存储属性 所依赖的函数， 并且要执行函数， 需要每个属性依赖的类
  *    4. 数据结构，要监听的对象可能有多个， 所以数据结构是
  *       对象 -- > 对象里的属性 --> 属性对应的依赖类
- *       {对象：{对象属性： 对象属性依赖的类 }}
+ *       { 对象：{对象属性： 对象属性依赖的类 }}
+ *    5. 时间的改变以及变化和理解时间
  *   
  * 
 */
 
 let changeObj = reactive({
-    name:  '小明',
+    name: '小明',
     age: 20
 })
+
 let changeObj2 = reactive({
     title:  '小明',
     alt: '没有内容的说明'
 })
 
 let activeFn = null
+
 // const newProxy = new Proxy(obj,{
 //     // 获取值的时候
 //     get(target,key){

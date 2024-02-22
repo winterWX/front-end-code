@@ -8,8 +8,13 @@ function Son(name,age,sok){
 }
 
 Son.prototype = Object.create(Person.prototype)
+
 Object.defineProperty(Son.prototype,'constructor',{
     configurable: true,
     enumerable: true,
     value: Son
 })
+
+function sonDom(){
+
+}

@@ -4,9 +4,9 @@ let index = 0;
 const iterator = {
     next: function(){
         if(index < names.length){
-            return { done: false, value: names[index++]}
+            return { done: false, value: names[index++] }
         }else{
-            return { done: true, value: undefined}
+            return { done: true, value: undefined }
         }
     }
 }
@@ -15,9 +15,6 @@ const iterator = {
 // console.log(iterator.next())
 // console.log(iterator.next())
 // console.log(iterator.next())
-
-
-
 
 
 

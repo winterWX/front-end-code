@@ -10,4 +10,5 @@ Function.prototype.wxCall = function (thisArg,...args){
 }
 
 function fns(...arg){ console.log('获取函数绑定的参数',this,...arg) }
+
 fns.wxCall({name:'wx',age:20},'11','222')

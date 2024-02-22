@@ -8,5 +8,13 @@ Array.prototype.map = function(fn){
 }
 
 arr = [8,5,7,9];
+
 let nodeData = arr.map(function(item){ return item*2 });
-console.log('nodeData===',nodeData)
+
+console.log('nodeData===', nodeData)
+
+
+
+
+
+

@@ -1,6 +1,5 @@
 
 //  创建可迭代对象
-
 const createdIterator = {
    names: ['abb','bba','ccd'],
    [Symbol.iterator]: function(){
@@ -29,7 +28,7 @@ console.log('可迭代对象',iterator.next())
  * 
  *   语法底层就是  可迭代对象 先返回一个迭代对象 调用next(), 返回对象，
  *   再根据对象的done属性值判断，是false时,拿到对象的value值。 如果拿到对象done属性是true，就会停止返回值
- */
+*/
 
 for(item of createdIterator){  // createdIterator 可迭代对象
     console.log('item=====',item)

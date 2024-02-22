@@ -6,6 +6,7 @@ function Foo(name,address){
 Foo.prototype.running = function(){
     console.log('正在跑步----')
 }
+
 Foo.prototype.work = '公务员'
 let p1 = new Foo('wh','北京')
 

@@ -8,7 +8,7 @@ Function.prototype.wxCall = function(thisArg,...arg){
 }
 
 function foo(...arg){
-   console.log('======',this,...arg)
+   console.log('======', this, ...arg)
 }
 
 foo.wxCall({},12,34)

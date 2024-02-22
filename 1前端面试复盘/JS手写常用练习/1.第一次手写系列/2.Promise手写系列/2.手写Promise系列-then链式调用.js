@@ -33,7 +33,7 @@ class wxPromise{
             reject(error)
         }
     }
-    then(onFulfilled,onRejected){
+    then(onFulfilled, onRejected){
         return new wxPromise((resolve,reject)=>{
             onFulfilled && this.onFulfilledArr.push(()=>{
                 let value = onFulfilled(this.values)   // 查看是否有返回值， 当有返回值将返回值再resolve 到下一层

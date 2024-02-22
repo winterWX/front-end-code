@@ -25,7 +25,7 @@ class wxPromise{
             reject(error)
         }
     }
-    then(onFulfilled,onRejected){
+    then(onFulfilled, onRejected){
         this.onFulfilled = onFulfilled
         this.onRejected = onRejected
     }

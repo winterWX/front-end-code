@@ -12,7 +12,7 @@ function iteratorEnhance(arg){
     }
 }
 
-const num2 = [223,3345,56547,5567567,678678]
+const num2 = [223, 3345, 56547, 5567567, 678678]
 const iter1 = iteratorEnhance(num2)
 
 console.log(iter1.next())
@@ -24,7 +24,7 @@ console.log(iter1.next())
 const names = ['111','222','333']
 const iter11 = iteratorEnhance(names)
 console.log(iter11.next())
-console.log(iter11.next())
+console.log(iter11.next()) 
 console.log(iter11.next())
 console.log(iter11.next())
 console.log(iter11.next())

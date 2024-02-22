@@ -3,9 +3,11 @@ function Person(name,age){
     this.parentAge = age
     this.friends = []
 }
+
 Person.prototype.eating = function(){
     console.log('Person-吃东西')
 }
+
 var ParentObj = new Person('张三', 80)
 
 function Son(name,age){

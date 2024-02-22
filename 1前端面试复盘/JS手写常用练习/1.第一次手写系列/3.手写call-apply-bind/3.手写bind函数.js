@@ -1,5 +1,3 @@
-
-
 Function.prototype.wxBind = function(thisArg,...arg){
     var fn = this
     thisArg = !!thisArg ? Object(thisArg) : window

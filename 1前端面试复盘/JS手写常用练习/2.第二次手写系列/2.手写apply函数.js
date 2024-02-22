@@ -11,4 +11,4 @@ Function.prototype.wxApply = function(thisArg,arg){
 
 function fns(arg){ console.log('获取函数绑定的参数',this,arg) }
 
-fns.wxApply({name:'wx',age:20},['11','222'])
+fns.wxApply({name:'wx',age:20},['11','222']) 
