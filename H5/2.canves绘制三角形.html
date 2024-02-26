@@ -11,9 +11,9 @@
     <script>
         const canvasContext = document.getElementById('canvasId')
         const ctx = canvasContext.getContext('2d')
-        ctx.beginPath();      // 开始绘制
-        ctx.moveTo(50, 50);   // 起点
-        ctx.lineTo(200, 50);  // 转折点
+        ctx.beginPath();       // 开始绘制
+        ctx.moveTo(50, 50);    // 起点
+        ctx.lineTo(200, 50);   // 转折点
         ctx.lineTo(120, 200);  // 闭合点
         ctx.closePath();
         ctx.strokeStyle = 'red'

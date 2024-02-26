@@ -1,4 +1,3 @@
-
 var en = window.navigator.userAgent.toLocaleLowerCase();
 
 if(en.match(/(iPhone|iPod|iPad);?/i)){

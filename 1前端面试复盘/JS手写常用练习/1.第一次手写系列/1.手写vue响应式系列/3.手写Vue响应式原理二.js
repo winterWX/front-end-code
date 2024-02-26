@@ -105,7 +105,7 @@ function watchFn(fn){
 }
 
 // 函数收集
-watchFn(nameChange1)
+watchFn(nameChange1) 
 watchFn(nameChange2)
 
 function nameChange1(){

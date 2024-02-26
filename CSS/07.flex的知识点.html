@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+    }
+    .item{
+        /* flex-basis: <length> | auto; */
+    }
+</style>
+<body>
+    
+    <!-- *  flex: 1,  // 默认是  flex: 1,1,auto
+    *
+    *  flex-grow: 1;     // 父元素剩余空间的分配规则（前提是要有剩余空间)
+    *  flex-shrink: 1;   // 子元素宽度相加之和大于弹性盒子的时候进行的收缩比
+    *  flex-basis: auto; // 盒子在主轴上的初始大小 -->
+
+    <!-- * flex-basis 可以设置宽度，优先级比width高，<length> | auto -->
+
+
+    <div class="container">
+        <div class="item">item1</div>
+        <div class="item">item1222</div>
+        <div class="item">item122222222222</div>
+    </div>
+
+</body>
+</html>
