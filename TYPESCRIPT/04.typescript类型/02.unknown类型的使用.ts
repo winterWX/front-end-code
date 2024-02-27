@@ -33,4 +33,3 @@ let text:string = testUnknown;
 // 正确写法
 let textDr:string = 'ni hao';
 let unKnown: unknown = textDr;
-

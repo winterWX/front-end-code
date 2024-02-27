@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { all,put, takeEvery, takeLatest, throttle, call } from 'redux-saga/effects';
+import { all, put, takeEvery, takeLatest, throttle, call } from 'redux-saga/effects';
 import {
   getSagaBannerList,
   getSagaRecommendList,

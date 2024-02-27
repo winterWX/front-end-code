@@ -1,17 +1,15 @@
 import React,{ memo,useMemo,useState } from "react";
 
-
 const Prolist = memo((props)=>{
       let {name,age } = props.info
       console.log('是不是每次都会渲染')
       return(
-          <>
+        <div>
             <h2>显示父组件传过来的数据</h2>
             <div>{name} ---- {age}</div>
-          </>
+        </div>
       )
 })
-
 
 const UseMemoComponent = ()=>{
     

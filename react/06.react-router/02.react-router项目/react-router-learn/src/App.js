@@ -1,5 +1,5 @@
 import React,{Suspense} from 'react';
-import { BrowserRouter, Link, NavLink, Route, Switch,withRouter} from 'react-router-dom'
+import { BrowserRouter, Link, NavLink, Route, Switch,withRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config';
 import routes from "./router";
 import styled from 'styled-components';
@@ -34,9 +34,7 @@ class App extends React.Component {
   }
 
 
-  componentDidMount(){
-    
-  }
+  componentDidMount(){}
 
   btnRouter(){
       // 为组件增加history属性
@@ -58,7 +56,7 @@ class App extends React.Component {
               <NavLink  to="/nomath" activeClassName="linkStyle">我是nomath</NavLink>
           </RouterDiv>
 
-          <Suspense  fallback='<div>Loading...</div>'>
+          <Suspense fallback='<div>Loading...</div>'>
             {
               renderRoutes(routes)
             }

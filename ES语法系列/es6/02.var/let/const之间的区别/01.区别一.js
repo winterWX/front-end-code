@@ -12,15 +12,15 @@ var foo = "222"
  * }
  * 
 */
-
+ 
 
 // 区别三： var有作用域提升，let/const没有作用域提升
-console.log(bar)  // 此时已经在词法环境被创建出来了，但是不能被访问
-let bar = '11'
+    console.log(bar);  // 此时已经在词法环境被创建出来了，但是不能被访问
+    let bar = '11';
 
 /**
  * 
- *  区别四： let/const和 window之间的关系
+ *  区别四： let/const 和 window之间的关系
  *    
  *  var 声明的变量会直接放到window对象上，而let/const不会放到window对象上，
  *  会保存到 variable_的对象上

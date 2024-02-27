@@ -4,7 +4,7 @@ import Childen from "./childen";
 const Index = ()=>{
     const [counter,setCounter] = useState(0);
     let [num,addNmu] = useState(1);
-    const mounted = useRef();
+    const mounted = useRef(false);
     
     // 模拟 componentDidMount
     // useEffect 的第一个值会在浏览器布局和绘制完成后调用
@@ -40,11 +40,11 @@ const Index = ()=>{
     }
 
     return (
-        <>
+        <div>
             <Childen counter={num} />
             <div>dadad:{counter}</div>
             <button onClick={ ()=>{ countChange() }}>点击count+</button>
-        </>
+        </div>
     )
 }   
 

@@ -33,11 +33,11 @@ const UseRefAdvancedUsage = () => {
           setState(state + 100)
      }
      
-     return <>
+     return <div>
           <h2>我是useRef.current: {ref.current}</h2>
           <h2>我是state: {state}</h2>
           <button onClick={e => { getHtmlValue() }}>点击获取值</button>
-     </>;
+     </div>;
 }
 
 export default UseRefAdvancedUsage;

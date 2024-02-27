@@ -4,7 +4,7 @@ const ChilderComponent = forwardRef((props,ref)=>{
     return (
         <div ref={ref}>我是子组件中的内容</div>
     )
- })
+})
 
 class OldRefComponent extends PureComponent {
     constructor(props) {

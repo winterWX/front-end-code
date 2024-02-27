@@ -14,7 +14,6 @@ class ChildrenOne extends React.Component {
      }
 }
 
-
 class ChildrenTwo extends React.Component {
      constructor(props) {
           super(props);
@@ -47,7 +46,7 @@ class App extends React.Component {
                     <ParamsProps.Provider value={{ ...this.state }}>
                          <ChildrenOne />
                     </ParamsProps.Provider>
-               </div >
+               </div>
           )
      }
 }

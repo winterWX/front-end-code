@@ -2,9 +2,9 @@ import React, { PureComponent, useRef } from 'react';
 
 class ChildenCnp extends PureComponent {
      render() {
-          return <>
+          return <div>
                <h2>I AM 组件ChildenCnp</h2>
-          </>
+          </div>
      }
 }
 
