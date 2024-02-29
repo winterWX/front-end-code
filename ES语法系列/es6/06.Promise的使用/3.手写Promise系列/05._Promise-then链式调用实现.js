@@ -103,7 +103,3 @@ testPromise.then(res=>{
 },err2=>{
     console.log('err2:==',err2)
 })
-
-
-
-

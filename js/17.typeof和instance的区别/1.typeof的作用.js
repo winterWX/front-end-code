@@ -8,7 +8,7 @@
  * 
  *   instanceof  可以判断 对象是谁的实例 
  * 
- *   如 （ person.prototype instanceof  person）
+ *   如 （person.prototype instanceof  person）
  * 
  */
 

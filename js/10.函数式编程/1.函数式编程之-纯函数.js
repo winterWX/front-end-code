@@ -12,8 +12,8 @@
 var  arr = [12,23,34,5,6]
 var lastArr = arr.slice(0,4)
 
-console.log('arr',arr)   //原数组没有发生变化
-console.log('lastArr',lastArr)   //会产生一个新的数组
+console.log('arr', arr)   //原数组没有发生变化
+console.log('lastArr', lastArr)   //会产生一个新的数组
 
 
 

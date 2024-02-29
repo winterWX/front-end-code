@@ -1,6 +1,7 @@
 function Person(){}
 
 var p = new Person()
+
 /**
  * 实例对象p的原型链  p.__proto__ === Person.prototype:{
  *      constructor: Person
