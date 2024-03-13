@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas绘制矩形</title>
+</head>
+<body>
+    <canvas id="canvasId" width="300px" height="300px"></canvas>
+    <script>
+        const canvasContext = document.getElementById('canvasId')
+        const ctx = canvasContext.getContext('2d')
+        ctx.beginPath();       // 开始绘制
+        ctx.moveTo(50, 50);    // 起点
+        ctx.lineTo(200, 50);   // 转折点
+        ctx.lineTo(120, 200);  // 闭合点
+        ctx.closePath();
+        ctx.strokeStyle = 'red'
+        ctx.stroke(); 
+    </script>
+
+</body>
+</html>

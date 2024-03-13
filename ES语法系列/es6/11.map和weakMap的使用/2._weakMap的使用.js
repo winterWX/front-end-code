@@ -18,3 +18,8 @@ weakMap.set({},'11')
  *    has(key)
  *   不能遍历
  */
+
+/**
+ * map 和 weakMap的区别
+ * 
+ */

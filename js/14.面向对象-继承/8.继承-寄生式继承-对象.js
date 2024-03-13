@@ -4,7 +4,6 @@
  * 
 */
 
-
 var test = {
     learning: '学习',
     runing: function () {
@@ -26,5 +25,4 @@ console.log('p', p)
 /**
  *  缺点：只会产生一个类
  *  明确不到类的类型
- * 
- */
+*/
