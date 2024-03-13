@@ -19,6 +19,7 @@ function Student(name,age,sno){
 }
 
 Student.prototype = Object.create(Person.prototype)
+
 Object.defineProperty(Student.prototype,'constructor',{
     enumerable: false,
     configurable: true,

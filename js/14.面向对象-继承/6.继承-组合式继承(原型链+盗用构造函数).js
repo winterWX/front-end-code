@@ -37,4 +37,4 @@ console.log(p.eating());
  *    3.组合继承需要调用两次父类的构造函数，一次是在子类的构造函数中调用 Parent.call(this)，一次是通过 Child.prototype = new Parent() 实现原型继承。
  *          这样做既增加了调用次数，也可能导致父类构造函数中的逻辑被执行多次。
  * 
-*/ 
+*/  
