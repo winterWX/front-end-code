@@ -1,24 +1,24 @@
 let num = '12abba21'
 
 function strChange(num) {
-    const isShow = (s) => (s >= 'a' || s <= 'z') || (s >= 0 || s <= 9)
+    const isShow = (s) => (s >= 'a' || s <= 'z') || (s >= 0 || s <= 9);
     let i = 0;
-    let j = num.length - 1
+    let j = num.length - 1;
     while (j >= i) {
-        let left = num[i].toLowerCase()
-        let right = num[j].toLowerCase()
+        let left = num[i].toLowerCase();
+        let right = num[j].toLowerCase();
         if (!isShow(left)) {
-            i++
+            i++;
         } else if (!isShow(right)) {
-            j--
+            j--;
         } else if (left === right) {
-            i++
-            j--
+            i++;
+            j--;
         } else {
-            return false
+            return false;
         }
     }
-    return true
+    return true;
 }
 
 console.log('result===', strChange(num))

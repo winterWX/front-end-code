@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { all, put, takeEvery, takeLatest, throttle, call } from 'redux-saga/effects';
+import { 
+    all, 
+    put, 
+    takeEvery, 
+    select, 
+    takeLatest, 
+    throttle, 
+    call, 
+    fork } from 'redux-saga/effects';
 import {
   getSagaBannerList,
   getSagaRecommendList,
@@ -32,8 +40,8 @@ function* paramsList(){
 
     let {banner,recommend} = res.data.data;
     let lastDta = yield all[
-         yield put(getSagaBannerList(banner.list)),
-         yield put(getSagaRecommendList(recommend.list))
+        yield put(getSagaBannerList(banner.list)),
+        yield put(getSagaRecommendList(recommend.list))
     ]
 
     console.log('lastDta',lastDta) //undefined

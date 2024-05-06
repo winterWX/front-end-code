@@ -4,4 +4,4 @@ const node = str.split('').reduce((a, b) => {
     return (a[b]++ || (a[b] = 1), a)
 }, {})
 
-console.log('node====', node)
+console.log('node====', node) 
