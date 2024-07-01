@@ -2,8 +2,6 @@
 /**
  * await 一般后面是一个表达式， 会返回一个promise
  * await 后面是普通值时  会直接返回的
- * 
- * 
  */
 
 async function foo(){

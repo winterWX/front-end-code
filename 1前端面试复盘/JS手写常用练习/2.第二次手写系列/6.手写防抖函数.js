@@ -1,4 +1,4 @@
-function debounce(fn, delay, immediate = false,callbackFn){
+function debounce(fn, delay, immediate = false, callbackFn){
     let timer = null
     let isInvoke = false
     const _debounce = function(arg){
@@ -15,7 +15,7 @@ function debounce(fn, delay, immediate = false,callbackFn){
             timer = null
         },delay)
     }
-    _debounce.cancel =function(){
+    _debounce.cancel = function(){
         if(timer){
             clearTimeout(timer)
             timer =null
