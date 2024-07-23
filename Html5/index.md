@@ -4,5 +4,11 @@
    https://blog.csdn.net/weixin_42441117/article/details/80705203 
    
    语义化标签
-   css3
+   语义化标签
+   音视频处理
+   canvas / webGL
+   history API
+   requestAnimationFrame
+   地理位置
+   webSocket
 -->

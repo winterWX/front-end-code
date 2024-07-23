@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对于 for,forEach的探索。// https://juejin.cn/post/7018097650687803422?searchId=20240703103726C7ABFE58D22B7FEF761A
+        // 关于forEach 
+        let testArray = [2, 4, 6, 8];
+        testArray.forEach((item)=>{
+            if(item === 6){
+                console.log(item);
+                return
+            }
+        })
+        /**
+         * 
+         *  可以通过return 停止循环
+         *  回调函数返回的时 undefined
+         *  forEach遍历可迭代对象，interable
+         *  try catch 跳出循环
+         *   
+        */
+    </script>
+</body>
+</html>
