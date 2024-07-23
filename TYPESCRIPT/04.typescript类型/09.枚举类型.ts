@@ -1,5 +1,10 @@
 // 枚举可以清晰的表达意图或者创建一组有区别的数据
 
+/**
+ *  1.默认下表会递增
+ *  2.可以指定下标
+ *   
+*/
 enum Direction {
     // 默认值从 0 开始递增
     NORTH,
@@ -7,6 +12,30 @@ enum Direction {
     EAST='EAST'
 }
 
-let dir: Direction = Direction.EAST
+let dir: Direction = Direction.EAST;
 
-console.log('dir===',dir);
+
+console.log('dir===----', Direction.EAST);
+
+// 字符串枚举
+enum Direction_Test {
+    NORTH_TEST = "NORTH_TEST",
+    SOUTH_TEST = "SOUTH_TEST",
+    EAST_TEST = "EAST_TEST",
+    WEST_TEST = "WEST_TEST",
+}
+
+let dir_test: Direction_Test = Direction_Test.NORTH_TEST;
+console.log('dir_test===----', Direction_Test.NORTH_TEST);
+
+
+// 异构枚举 
+
+enum  string_number{
+    A,
+    B,
+    C = "C",
+    D = "D",
+    E = 8,
+    F,
+}
