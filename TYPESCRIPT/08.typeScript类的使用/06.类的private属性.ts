@@ -1,3 +1,6 @@
+
+/*** private 只有内部成员可访问  */
+
 class Person{
     private _name: string 
     constructor(name:string){
