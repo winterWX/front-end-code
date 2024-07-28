@@ -61,7 +61,7 @@
     }
 
     // 不同点：
-        // 1 类型别名可以用于其它类型 （联合类型、元组类型、基本类型（原始值）），interface不支持
+        // 1 类型别名可以用于其它类型 （联合类型、元组类型、基本类型（原始值）,交叉类型），interface不支持
         type PartialPointX = { x: number };
         type PartialPointY = { y: number };
 
