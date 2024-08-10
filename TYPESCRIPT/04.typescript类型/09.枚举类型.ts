@@ -15,7 +15,7 @@ enum Direction {
 let dir: Direction = Direction.EAST;
 
 
-console.log('dir===----', Direction.EAST);
+console.log('dir===----', Direction.NORTH, Direction.EAST, dir);
 
 // 字符串枚举
 enum Direction_Test {
@@ -30,8 +30,7 @@ console.log('dir_test===----', Direction_Test.NORTH_TEST);
 
 
 // 异构枚举 
-
-enum  string_number{
+enum string_number{
     A,
     B,
     C = "C",
@@ -39,3 +38,5 @@ enum  string_number{
     E = 8,
     F,
 }
+
+console.log('=====',string_number[4]);  // 找不到时 会将整个枚举对象打印出来

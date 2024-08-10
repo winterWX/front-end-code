@@ -11,7 +11,7 @@ type MessageType = "image" | "audio" | string; //消息类型
 type Message = {
     id: number;
     type: MessageType;
-    sendmessage: string;
+    sendMessage: string;
 };
 
 let messages: Message[] = [
@@ -33,12 +33,12 @@ let messages: Message[] = [
 ]
 
 // 重载签名可以有多个
-function getMessage(value: number, myname: string): Message //第一个根据数字id来查询单个消息的 重载签名
+function getMessage(value: number, myName: string): Message //第一个根据数字id来查询单个消息的 重载签名
 function getMessage(value: MessageType, readRecordCount: number): Message[] //第二个根据消息类型来查询消息数组的 重载签名
 
 // 实现签名函数，只有实现签名才有函数体，实现签名只有一个
 function getMessage(value: number | MessageType, value2: string | number) {
-  //console.log(myname)
+  //console.log(myName)
   if (typeof value === "number") {
     return messages.find((msg) => { return 6 === msg.id })//undefined
   } else {

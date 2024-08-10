@@ -8,7 +8,7 @@
   class Person{
       protected data: number = 20
       getName(){
-          return this.data
+        return this.data
       }
   }
 

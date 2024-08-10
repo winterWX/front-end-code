@@ -8,12 +8,7 @@
 /**
  *  类型断言相当于语言里类型转换，只不过是自己有意识的进行转换的
  */
-
-
-class Person{
-
-}
-
+class Person{}
 class Student extends Person{
     sayHello(){
         console.log('你好啊,李银河');
@@ -21,7 +16,6 @@ class Student extends Person{
 }
 
 const p = new Student();
-
 function sayHello(p:Person){
   (p as Student).sayHello();
 }

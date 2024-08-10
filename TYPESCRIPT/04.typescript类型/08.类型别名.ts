@@ -5,10 +5,10 @@ type Point = {
     z?:boolean
 }
 
-function nmberSbuer(id:IDType){
+function params1(id:IDType){
 
 }
 
-function paramsOnject(point:Point){
+function params2(point:Point){
 
 }

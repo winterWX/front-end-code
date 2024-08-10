@@ -14,7 +14,7 @@ class Student extends Person{
     son: number
     constructor(name:string,age:number,son:number){
         super(name,age)
-        this.son = son
+        this.son = son;
     }
     eat(){
         super.eat()  // 可以调用父类的方法，先执行父类的方法后执行子类的方法。

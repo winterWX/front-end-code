@@ -1,12 +1,13 @@
 // 类型缩小的使用
 
 /**
- *  typeof
- *  instanceof
- *  in
+ *  typeof  类型操作符
+ *  instanceof 检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
+ *  in 检查指定的属性是否在指定的对象或其原型链中
 */
 
 type IDType = number | string;  //联合类型
+
 function printId(id: IDType){
    if(typeof id === 'string'){
       console.log(id.toUpperCase())
@@ -14,7 +15,6 @@ function printId(id: IDType){
       console.log(id);
    }
 }
-
 
 //instanceof
 function printTime(item: string | Date){
@@ -45,7 +45,6 @@ function work(p:Student | Teacher){
 
 
 // in 的使用
-
 type Fish ={
     swimming:()=> void
 }

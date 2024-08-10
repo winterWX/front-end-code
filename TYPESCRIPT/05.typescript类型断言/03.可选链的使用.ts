@@ -1,4 +1,4 @@
-type Person={
+type person = {
     name:string,
     friend?:{
       name: string,
@@ -6,14 +6,11 @@ type Person={
     }
 }
 
-const info: Person={
-    name:'wx',
-    friend:{
-        name:'刘德华',
-        //age:40
-    }
+function typePerson(point: person): void{
+  console.log('打印结果',point.name);
 }
 
-function typePerson(point:info){
-  console.log(info);
-}
+typePerson({
+  name: '测试'
+})
+

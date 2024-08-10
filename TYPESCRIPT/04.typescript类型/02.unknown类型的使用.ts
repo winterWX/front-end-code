@@ -27,7 +27,7 @@ let AprilData:unknown = 'April sky';
  */
 
 // 错误写法
-let testUnknown: unknown = 1;
+let testUnknown: unknown = '';
 let text:string = testUnknown;
 
 // 正确写法

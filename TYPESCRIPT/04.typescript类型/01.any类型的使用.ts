@@ -4,7 +4,7 @@
  *  2.不想设置类型的时候
 */
 
-let messsage:any = "我像设置any类型"
+let messAge:any = "我像设置any类型"
 
-messsage = 124
-console.log('messsage',messsage)
+messAge = 124
+console.log('结果',messAge)

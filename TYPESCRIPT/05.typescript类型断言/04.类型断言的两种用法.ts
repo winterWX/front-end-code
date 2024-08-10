@@ -7,5 +7,5 @@ let counter:number = (<string>data).length;
 
 
 let data1: string = '你好啊 我是wx';
-let couter: number = (data1 as string).length
+let counter1 : number = (data1 as string).length
 
