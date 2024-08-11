@@ -12,3 +12,34 @@ function addSum<T>(num: T): T{
 // 调用时给定类型
 addSum<number>(20);
 addSum<{name:string}>({name:'wx'});
+
+function fo<T=number,K=number>(a: T,b:K):Array<T | K>{
+   return [a,b]
+}
+
+fo(1,false);
+
+// ----- keyof 的用法
+// keyof 筛选出key
+const info = {
+   name: 'hello',
+   age: 21
+};
+
+type key = keyof typeof info;
+function infoFn<T extends Object, K extends keyof T>(obj: T, key: K){
+   return obj[key]
+};
+
+// keyof的高级的用法, 遍历属性
+interface test1{
+   name: string,
+   age: number,
+   sex: string
+}
+
+type Options<T extends object> = {
+   [key in keyof T]? : T[key]
+}
+
+type B = Options<test1>

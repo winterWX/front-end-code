@@ -60,3 +60,22 @@ class cellphone1 implements Radio,Battery{        //逗号连接
 }
 
 // -------------------------------------------------------------------------------------------
+
+interface testObject{
+    name: string,
+    eat(): void
+}
+interface test2{
+    age: number
+}
+class testObject implements testObject,test2 {
+    name: string;
+    age: number
+    constructor(name,age){
+        this.name = name;
+        this.age = age
+    };
+    eat(): void{ 
+        console.log('111')
+    }
+}

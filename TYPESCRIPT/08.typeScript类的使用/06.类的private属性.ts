@@ -1,5 +1,5 @@
 
-/*** private 只有内部成员可访问  */
+/*** private 只有内部成员可访问, 实例化后的对象也不能调用类面的方法和属性 */
 
 class Person{
     private _name: string 
