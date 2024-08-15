@@ -28,7 +28,8 @@ import React from "react";
 // import CopyFilyComponent from './12.使用hooks来模拟生命周期/index'
 // import UseMoveClass from './13.模拟鼠标事件/1.原生实现鼠标移动事件'
 // import UseComponent from './13.模拟鼠标事件/2.hooks实现鼠标移动事件'
-import UseComponentCount from './03.useEffect的使用/04.useEffect依赖参数为常量'
+// import UseComponentCount from './03.useEffect的使用/04.useEffect依赖参数为常量'
+   import useModelComponent from "./15.mode拖拉组件分装";
 
 function App() {
   return (

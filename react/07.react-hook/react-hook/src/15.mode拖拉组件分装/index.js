@@ -1,18 +1,9 @@
 import { Modal } from 'antd';
 import { useState, useEffect } from 'react';
 
-interface ModalBoxxProps {
-    title: string,
-    isModalVisible: boolean,
-    handleOk: any,
-    handleCancel: any,
-    children?: React.ReactNode,
-    okText?: string,
-    cancelText?: string
-}
-let content: HTMLDivElement, contentLeft: number = 0, contentRight: number = 0;
+let content, contentLeft = 0, contentRight = 0;
 
-const ModalBox: React.FC<ModalBoxxProps> = (props) => {
+const ModalBox = (props) => {
     const [styleLT, setStyleLT] = useState({
         styleLeft: 0, styleTop: window.innerHeight / 2 - 132
     });
@@ -29,10 +20,10 @@ const ModalBox: React.FC<ModalBoxxProps> = (props) => {
         }
     }, [props.isModalVisible])
 
-    const onMouseDown = (e: any) => {
+    const onMouseDown = (e) => {
         e.preventDefault();
         if (flag) {
-            content = document.getElementsByClassName("ant-modal-content")[0] as HTMLDivElement;
+            content = document.getElementsByClassName("ant-modal-content")[0];
             contentLeft = content.getBoundingClientRect().left;
             contentRight = content.getBoundingClientRect().right - content.offsetWidth;
             setFlag(false);
@@ -76,21 +67,22 @@ const ModalBox: React.FC<ModalBoxxProps> = (props) => {
 
     return (
         <Modal
-            title={<div
-                className='dragBoxBar'
-                style={{ height: "100", width: "100%", cursor: 'move', userSelect: "none" }}
-                onMouseDown={onMouseDown}
-            >
-                {props.title}
-            </div>}
+            title={
+                <div
+                    className='dragBoxBar'
+                    style={{ height: "100", width: "100%", cursor: 'move', userSelect: "none" }}
+                    onMouseDown={onMouseDown}
+                >
+                    {props.title}
+                </div>
+            }
             visible={props.isModalVisible}
             onOk={props.handleOk}
             onCancel={props.handleCancel}
             style={style}
             wrapClassName='dragBox'
             okText={props.okText}
-            cancelText={props.cancelText}
-        >
+            cancelText={props.cancelText}>
             {props.children}
         </Modal>
     )
