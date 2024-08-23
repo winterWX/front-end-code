@@ -25,19 +25,19 @@ const CnpComponent = forwardRef((props, ref) => {
 
 
 const UseImperativeHandleDemo = () => {
-     const childernFouce = useRef();
+     const childeFocus = useRef();
 
-     const getInputFouce = () => {
-          childernFouce.current.focus();
-          childernFouce.current.getHtml();
-          // childernFouce.current.value = "手动填写"
+     const getInputFocus = () => {
+          childeFocus.current.focus();
+          childeFocus.current.getHtml();
+          // childeFocus.current.value = "手动填写"
      }
 
      return <>
           <div style={{ margin: '40px' }}>
                <h2>让子组件聚焦</h2>
-               <CnpComponent ref={childernFouce} />
-               <button onClick={e => { getInputFouce() }}>点击按钮让input聚焦</button>
+               <CnpComponent ref={ childeFocus } />
+               <button onClick={e => { getInputFocus() }}>点击按钮让input聚焦</button>
           </div>
      </>;
 }

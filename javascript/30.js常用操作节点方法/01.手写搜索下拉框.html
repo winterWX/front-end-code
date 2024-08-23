@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arr = [
+            {
+                name: '111',value: 1
+            },
+            {
+                name: '222',value: 1
+            },
+            {
+                name: '333',value: 1
+            }
+        ];
+        function inputSearch(){
+            let searchDom = document.getElementById('el');
+            let selectDom = document.getElementById('select');
+            let code = searchDom.value;
+            let last = arr.filter(m=> code == m.value);
+            if(last.length > 0){
+                let blockDom = document.createDocumentFragment();
+                last.forEach(element => {
+                    let elDom = document.createElement('option');
+                    elDom.value = element.value;
+                    elDom.innerHTML = element.name;
+                    blockDom.appendChild(elDom)
+                });
+                selectDom.appendChild(blockDom);    
+            }else{
+                selectDom.innerHTML = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="" name="" value="" id="el" placeholder="请输入" />
+        <button onClick="inputSearch()">搜索</button>
+    </div>
+    <select id="select" style="width: 100px;" placeholder="请选择"></select>
+</body>
+</html>
