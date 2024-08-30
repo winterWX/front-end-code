@@ -15,7 +15,6 @@ const Startdiv = styled.div`
 `
 
 export default class About extends Component {
-    
     render() {
         let {date,flag} = this.props;
         return (

@@ -24,7 +24,7 @@ export default function enhanceComponent(WrappedComonent){
             }))
         }
 
-        render() {
+        render() { 
             const newProps ={
                 counter: this.state.counter,
                 getCounter: this.getCounter,

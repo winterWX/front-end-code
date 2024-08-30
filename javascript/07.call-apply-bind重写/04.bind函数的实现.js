@@ -17,8 +17,6 @@ var bar = sum.wxBind('ab',1,2,3)
 bar(4,5)
 
 
-
-
 // function foo(...argArray){
 //    console.log('argArray',...argArray)  //  10，20，30，40
 // }

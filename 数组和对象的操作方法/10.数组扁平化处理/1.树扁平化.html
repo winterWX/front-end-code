@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = [
+            { id: 639, name: "商品管理", type: 0, pId: 638, code: "1", domain: "" },
+            { id: 640, name: "商品分类", type: 0, pId: 639, code: "2", domain: "" },
+            { id: 642, name: "增加分类", type: 0, pId: 640, code: "3", domain: "" },
+            { id: 645, name: "编辑分类", type: 0, pId: 640, code: "4", domain: "" },
+            { id: 646, name: "孙子级别", type: 0, pId: 645, code: "5", domain: "" },
+            { id: 647, name: "消息管理", type: 0, pId: 655, code: "6", domain: "" }
+        ];
+        function toTree1(data){
+            let deleteId = [];
+            data.forEach(element => {
+                element.children = [];
+                data.forEach(child=>{
+                    if(element.id == child.pId){
+                        element.children.push(child);
+                        deleteId.push(child.id);
+                    };
+                });
+                if(element['children'].length == 0){
+                    delete data.element;
+                };
+            });
+            return data.filter(code => !deleteId.includes(code.id));
+        };
+        const result = toTree1(data);
+        console.log('result',result);
+    </script>
+</body>
+</html>

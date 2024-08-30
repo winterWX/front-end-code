@@ -1,11 +1,12 @@
 <template>
-    <div class="main">12222222111eeeee44444eeee112211110000000</div>
+    <div>
+        <div class="main">需要修改内容</div>
+    </div>
 </template>
 <script>
     export default {
         name: 'App',
-        components: {
-        }
+        components: {}
     }
 </script>
 <style lang="sass" scoped>

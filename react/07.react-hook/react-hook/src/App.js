@@ -7,7 +7,7 @@ import React from "react";
 // import MoreUseEffect from './03.useEffect的使用/03.多个useEffect一起使用'
 // import ReducerCnp from "./05.useReduer的使用/01.reducer的使用";
 // import UseCallbackCnp from "./06.useCallback的使用/useCallback的使用";
-// import UseCallbackCnp from "./06.useCallback的使用/useCallBack的高级使用"
+import UseCallbackCnp from "./06.useCallback的使用/useCallBack的高级使用"
 // import UseMemoBase from './07.useMemo的使用/01.useMemo的基本使用'
 // import UseMemoComponent from './07.useMemo的使用/02.useMemo使用场景二'
 // import OldRefComponent from './08.useRef/ref在Class组件中的用法'
@@ -24,7 +24,7 @@ import React from "react";
 // import useModelComponent from "./15.mode拖拉组件分装";
 // import TestUseCallback from "./11.useCall和useMemo的区别/03.useCallback测试文件";
 // import ExposeChild from "./09.useImperativeHandle的用法/02.useImperativeHandle暴露子组件方法"
-import TestUseLayoutEffect from './14.关于useLayoutEffect的用法/2.添加平滑过渡';
+// import TestUseLayoutEffect from './14.关于useLayoutEffect的用法/2.添加平滑过渡';
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
       {/* <HookChangeTitle /> */}
       {/* <MoreUseEffect /> */}
       {/* <ReducerCnp /> */}
-      {/* <UseCallbackCnp /> */}
+      <UseCallbackCnp />
       {/* <UseCallbackCnp /> */}
       {/* <UseMemoBase /> */}
       {/* <UseMemoComponent /> */}
@@ -56,7 +56,7 @@ function App() {
       {/* <UseComponentCount /> */}
       {/* <TestUseCallback /> */}
       {/* <ExposeChild/> */}
-      <TestUseLayoutEffect/>
+      {/* <TestUseLayoutEffect/> */}
     </div >
   );
 }

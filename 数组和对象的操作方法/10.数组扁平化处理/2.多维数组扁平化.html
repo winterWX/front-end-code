@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [
+            [1, 2, 4, 5],
+            [1,2,4,[2,3,5,[56,8]]],
+            [[2,3],[3,[4,8]]]
+        ]
+        // 方式一
+        let test = arr.flat(Infinity);
+
+        function flatten(arr) {
+            // 核心：只要 arr数组中含有非一维的 子项，就继续 扩展！！
+            while(arr.some(item=>Array.isArray(item))) {
+                arr = [].concat(...arr);
+            }
+            return arr;
+        }
+        
+        console.log("flatten====",flatten(arr));
+                
+        // 方式二
+        function customReFlatten(arr){
+            let flat = [];
+            for(let item of arr){
+                if(Array.isArray(item)){
+                    flat = flat.concat(customReFlatten(item))
+                }else{
+                    flat.push(item);
+                }
+            }
+            return flat;
+        }
+        const result = customReFlatten(arr);
+        console.log('result====', result)
+    </script>
+</body>
+</html>

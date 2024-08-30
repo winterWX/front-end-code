@@ -3,7 +3,7 @@ import React, { useState, useCallback, memo } from 'react';
 // 1.将一个组件中的函数传给子元素进行调用时，使用useCallback对函数进行处理
 const HYNButtom = memo((props) => {
      console.log('组件会重新渲染' + props.title);
-     return (<div><button onClick={props.increment}>加一</button></div>)})
+     return (<div><button onClick={props.increment}>{ props.btnText }</button></div>)})
 
 const UseCallbackCnp = () => {
      const [state, setstate] = useState(0);
@@ -17,8 +17,8 @@ const UseCallbackCnp = () => {
      return (
           <div>
                <h1>当前计数{state}</h1>
-               <HYNButtom title="btn1" increment={increment} />
-               <HYNButtom title="btn2" increment={subCremnt} />
+               <HYNButtom title="btn1" increment={increment} btnText={'加一'} />
+               <HYNButtom title="btn2" increment={subCremnt} btnText={'减一'} />
                <button onClick={e => setshow(!isshow)}>转变</button>
           </div>
      )}
