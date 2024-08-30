@@ -49,9 +49,9 @@ if (module.hot) {
     });
 }
 
-//启动webpack-dev-server时,会将hotModuleReplacementPlugin注入到bundle中，
-//编译后会生成新的hash值 和 编译后的新文件
-//hash值为新的标识符，做为下一次文件更新的标识符, c: 代表要更新的模块
+// 启动webpack-dev-server时,会将hotModuleReplacementPlugin注入到bundle中，
+// 编译后会生成新的hash值 和 编译后的新文件
+// hash值为新的标识符，做为下一次文件更新的标识符, c: 代表要更新的模块
 
-2. 当文件更新后就会编译成更新后的文件, 编译后的文件就会调用webpackHotUpdate,根据模块标识就行更新
+// 2. 当文件更新后就会编译成更新后的文件, 编译后的文件就会调用webpackHotUpdate,根据模块标识就行更新
 
