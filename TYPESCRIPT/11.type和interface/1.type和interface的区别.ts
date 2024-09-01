@@ -1,11 +1,9 @@
-/***
- * 
- * type: 类型别名,可以给一个或者多个数据类型（number, string, boolean...）取别名。
- * interface: 接口,定义参数或方法的数据结构。
- * 
-*/
+    /***
+     * type: 类型别名,可以给一个或者多个数据类型（number, string, boolean...）取别名。
+     * interface: 接口,定义参数或方法的数据结构。
+    */
 
-// type 和 interface的相同点和不同点
+    // type 和 interface的相同点和不同点
     // ********相同点
     // 1. 都可以描述一个对象或者函数
 

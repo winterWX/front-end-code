@@ -28,7 +28,6 @@ enum Direction_Test {
 let dir_test: Direction_Test = Direction_Test.NORTH_TEST;
 console.log('dir_test===----', Direction_Test.NORTH_TEST);
 
-
 // 异构枚举 
 enum string_number{
     A,

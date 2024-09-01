@@ -1,0 +1,38 @@
+# es语法系列
+  - let const
+    - 暂时性死区，块级作用域，不能重复申明，修改值的区别，和var的区别
+  - 解构
+  - 数值的扩展
+    - Number.isFinite()  //判断数值是否有限
+    - Number.isNaN()
+    - Number.isInteger() //判断是否为整数
+  - 函数的扩展
+    - 默认值
+    - rest剩余参数
+    - 箭头函数
+  - 模板字符串
+  - 数组扩展
+    - Array.from() //将类似数组的对象转成数组
+    - Array.of() //将一组值转成数组
+    - 实例方法
+        - find(),findIndex(),findLast(),findLastIndex()
+        - entries(),keys(),values()
+        - include()
+        - flat(),flatMap() -- 先执行一个函数在降维。都会返回一个新数组，对原数组不进行改变
+        - at()
+        - group(), groupToMap()
+  - 对象扩展
+    - Object.is()
+    - Object.assign()
+    - Object.keys(),Object.values(),Object.entries()
+  - Symbol
+    - 通过Object.getOwnPropertySymbols() 和 Reflect.ownKeys()
+  - set WeakSet(只接收对象和symbol，作为键名)
+  - map WeakMap(只接收对象和symbol，作为键名)
+  - Promise
+    - Promise.all
+    - Promise.allSettled //会等到所有异步的执行完，{ status: fulfilled, value: 42} 
+    - Promise.race
+    - Promise.resolve
+    - Promise.reject
+    - Promise.any //只要有一个成功了就返回成功，如果都失败了，就会返回失败

@@ -37,3 +37,8 @@
         所以切片上传完成后， 再发一个合并切片的接口，告诉后端，文件已经上传完成了。
     }
 }
+
+// 相关文档链接
+https://blog.csdn.net/weixin_43989307/article/details/124863516
+
+https://www.bilibili.com/video/BV1UH4y1H78o/?spm_id_from=333.337.search-card.all.click&vd_source=3c6744bb65e9c8801bd4bbae976fb9d8

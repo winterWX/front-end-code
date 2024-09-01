@@ -1,8 +1,8 @@
-//any(任意类型),unknown不知道的类型
+// any(任意类型),unknown不知道的类型
 
 // 1. 顶级类型 any unknown
 // 2. Object
-// 3. 基本类型
+// 3. 基本类型(Number String Boolean)
 // 4. number string boolean
 // 5. never
 

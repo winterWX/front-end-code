@@ -5,7 +5,6 @@
  *  2.接口的形式进行声明 interface
 */
 
-
 // 1.采用类型别名的方式进行声明
 type stInfo = { name: string, age:number }
 
@@ -24,4 +23,18 @@ interface IInfo {
 const Obj: IInfo = {
     name:'nihao',
     age:90
+}
+
+
+// interface 索引签名
+interface A{
+    name: string,
+    age: number,
+    [props: string]: any // 索引签名
+}
+
+let a: A = {
+    name: '111',
+    age: 20,
+    sex: ''
 }

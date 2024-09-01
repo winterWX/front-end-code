@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脚本引入失败处理</title>
+    <script>
+        const backupDomainList = ['baidu.com','www.com.cn','www.2.com'];
+        const nextDomain = {};
+        window.addEventListener('error', function(e){
+            if(e instanceof Event && e.target.tagName === 'SCRIPT'){
+                //获取脚本src属性值
+                const src = e.target.src;
+                const url = new Url(src); // 转成url对象
+                // 通过url.pathname就能拿到路径
+                const pathname = url.pathname;
+                if(!nextDomain[pathname]){
+                    nextDomain[pathname] = 0;
+                };
+                if(nextDomain[pathname] >= backupDomainList.length){
+                    return;
+                };
+                const index = nextDomain[pathname];
+                const domain = backupDomainList[index];
+                url.host = domain;
+                const newUrl = url.toString();
+                // 进行阻塞操作保证顺序
+                document.write(`\<script src="${newUrl}">\</script>`);
+                // 创建新的脚本标签
+                const script = document.createElement('script');
+                script.src = newUrl;
+                // 将新的标签插入到老标签的前面
+                e.target.parentElement.insertBefore(script, e.target);
+                nextDomain[pathname] ++;
+            }else{
+                return;
+            }
+        },true)
+    </script>
+</head>
+<body>
+    <!-- 
+        什么时间重试
+        1.当脚本加载失败的时候重试，怎么监听到脚本加载失败呢？
+        2.在脚本加载捕获阶段进行监听,因为脚本执行的时候不会冒泡
+        3.限制捕获错误的范围，只是捕获脚本失败事件
+     -->
+    // 如何重试
+    <script src="http://www.com"></script>
+    <script src="http://www.com"></script>
+    <script src="http://www.com"></script>
+</body>
+</html>

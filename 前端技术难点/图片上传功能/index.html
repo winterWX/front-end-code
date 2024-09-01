@@ -30,14 +30,13 @@
         }
         btn.onclick = function(){
             const canvas = document.createElement('canvas')
-            const crrentImage = { x: 10, y: 10, curWith: 80, curHight: 80, with: 50,  height: 50 }
-            canvas.width = crrentImage.with
-            canvas.height = crrentImage.height
+            const currentImage = { x: 10, y: 10, curWith: 80, curHight: 80, with: 50,  height: 50 }
+            canvas.width = currentImage.with
+            canvas.height = currentImage.height
             const ctx = canvas.getContext('2d')
-            ctx.drawImage(img, crrentImage.x, crrentImage.y, crrentImage.curWith, crrentImage.curHight, 0, 0, canvas.width, canvas.height)
+            ctx.drawImage(img, currentImage.x, currentImage.y, currentImage.curWith, currentImage.curHight, 0, 0, canvas.width, canvas.height)
             document.body.append(canvas)
         }
-
     </script>
 </body>
 </html>
