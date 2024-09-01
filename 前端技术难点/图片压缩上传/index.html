@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩上传</title>
+</head>
+<body>
+    <input  type="file" id="file" />
+    <div id="box"></div>
+    <script>
+        const file = document.querySelector('file');
+        window.addEventListener("change", function(e){
+            const img = new Image();
+            const fileObj = e.target.files?.[0];
+            const fileReader = new FileReader();
+            const quality = 0.4;
+            if(fileObj){
+                fileReader.onload = (e)=>{
+                    img.src = e.target?.result;
+                };
+                fileReader.readAsDataURL(fileObj);  //base64格式
+                const canvas = document.createElement('canvas');
+                const cxt = canvas.getContext('2d');
+                img.onload = ()=>{
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    cxt?.drawImage(img,0,0, img.width, img.height);
+                    const newBase64 = canvas.toDataURL(fileObj.type, quality); 
+                    showImage(newBase64)
+                }
+            }
+        });
+        function showImage(newBase64){
+            const box = document.getElementById('box');
+            // 创建标签显示图片
+            const image = document.createElement('img');
+            image.src = newBase64;
+            box.appendChild(image);
+        }
+    </script>
+    
+</body>
+</html>

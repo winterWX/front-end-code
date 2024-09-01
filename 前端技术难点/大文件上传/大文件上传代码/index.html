@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大文件切片</title>
+</head>
+<body>
+    <input type="file" id="file">
+    <script>
+        //获取电脑内核数
+        const THREDE_COUNT = navigator.hardwareConcurrency || 4;
+        const file = document.getElementById('file');
+        file.change = function(e){
+            const files = e.target.files?.[0];
+            const chunks = cutFile(files);
+        }
+        // 进行分片
+        function cutFile(files){
+            new Promise((resolve,reject)=>{
+                const chunk_size = 1024 * 1024 *5;
+                const totalsChunks = Meth.ceil(files / chunk_size);
+                // 每个线程需要执行的分片
+                const threadChunks = Meth.ceil(totalsChunks / THREDE_COUNT);
+                // 记录分片后的数据
+                const result = [];
+                // 记录所有线程是否全部完成
+                const finisCount = 0;
+                // 遍历每个线程，给每个线程开辟web-work
+                for(let i=0; i < THREDE_COUNT; i++){
+                    const work = new Worker('./work.js',{
+                        type: 'module'
+                    })
+                    const startIndex = i * threadChunks;
+                    const endIndex = (i + 1) * threadChunks;
+                    if(endIndex > totalsChunks){
+                        endIndex = totalsChunks
+                    }
+
+                    // 发送分片数据让进行计算hash
+                    work.postMessage({
+                        files,
+                        chunk_size,
+                        startIndex: startIndex,
+                        endIndex: endIndex
+                    });
+
+                    work.onmessage = function(e){
+                        for(let i = startIndex; i < endIndex; i++){
+                            result[i] = e.data[i-startIndex]
+                        }
+                        work.terminate();
+                        finisCount ++
+                        if(finisCount === THREDE_COUNT){
+                            resolve(result)
+                        } 
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>

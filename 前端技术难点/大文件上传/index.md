@@ -42,3 +42,6 @@
 https://blog.csdn.net/weixin_43989307/article/details/124863516
 
 https://www.bilibili.com/video/BV1UH4y1H78o/?spm_id_from=333.337.search-card.all.click&vd_source=3c6744bb65e9c8801bd4bbae976fb9d8
+
+
+图片裁剪 https://www.bilibili.com/video/BV1Gw411A7Dc/?spm_id_from=333.788&vd_source=3c6744bb65e9c8801bd4bbae976fb9d8
