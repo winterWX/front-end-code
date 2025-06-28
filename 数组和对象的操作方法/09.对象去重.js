@@ -1,4 +1,9 @@
-const arr = [{id: 1, name:'11'},{id: 1, name:'11'},{id: 2, name:'11'}]
+const arr = [
+    {id: 1, name:'11'},
+    {id: 1, name:'11'},
+    {id: 2, name:'11'},
+    {id: 3, name:'333'}
+]
 
 const map = new Map();
 

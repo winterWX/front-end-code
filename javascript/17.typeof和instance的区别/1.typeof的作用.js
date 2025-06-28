@@ -10,7 +10,7 @@
  * 
  *   如 （person.prototype instanceof  person）
  * 
- */
+*/
 
 
 console.log(typeof ([12, 34]))  // Object

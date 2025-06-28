@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- 事件总线必须先监听后触发 -->
     <script>
         class Event {
             constructor() {
@@ -22,6 +23,7 @@
                 // 这里的数组是队列， 遵循先进先出
                 // 即新绑定的事件先触发
                 let fns = (this._cache[type] = this._cache[type] || [])
+                console.log('fns==>>>',fns)
                 if (fns.indexOf(callback) === -1) {
                     fns.push(callback)
                 }
@@ -67,10 +69,13 @@
         }
 
         let e = new Event()
-        e.on('click', function (event) {
+        // <!-- 事件总线必须先监听后触发 把监听函数加到类对象里 -->
+        e.on('click-test', function (event) {
             console.log('on===', event)
         })
-        e.trigger('click', '666')
+
+        e.trigger('click-test', '666')
+        
         //e.trigger('click', '777777')
         //console.log(e)
     </script>

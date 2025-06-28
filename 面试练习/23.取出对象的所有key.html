@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            a: "12",
+            b: "23",
+            first: {
+                c: "34",
+                d: "45",
+                second: { e: "56", f: "67", three: { g: "78", h: "89", i: "90" } },
+            },
+        };
+         
+        //期望结果  [a,b,c,d,e,f,g,h,i]
+
+        function objChange(obj){
+            let keyArray = []
+            for(let key in obj){
+                if(typeof obj[key] === 'object'){
+                    keyArray.push(objChange(obj[key]))
+                }else{
+                    keyArray.push(key)
+                }
+            }
+            return keyArray
+        }
+        objChange(obj)
+
+
+        function repeat(func, times, wait) {
+            const delay = async () => {
+                return new Promise((resolve
+                ) => {
+                    setTimeout(() => {
+                        resolve()
+                    }, wait)
+                })
+            }
+
+            return async function (...args) {
+                for (let i = 0; i < times; i++) {
+                    await delay()
+                    func(...args)
+                }
+            }
+        }
+
+        const repeatFunc = repeat(console.log, 4, 3000);
+        repeatFunc("hello world"); 
+    </script>
+</body>
+</html>

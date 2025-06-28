@@ -142,6 +142,11 @@ module.exports = {
             template: path.join(__dirname, '/src/index.html'),
             filename: 'app.html',
             inject: 'body',
+            minify:{
+                removeComments: true,
+                collapseWhitespace: true,
+                minifyCSS: true
+            }
         }),
         DEBUG && new BundleAnalyzerPlugin(),
         new MiniCssExtractPlugin({
@@ -150,5 +155,13 @@ module.exports = {
         }),
         new ESLintPlugin(),
         new ForkTsCheckerWebpackPlugin(),
+        // 作用域提升
+        new webpack.optimize.ModuleConcatenationPlugin(),
+
+        // Gzip压缩
+        new compressionWebpackPlugin()
     ].filter(Boolean),
 };
+
+
+sortAndDeduplicateDiagnostics(num-1, num-1)

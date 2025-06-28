@@ -4,7 +4,6 @@
  *   2.除this，绑定的其他参数怎么接收
  *   3.当绑定的this是 null/undefined时,this要指向window
  *   4.怎么实现Call函数的返回值
- * 
 */
 
 // 在函数原型上添加自己的Call函数，因为call函数就是Function对象的一个属性

@@ -10,15 +10,27 @@
 </head>
 <body>
     <script>
-        let requestNum = 40
-        let urls = Array(30).fill('http://123.207.32.32:8000/home/multidata')
-        const num = Math.ceil(urls.length / requestNum)
-        for(let i = 0; i < num.length; i++){
-            let url = urls.slice()
-            requestAll(urls, requestNum).then(res => {
-                console.log('res====', res)
-            })
-        }
+        let requestNum = 4;
+        const fn =()=> axios.get('http://123.207.32.32:8000/home/multidata')
+        let urls = Array(20).fill(fn);
+        requestAll(urls, requestNum).then(res => {
+            console.log('res====', res)
+        });
+
+        const obj = [{name: 'ad', age: 20},{name: 'alice', age: 90}];
+        //const arr = {};
+        // obj.forEach(item=>{
+        //     arr[item.name] = item.age;
+        // });
+    
+
+        console.log(arr,"arr===");
+
+        const testCode = new Promise(()=>{
+            console.log('1')
+        }).then(()=>{
+            console.log('2')
+        })
     </script>
 </body>
 </html>

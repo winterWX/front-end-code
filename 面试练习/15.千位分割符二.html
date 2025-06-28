@@ -14,7 +14,7 @@
             let str = num.toString().split('.')
             let temp = []
             let str2 = str[0].split('').reverse()
-            let len = Math.ceil(str2.length / 3) 
+            let len = Math.ceil(str2.length / 3)  
             for(let i = 0 ; i < len; i++){
                 let node = str2.slice(i * 3, i * 3 + 3)
                 temp.push(node)

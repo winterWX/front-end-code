@@ -6,7 +6,6 @@
 */
 
 const  weakMap = new WeakMap();
-
 weakMap.set({},'11');
 
 /**
@@ -19,7 +18,6 @@ weakMap.set({},'11');
  *  不能遍历
  * 
 */
-
 
 /**
  *   map 和 weakMap的区别

@@ -19,7 +19,7 @@ function deepClone(originObject, map = new WeakMap()){
     if(typeof originObject === 'function'){
         return originObject
     }
-    // 判断是否是数组类型
+    // 判断是不是引用类型
     if(!isObject(originObject)){
         return originObject
     }

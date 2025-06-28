@@ -8,8 +8,6 @@
  *  4. optimize-css-assets-webpack-plugin: 压缩css文件。
  *  5. UglifyJS-webpack-plugin: 压缩js文件。
  *  6. commons-chunk-plugin：提取公共代码。
+ *  7. OptimizeCSSPlugin 对css 进行压缩
  * 
-*/
-
-
-OptimizeCSSPlugin
+*/ 

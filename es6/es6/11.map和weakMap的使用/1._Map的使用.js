@@ -29,5 +29,4 @@ console.log('map2===',map2)
  *  delete(key)
  *  clear()
  *  可以遍历  forEach, for...of
- * 
  */

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function repeat(func, times, wait) {
+            return async function(...arg){
+                for (let index = 0; index < times; index++) {
+                    await new Promise((resolve,reject)=>{
+                        setTimeout(()=>{
+                            resolve()
+                        }, wait)
+                    })
+                    func(...arg)
+                }
+            }
+        }
+        const repeatFunc = repeat(console.log, 4, 3000);
+        repeatFunc("hello world"); 
+    </script>
+</body>
+</html>
